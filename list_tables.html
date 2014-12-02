@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=2.5, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />   
+    <title>Tabeller och Diagram</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="themes/faktavgr.min.css" />
+    <link rel="stylesheet" href="js/jquery.mobile.structure-1.3.2.min.css" /> 
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script> 
+    <script type="text/javascript" src="js/brainworks.js"></script> 
+    <script type="text/javascript" src="js/jquery.mobile-1.3.2.min.js"></script> 
+    <script type="text/javascript" src="js/imagemap/imagemap.js"></script>
+    
+    <style>
+      body {
+        background-color: white !important;
+      }
+      .ui-content {
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+        background:white;
+        font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
+      }      
+      .ui-bar-a {
+        background:#666666;
+        color : #ffffff;
+      }
+      .braincontent {
+        padding-right: 20px;
+        padding-left: 20px;
+      }
+      p {
+        margin-top:0px;
+        margin-bottom:10px;
+      }
+      h2 {
+        color:black;
+        padding-top:5px;
+        margin-bottom:6px;
+      }
+      .kapbilder {
+        width: 65% !important;
+        max-width: 100%;
+        margin: 0 auto !important;
+        position: relative !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div data-role="page" class="ui-responsive-panel" id="panel-fixed-page1">
+      <!-- header -->
+      <div data-role="header" data-theme="a" data-position="fixed" data-disable-page-zoom="false" data-tap-toggle="false">
+        <div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+          <a href="#nav-panel" class="custom-button" data-role="button" data-icon="bars">Meny</a>
+          <a href="index.html" class="custom-button" data-ajax="false" data-role="button" data-icon="home">Start</a>
+          <a href="#panel-fixed-page1" class="custom-button" data-ajax="false" data-role="button" data-icon="arrow-u">Topp</a>
+        </div>
+        <h1 class="ui-title" data-tap-toggle="false" role="heading">Tabeller och Diagram</h1>
+        <div class="ui-btn-right" data-role="controlgroup" data-type="horizontal">
+          <a href="#panel-fixed-page1" class="custom-button" data-ajax="false" data-role="button" data-icon="arrow-u">Topp</a>
+          <a href="list_diagram.html" class="custom-button" data-role="button" data-icon="grid">Diagram</a>
+          <a href="search.html" class="custom-button" data-role="button" data-icon="search">Sök</a>
+<!--          <a href="#add-form" data-role="button" data-icon="star">Favoriter</a> -->
+        </div>
+      </div>      <!-- /header -->
+      
+          <div data-role="content" class="jqm-content">
+          <div class="braincontent">
+        <h3>&nbsp;</h3>
+      <ul data-role="listview" data-theme="c" data-filter="true" data-filter-placeholder="Skriv in sökord..." data-inset="true"><li data-filtertext="användardagen introduktion"><a href="page_kap1.html#kap1_2_graf1"><img src="" />
+ 						<h2>Introduktion</h2>
+						<p>Användardagen</p></a></li>
+<li data-filtertext="referensgruppen referensgruppen (fr vaìnster): kjell ydreborg, tomas norlander, simon blank, cecilia ahlstroìm emanuelsson, helle thulesius cecilia alexandersson. paì bilden saknas: annika stenberg-elmqvist, oình sophiahemmet, stockholm. septumplastikregistret"><a href="page_kap2.html#kap2_1_figur3"><img src="" />
+ 						<h2>Septumplastikregistret</h2>
+						<p>Referensgruppen</p></a></li>
+<li data-filtertext="patienter aìr hoìrapparatbaìrare foìre efter operation. (perioden 1/6 2012 31/5 2013). patienter aìr hoìrapparatbaìrare foìre efter operation patientdata under perioden kvalitetsregistret foìr otoskleroskirurgi"><a href="page_kap3.html#kap3_2_graf1"><img src="http://brainworks.se/client/faktavgr/app/images/kap_icons/kap3_2_graf1.jpg" />
+ 						<h2>Kvalitetsregistret för otoskleroskirurgi</h2>
+						<p>Patienter som är hörapparatbärare före och efter operation. (Perioden 1/6 2012–31/5 2013).</p></a></li>
+<li data-filtertext="patienter med tinnitus foìre operation. (patientdata under perioden 1/6 2012 31/5 2013). kvalitetsregistret foìr otoskleroskirurgi"><a href="page_kap3.html#kap3_2_graf2"><img src="" />
+ 						<h2>Kvalitetsregistret för otoskleroskirurgi</h2>
+						<p>Patienter med tinnitus före operation. (Patientdata under perioden 1/6 2012–31/5 2013).</p></a></li>
+<li data-filtertext="nytta av hörselvården grav hörselnedsättning hos vuxna"><a href="page_kap5.html#kap5_4_graf1"><img src="" />
+ 						<h2>Grav hörselnedsättning hos vuxna</h2>
+						<p>Nytta av hörselvården</p></a></li>
+<li data-filtertext="fördjupad rehab grav hörselnedsättning hos vuxna"><a href="page_kap5.html#kap5_5_graf1"><img src="" />
+ 						<h2>Grav hörselnedsättning hos vuxna</h2>
+						<p>Fördjupad rehab</p></a></li>
+<li data-filtertext="påverkan dagligt liv påverkan dagligt liv grav hörselnedsättning hos vuxna"><a href="page_kap5.html#kap_5_6_graf1"><img src="" />
+ 						<h2>Grav hörselnedsättning hos vuxna</h2>
+						<p>Påverkan dagligt liv</p></a></li>
+<li data-filtertext="antal registreringar per aìr. grav hörselnedsättning hos vuxna"><a href="page_kap5.html#kap5_8_graf1"><img src="" />
+ 						<h2>Grav hörselnedsättning hos vuxna</h2>
+						<p>Antal registreringar per år.</p></a></li>
+<li data-filtertext="kliniker registrerat under 2013. roìstfoìrbaìttrande staìmbandskirurgi  fonokirurgi"><a href="page_kap7.html#kap7_3_tabell1"><img src="http://brainworks.se/client/faktavgr/app/images/kap_icons/kap7_2_karta1.jpg" />
+ 						<h2>Röstförbättrande stämbandskirurgi – fonokirurgi</h2>
+						<p>Kliniker som registrerat under 2013.</p></a></li>
+<li data-filtertext="aìlder vid operation per diagnos. roìstfoìrbaìttrande staìmbandskirurgi  fonokirurgi"><a href="page_kap7.html#kap7_4_graf1"><img src="http://brainworks.se/client/faktavgr/app/images/kap_icons/kap7_4_graf1.jpg" />
+ 						<h2>Röstförbättrande stämbandskirurgi – fonokirurgi</h2>
+						<p>Ålder vid operation per diagnos.</p></a></li>
+<li data-filtertext="vhi-foìraìndring cirka 4 maìnader postoperativt. roìstfoìrbaìttrande staìmbandskirurgi  fonokirurgi"><a href="page_kap7.html#kap7_4_graf2"><img src="http://brainworks.se/client/faktavgr/app/images/kap_icons/kap7_3_graf1.jpg" />
+ 						<h2>Röstförbättrande stämbandskirurgi – fonokirurgi</h2>
+						<p>VHI-förändring cirka 4 månader postoperativt.</p></a></li>
+<li data-filtertext="laìgt vhi preoperativt ger saìmre patientnoìjdhet vid 4-maìnadersuppfoìljningen. roìstfoìrbaìttrande staìmbandskirurgi  fonokirurgi"><a href="page_kap7.html#kap7_4_graf3"><img src="http://brainworks.se/client/faktavgr/app/images/kap_icons/kap7_5_graf1.jpg" />
+ 						<h2>Röstförbättrande stämbandskirurgi – fonokirurgi</h2>
+						<p>Lågt VHI preoperativt ger sämre patientnöjdhet vid 4-månadersuppföljningen.</p></a></li>
+<li data-filtertext="andel patienter faìtt logopedterapi preoperativt. roìstfoìrbaìttrande staìmbandskirurgi  fonokirurgi"><a href="page_kap7.html#kap7_4_graf4"><img src="" />
+ 						<h2>Röstförbättrande stämbandskirurgi – fonokirurgi</h2>
+						<p>Andel patienter som fått logopedterapi preoperativt.</p></a></li>
+<li data-filtertext="information tillfoìrs fraìn enheten/kliniken. kvalitetsregistret foìr hoìrselrehabilitering"><a href="page_kap8.html#kap8_3_tabell1"><img src="" />
+ 						<h2>Kvalitetsregistret för hörselrehabilitering</h2>
+						<p>Information som tillförs från enheten/kliniken.</p></a></li>
+<li data-filtertext="aìldersfoìrdelning foìr samtliga foìrskrivningar i kvalitetsregistret. kvalitetsregistret foìr hoìrselrehabilitering"><a href="page_kap8.html#kap8_10_graf1"><img src="" />
+ 						<h2>Kvalitetsregistret för hörselrehabilitering</h2>
+						<p>Åldersfördelning för samtliga förskrivningar i kvalitetsregistret.</p></a></li>
+<li data-filtertext="nytta  nationella riktvaìrden foìr ioi-ha. kvalitetsregistret foìr hoìrselrehabilitering"><a href="page_kap8.html#kap8_11_tabell2"><img src="" />
+ 						<h2>Kvalitetsregistret för hörselrehabilitering</h2>
+						<p>Nytta – Nationella riktvärden för IOI-HA.</p></a></li>
+<li data-filtertext="medelvaìrde foìr nytta, ioi-ha. fraìga 3 9. kvalitetsregistret foìr hoìrselrehabilitering"><a href="page_kap8.html#kap8_12_tabell3"><img src="" />
+ 						<h2>Kvalitetsregistret för hörselrehabilitering</h2>
+						<p>Medelvärde för nytta, IOI-HA. Fråga 3–9.</p></a></li>
+<li data-filtertext="medelvaìrde foìr nytta, ioi-ha. fraìga 3 9. bortfallsanalys demografisk jaìmfoìrelse. kvalitetsregistret foìr hoìrselrehabilitering"><a href="page_kap8.html#kap8_12_tabell4"><img src="" />
+ 						<h2>Kvalitetsregistret för hörselrehabilitering</h2>
+						<p>Medelvärde för nytta, IOI-HA. Fråga 3–9. Bortfallsanalys och demografisk jämförelse.</p></a></li>
+<li data-filtertext="resultat i dimensionen nytta. resultat i dimensionen nytta. parvis jaìmfoìrelse signifikans. ett vaìrde p=0.1 eller mindreanger signifikant skillnad paì 90-procentnivaìn foìr ingaìende par av poaìng. paì samma vis foìr p=0.05 (95%)resp. p=0.01 (99%). exempel: oìstergoìtland (1) jaìmfoìrt med oìrebro (3) visar inte signifikant skillnad (p=0.24) men oìstergoìtland (1) jaìmfoìrt med vaìrmland (4) aìr statistiskt signifikant paì 95-procentnivaìn (p=0.04) kvalitetsregistret foìr hoìrselrehabilitering"><a href="page_kap8.html#kap8_12_tabell5"><img src="" />
+ 						<h2>Kvalitetsregistret för hörselrehabilitering</h2>
+						<p>Resultat i dimensionen nytta.</p></a></li>
+<li data-filtertext="medelvaìrde foìr kontakt, information delaktighet. fraìga 15 19. kvalitetsregistret foìr hoìrselrehabilitering"><a href="page_kap8.html#kap8_13_tabell6"><img src="" />
+ 						<h2>Kvalitetsregistret för hörselrehabilitering</h2>
+						<p>Medelvärde för kontakt, information och delaktighet. Fråga 15–19.</p></a></li>
+<li data-filtertext="medelvaìrde foìr kontakt, information delaktighet. medelvaìrde foìr kontakt, information delaktighet. fraìga 15-19. bortfallsanalys demografisk jaìmfoìrelse. kvalitetsregistret foìr hoìrselrehabilitering"><a href="page_kap8.html#kap8_13_tabell7"><img src="" />
+ 						<h2>Kvalitetsregistret för hörselrehabilitering</h2>
+						<p>Medelvärde för kontakt, information och delaktighet.</p></a></li>
+<li data-filtertext="medelvaìrde foìr kontakt, information delaktighet. medelvaìrde foìr kontakt, information delaktighet. fraìga 15-19. parvis jaìmfoìrelse signifikans. ett vaìrde p=0.1 eller mindre anger signifikant skillnad paì 90-procentnivaìn foìr ingaìende par av poaìng.paì samma vis foìr p=0.05 (95%) resp. p=0.01 (99%). kvalitetsregistret foìr hoìrselrehabilitering"><a href="page_kap8.html#kap8_13_tabell8"><img src="" />
+ 						<h2>Kvalitetsregistret för hörselrehabilitering</h2>
+						<p>Medelvärde för kontakt, information och delaktighet.</p></a></li>
+<li data-filtertext="antalet registreringar i registret 2013  4/9 2014. oìronkirurgi: myringo- ossikuloplastik"><a href="page_kap9.html#kap9_2_graf1"><img src="http://brainworks.se/client/faktavgr/app/images/kap_icons/kap9_1_karta2.jpg" />
+ 						<h2>Öronkirurgi: Myringo- och ossikuloplastik</h2>
+						<p>Antalet registreringar i registret 2013– 4/9 2014.</p></a></li>
+<li data-filtertext="procentuell foìrdelning av olika ingreppen 2013 (totalt 218 ingrepp). oìronkirurgi: myringo- ossikuloplastik"><a href="page_kap9.html#kap9_2_graf2"><img src="" />
+ 						<h2>Öronkirurgi: Myringo- och ossikuloplastik</h2>
+						<p>Procentuell fördelning av de olika ingreppen 2013 (totalt 218 ingrepp).</p></a></li>
+<li data-filtertext="inrapporterande kliniker till registret oìronkirurgi: myringo- ossikuloplastik, aìr 2013. oìronkirurgi: myringo- ossikuloplastik"><a href="page_kap9.html#kap9_3_graf3"><img src="http://brainworks.se/client/faktavgr/app/images/kap_icons/kap9_2_karta1.jpg" />
+ 						<h2>Öronkirurgi: Myringo- och ossikuloplastik</h2>
+						<p>Inrapporterande kliniker till registret Öronkirurgi: myringo- och ossikuloplastik, år 2013.</p></a></li>
+<li data-filtertext="hoìrselvinst i tmv4 foìr olika operationsmetoder. oìronkirurgi: myringo- ossikuloplastik"><a href="page_kap9.html#kap9_5_tabell1"><img src="http://brainworks.se/client/faktavgr/app/images/kap_icons/kap9_3_graf2.jpg" />
+ 						<h2>Öronkirurgi: Myringo- och ossikuloplastik</h2>
+						<p>Hörselvinst i TMV4 för olika operationsmetoder.</p></a></li>
+<li data-filtertext="hoìrselvinst i tmv4 foìr olika operationsindikationer. oìronkirurgi: myringo- ossikuloplastik"><a href="page_kap9.html#kap9_5_tabell2"><img src="" />
+ 						<h2>Öronkirurgi: Myringo- och ossikuloplastik</h2>
+						<p>Hörselvinst i TMV4 för olika operationsindikationer.</p></a></li>
+<li data-filtertext="taìckningsgrad. kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_5_tabell1a"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Täckningsgrad.</p></a></li>
+<li data-filtertext="taìckningsgrad fort. kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_5_tabell1b"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Täckningsgrad fort.</p></a></li>
+<li data-filtertext="hallands läns landsting, halmstad sjukhus kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf1"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Hallands läns landsting, Halmstad sjukhus</p></a></li>
+<li data-filtertext="jaìmtlands laìns landsting, oìstersunds sjukhus kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf2"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Jämtlands läns landsting, Östersunds sjukhus</p></a></li>
+<li data-filtertext="landstinget blekinge, blekingesjukhuset kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf3"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Landstinget Blekinge, Blekingesjukhuset</p></a></li>
+<li data-filtertext="landstinget dalarna, falu lasarett kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf4"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Landstinget Dalarna, Falu Lasarett</p></a></li>
+<li data-filtertext="landstinget gaìvleborg, gaìvle sjukhus kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf5"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Landstinget Gävleborg, Gävle sjukhus</p></a></li>
+<li data-filtertext="landstinget gaìvleborg, hudiksvalls sjukhus kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf6"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Landstinget Gävleborg, Hudiksvalls sjukhus</p></a></li>
+<li data-filtertext="landstinget kronoberg, ljungby lasarett kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf7"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Landstinget Kronoberg, Ljungby lasarett</p></a></li>
+<li data-filtertext="landstinget vaìsternorrland, laìnssjukhuset i sundsvall kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf8"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Landstinget Västernorrland, Länssjukhuset i Sundsvall</p></a></li>
+<li data-filtertext="landstinget vaìsternorrland, sollefteaì sjukhus kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf9"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Landstinget Västernorrland, Sollefteå sjukhus</p></a></li>
+<li data-filtertext="landstinget vaìsternorrland, oìrnskoìldsviks sjukhus kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf10"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Landstinget Västernorrland, Örnsköldsviks sjukhus</p></a></li>
+<li data-filtertext="landstinget vaìstmanland, vaìstmanlands sjukhus, vaìsteraìs kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf11"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Landstinget Västmanland, Västmanlands sjukhus, Västerås</p></a></li>
+<li data-filtertext="landstinget i joìnkoìpings laìn, hoìglandssjukhuset eksjoì kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf12"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Landstinget i Jönköpings län, Höglandssjukhuset Eksjö</p></a></li>
+<li data-filtertext="landstinget i joìnkoìpings laìn, laìnssjukhuset ryhov joìnkoìping kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf13"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Landstinget i Jönköpings län, Länssjukhuset Ryhov Jönköping</p></a></li>
+<li data-filtertext="landstinget i joìnkoìpings laìn, vaìrnamo sjukhus kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf14"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Landstinget i Jönköpings län, Värnamo sjukhus</p></a></li>
+<li data-filtertext="landstinget i kalmars laìn, laìnssjukhuset i kalmar kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf15"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Landstinget i Kalmars län, Länssjukhuset i Kalmar</p></a></li>
+<li data-filtertext="landstinget i kalmars laìn, vaìsterviks sjukhus kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf16"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Landstinget i Kalmars län, Västerviks sjukhus</p></a></li>
+<li data-filtertext="landstinget i soìrmland, oình-kliniken soìrmland kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf17"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Landstinget i Sörmland, ÖNH-kliniken Sörmland</p></a></li>
+<li data-filtertext="landstinget i vaìrmland, centralsjukhuset i karlstad kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf18"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Landstinget i Värmland, Centralsjukhuset i Karlstad</p></a></li>
+<li data-filtertext="landstinget i oìstergoìtland, vrinnevisjukhuset i norrkoìping kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf19"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Landstinget i Östergötland, Vrinnevisjukhuset i Norrköping</p></a></li>
+<li data-filtertext="norrbottens laìns landsting, sunderby sjukhus, gaìllivare sjukhus, piteaì aìlvdals sjukhus kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf20"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Norrbottens läns landsting, Sunderby sjukhus, Gällivare sjukhus, Piteå Älvdals sjukhus</p></a></li>
+<li data-filtertext="region gotland, visby lasarett kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf21"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Region Gotland, Visby lasarett</p></a></li>
+<li data-filtertext="region skaìne, centralsjukhuset kristianstad kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf22"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Region Skåne, Centralsjukhuset Kristianstad</p></a></li>
+<li data-filtertext="region skaìne, helsingborgs lasarett kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf23"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Region Skåne, Helsingborgs lasarett</p></a></li>
+<li data-filtertext="region skaìne, lasarettet trelleborg kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf24"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Region Skåne, Lasarettet Trelleborg</p></a></li>
+<li data-filtertext="region skaìne, lasarettet i landskrona kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf25"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Region Skåne, Lasarettet i Landskrona</p></a></li>
+<li data-filtertext="region skaìne, lasarettet i ystad kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf26"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Region Skåne, Lasarettet i Ystad</p></a></li>
+<li data-filtertext="region skaìne, aìngelholms sjukhus kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf27"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Region Skåne, Ängelholms sjukhus</p></a></li>
+<li data-filtertext="stockholms laìns landsting, aleris specialistvaìrd nacka kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf28"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Stockholms läns landsting, Aleris Specialistvård Nacka</p></a></li>
+<li data-filtertext="stockholms laìns landsting, aleris specialistvaìrd sabbatsberg kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf29"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Stockholms läns landsting, Aleris Specialistvård Sabbatsberg</p></a></li>
+<li data-filtertext="stockholms laìns landsting, capio oìron naìs hals globen kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf30"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Stockholms läns landsting, Capio Öron Näs Hals Globen</p></a></li>
+<li data-filtertext="stockholms laìns landsting, karolinska universitetssjukhuset kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf31"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Stockholms läns landsting, Karolinska Universitetssjukhuset</p></a></li>
+<li data-filtertext="stockholms laìns landsting, serafimerlasarettet kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf32"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Stockholms läns landsting, Serafimerlasarettet</p></a></li>
+<li data-filtertext="stockholms laìns landsting, skaìrholmens oình-centrum kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf33"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Stockholms läns landsting, Skärholmens ÖNH-centrum</p></a></li>
+<li data-filtertext="stockholms laìns landsting, sophiahemmet kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf34"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Stockholms läns landsting, Sophiahemmet</p></a></li>
+<li data-filtertext="stockholms laìns landsting, soìdertaìlje sjukhus kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf35"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Stockholms läns landsting, Södertälje sjukhus</p></a></li>
+<li data-filtertext="stockholms laìns landsting, strandkliniken, oìron-, naìs- hals  specialistmottagning kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf36"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Stockholms läns landsting, Strandkliniken, Öron-, Näs- och Hals – Specialistmottagning</p></a></li>
+<li data-filtertext="stockholms laìns landsting, oìron-, naìs- halsmottagningen, soìdermalms laìkarhus kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf37"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Stockholms läns landsting, Öron-, näs- och halsmottagningen, Södermalms läkarhus</p></a></li>
+<li data-filtertext="stockholms laìns landsting, oìron-, naìs- halscenter jakobsberg kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf38"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Stockholms läns landsting, Öron-, Näs- och Halscenter Jakobsberg</p></a></li>
+<li data-filtertext="uppsala-oìrebro sjukvaìrdsregion, akademiska sjukhuset kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf39"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Uppsala-Örebro sjukvårdsregion, Akademiska sjukhuset</p></a></li>
+<li data-filtertext="uppsala-oìrebro sjukvaìrdsregion, capio laìkargruppen oìrebro kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf40"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Uppsala-Örebro sjukvårdsregion, Capio Läkargruppen Örebro</p></a></li>
+<li data-filtertext="uppsala-oìrebro sjukvaìrdsregion, aleris specialistvaìrd elisabethsjukhuset kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf41"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Uppsala-Örebro sjukvårdsregion, Aleris Specialistvård Elisabethsjukhuset</p></a></li>
+<li data-filtertext="uppsala-oìrebro sjukvaìrdsregion, karlskoga lasarett kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf42"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Uppsala-Örebro sjukvårdsregion, Karlskoga lasarett</p></a></li>
+<li data-filtertext="uppsala-oìrebro sjukvaìrdsregion, lindesbergs lasarett kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf43"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Uppsala-Örebro sjukvårdsregion, Lindesbergs lasarett</p></a></li>
+<li data-filtertext="uppsala-oìrebro sjukvaìrdsregion, universitetssjukhuset oìrebro kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf44"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Uppsala-Örebro sjukvårdsregion, Universitetssjukhuset Örebro</p></a></li>
+<li data-filtertext="vaìsterbottens laìns landsting, norrlands universitetssjukhus kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf45"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Västerbottens läns landsting, Norrlands Universitetssjukhus</p></a></li>
+<li data-filtertext="vaìstra goìtalandsregionen, capio lundby sjukhus kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf46"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Västra Götalandsregionen, Capio Lundby Sjukhus</p></a></li>
+<li data-filtertext="vaìstra goìtalandsregionen, froìlunda specialistsjukhus kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf47"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Västra Götalandsregionen, Frölunda Specialistsjukhus</p></a></li>
+<li data-filtertext="vaìstra goìtalandsregionen, nu-sjukvaìrden, trollhaìttan kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf48"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Västra Götalandsregionen, NU-sjukvården, Trollhättan</p></a></li>
+<li data-filtertext="vaìstra goìtalandsregionen, sahlgrenska universitetssjukhuset kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf49"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Västra Götalandsregionen, Sahlgrenska Universitetssjukhuset</p></a></li>
+<li data-filtertext="vaìstra goìtalandsregionen, skaraborgs sjukhus kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf50"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Västra Götalandsregionen, Skaraborgs sjukhus</p></a></li>
+<li data-filtertext="vaìstra goìtalandsregionen, soìdra aìlvsborgs sjukhus kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_6_graf51"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Västra Götalandsregionen, Södra Älvsborgs Sjukhus</p></a></li>
+<li data-filtertext="svarsfrekvens, aìr 2013. kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_7_tabell2"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Svarsfrekvens, år 2013.</p></a></li>
+<li data-filtertext="oìvriga uppgifter denna tabell aìr en sammanstaìllning oìver andel dagkirurgi, andel tonsillotomi utfoìrts paì barn 1&ndash;12 aìr med indikation obstruktion. den sista kolumnen visar antal andel patienter svarat ja paì fraìgan har informationen du faìtt, staìmt med hur du upplevde operationen tiden efter? kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_8"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Övriga uppgifter</p></a></li>
+<li data-filtertext="andel dagkirurgi, tt obstruktion 1 12 aìr, upplevd information. kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_8_tabell3"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Andel dagkirurgi, TT obstruktion 1–12 år, upplevd information.</p></a></li>
+<li data-filtertext="indikationer, aìr 2013. kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_9_tabell4"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Indikationer, år 2013.</p></a></li>
+<li data-filtertext="andel bloìdning foìr respektive operationsmetod. kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_10_graf1"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Andel blödning för respektive operationsmetod.</p></a></li>
+<li data-filtertext="primaìr bloìdning foìranlett aìtgaìrd fraìn laìkare. uppgifter fraìn tonsillregistret. kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_10_tabell5"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Primär blödning som föranlett åtgärd från läkare. Uppgifter från tonsillregistret.</p></a></li>
+<li data-filtertext="aìterinlagd paì sjukhus foìr tonsillbloìdning. uppgifter fraìn tonsillregistret (qtop) patientre aìterinlagd paì sjukhus foìr tonsillbloìdning. uppgifter fraìn tonsillregistret (qtop) patientregistret. analysen aìr utfoìrd paì en senare version av patientregistret (par3) aìn vid taìckningsgradsanalysen vilket aìr skaìlet till att antal operationer kan skilja naìgot med det redovisas i tabell 1. kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_10_tabell6a"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Återinlagd på sjukhus för tonsillblödning. Uppgifter från tonsillregistret (QTop) och Patientre</p></a></li>
+<li data-filtertext="aìterinlagd paì sjukhus foìr tonsillbloìdning. uppgifter fraìn tonsillregistret (qtop) patientre aìterinlagd paì sjukhus foìr tonsillbloìdning. uppgifter fraìn tonsillregistret (qtop) patientregistret. analysen aìr utfoìrd paì en senare version av patientregistret (par3) aìn vid taìckningsgradsanalysen vilket aìr skaìlet till att antal operationer kan skilja naìgot med det redovisas i tabell 1. kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_10_tabell6b"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Återinlagd på sjukhus för tonsillblödning. Uppgifter från tonsillregistret (QTop) och Patientre</p></a></li>
+<li data-filtertext="aìterinlagd paì sjukhus p.g.a. bloìdning, matchade uppgifter fraìn tonsillregistret patientregis aìterinlagd paì sjukhus p.g.a. bloìdning, matchade uppgifter fraìn tonsillregistret patientregistret med konfidensintervall. endast enheter med fler aìn 100 operationer redovisas. kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_10_graf2"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Återinlagd på sjukhus p.g.a. blödning, matchade uppgifter från tonsillregistret och Patientregis</p></a></li>
+<li data-filtertext="operationsmetoder kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_11_tabell7"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Operationsmetoder</p></a></li>
+<li data-filtertext="operationstekniker, aìr 2013. data haìmtat 140818. kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_11_tabell8a"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Operationstekniker, år 2013. Data hämtat 140818.</p></a></li>
+<li data-filtertext="operationstekniker, aìr 2013. data haìmtat 140818. kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_11_tabell8b"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Operationstekniker, år 2013. Data hämtat 140818.</p></a></li>
+<li data-filtertext="hemostastekniker, aìr 2013. data haìmtat 140818 kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_11_tabell9a"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Hemostastekniker, år 2013. Data hämtat 140818</p></a></li>
+<li data-filtertext="hemostastekniker, aìr 2013. data haìmtat 140818 kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_11_tabell9b"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Hemostastekniker, år 2013. Data hämtat 140818</p></a></li>
+<li data-filtertext="nyttan med tonsilloperation kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_12_graf3"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Nyttan med tonsilloperation</p></a></li>
+<li data-filtertext="andel patienter aìr helt eller ganska symtomfria 6 maìnader efter tonsilloperation 2013. data ha andel patienter aìr helt eller ganska symtomfria 6 maìnader efter tonsilloperation 2013. data haìmtat fraìn kvalitetsregistret 140818. kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_12_graf4"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Andel patienter som är helt eller ganska symtomfria 6 månader efter tonsilloperation 2013. Data ha</p></a></li>
+<li data-filtertext="kontakt med sjukvaìrden efter tonsiloperation kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_13_tabell10a"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Kontakt med sjukvården efter tonsiloperation</p></a></li>
+<li data-filtertext="kontakt med sjukvaìrden efter tonsiloperation kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_13_tabell10b"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Kontakt med sjukvården efter tonsiloperation</p></a></li>
+<li data-filtertext="antal besoìk paì www.tonsilloperation.se aìr 2012 2014. kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_15_graf5"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Antal besök på www.tonsilloperation.se år 2012–2014.</p></a></li>
+<li data-filtertext="andel nybesoìk aìterkommande besoìk, januari augusti 2014. kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_15_graf6"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Andel nybesök och återkommande besök, januari–augusti 2014.</p></a></li>
+<li data-filtertext="exempel paì del av doseringsschemat naìrstaìende faìr fram via www.tonsilloperation.se vid beraì exempel paì del av doseringsschemat naìrstaìende faìr fram via www.tonsilloperation.se vid beraìkning av receptfria laìkemedel enligt riktlinjer utifraìn val gjort: kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_15_graf7"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Exempel på del av doseringsschemat som närstående får fram via www.tonsilloperation.se vid berä</p></a></li>
+<li data-filtertext="medarbetare kvalitetsregistret foìr tonsilloperation"><a href="page_kap10.html#kap10_19_tabell"><img src="" />
+ 						<h2>Kvalitetsregistret för tonsilloperation</h2>
+						<p>Medarbetare</p></a></li>
+
+      </ul>
+          <div data-demo-html="#panel-fixed-page1" data-demo-css="true"></div>
+           </div><!-- /braincontent -->
+           </div><!-- /content -->
+           
+      <div data-role="panel" data-position-fixed="true"  data-display="overlay" data-theme="b" id="nav-panel">
+      <ul data-role="listview" data-theme="a" class="nav-search">
+            <li data-icon="delete"><a href="#" data-rel="close">Stäng meny</a></li>
+        <li style="background: #ececec; color:red;"><a style="color:#333333;" data-ajax="false" href="index.html">Start</a></li>
+<li style="background: #babbbd; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap1.html">Introduktion</a></li>
+<li style="background: #ea9230; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap2.html">Septumplastikregistret</a></li>
+<li style="background: #517130; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap3.html">Otoskleroskirurgi</a></li>
+<li style="background: #9d2845; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap4.html">Hörselbarnsregistret</a></li>
+<li style="background: #716789; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap5.html">Grav hörselnedsättning vuxna</a></li>
+<li style="background: #c5d068; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap6.html">Rör i Trumhinnan</a></li>
+<li style="background: #78c6d2; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap7.html">Fonokirurg</a></li>
+<li style="background: #0074a3; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap8.html">Hörselrehabilitering</a></li>
+<li style="background: #f3d01e; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap9.html">Myringo- och ossikuloplastik</a></li>
+<li style="background: #014073; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap10.html">Tonsilloperation</a></li>
+<li style="background: #666666; color:red;"><a style="color:#ffffff;" data-ajax="false" href="list_tables.html">Tabeller och Diagram</a></li>
+</ul>
+      </div><!-- /panel -->
+    </div><!-- /page -->
+    <div data-role="page" id="panel-fixed-page2">
+      <div data-role="header" data-theme="f">
+        <h1>Landing page</h1>
+      </div><!-- /header -->
+      <div data-role="content">
+        <p>This is just a landing page.</p>
+        <a href="#panel-fixed-page1" data-role="button" data-inline="true" data-mini="true" data-icon="back" data-iconpos="left">Back</a>
+      </div><!-- /content -->
+    </div><!-- /page -->
+    <script>
+              if ($(window).width() < 550) {
+          $('.custom-button').attr('data-iconpos', 'notext');
+        }
+
+
+    </script>
+  </body>
+</html>

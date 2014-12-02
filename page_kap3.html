@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=2.5, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />   
+    <title>Kvalitetsregistret för otoskleroskirurgi</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="themes/faktavgr.min.css" />
+    <link rel="stylesheet" href="js/jquery.mobile.structure-1.3.2.min.css" /> 
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script> 
+    <script type="text/javascript" src="js/brainworks.js"></script> 
+    <script type="text/javascript" src="js/jquery.mobile-1.3.2.min.js"></script> 
+    <script type="text/javascript" src="js/imagemap/imagemap.js"></script>
+    <script>
+var port_table = '<img class="startmenup" src="http://www.appgenerator.se/classic/onh2014/app/images/menu/portrait3.jpg" usemap="#startmenup" style="max-width:100%;width:100%;" />' +
+	'<map name="startmenup">' +
+	'<area areaname="area_1" full="area_1" shape="rect" coords="47,105,136,125" href="#kap3_1"/>' +
+'<area areaname="area_2" full="area_2" shape="rect" coords="47,134,325,154" href="#kap3_2"/>' +
+'<area areaname="area_3" full="area_3" shape="rect" coords="47,163,299,183" href="#kap3_3"/>' +
+'<area areaname="area_4" full="area_4" shape="rect" coords="47,192,121,212" href="#kap3_4"/>' +
+'<area areaname="area_5" full="area_5" shape="rect" coords="47,221,162,241" href="#kap3_5"/>' +
+'<area areaname="area_6" full="area_6" shape="rect" coords="47,250,188,270" href="#kap3_6"/>' +
+
+'</map>';
+
+var land_table = '<img class="startmenul" src="http://www.appgenerator.se/classic/onh2014/app/images/menu/landscape3.jpg" usemap="#startmenul" style="max-width:100%;width:100%;" />' +
+	'<map name="startmenul">' +
+	'<area areaname="area_1" full="area_1" shape="rect" coords="42,171,141,191" href="#kap3_1"/>' +
+'<area areaname="area_2" full="area_2" shape="rect" coords="42,201,354,221" href="#kap3_2"/>' +
+'<area areaname="area_3" full="area_3" shape="rect" coords="42,230,326,250" href="#kap3_3"/>' +
+'<area areaname="area_4" full="area_4" shape="rect" coords="42,259,124,279" href="#kap3_4"/>' +
+'<area areaname="area_5" full="area_5" shape="rect" coords="42,287,171,307" href="#kap3_5"/>' +
+'<area areaname="area_6" full="area_6" shape="rect" coords="42,317,201,337" href="#kap3_6"/>' +
+
+'</map>';
+var startorientation;
+
+if (window.matchMedia("(orientation: portrait)").matches) {
+	startorientation = 'portrait';
+}
+else {
+	startorientation = 'landscape';
+}
+
+$(document).ready(function () {
+	$(window).on("orientationchange", function (event) {
+		//alert('orientationchange');
+		if (event.orientation == 'landscape') {
+			$("#myimagemenu").html(land_table);
+			$('.startmenul').rwdImageMaps();
+		}
+		else {
+			$("#myimagemenu").html(port_table);
+			$('.startmenup').rwdImageMaps();
+		}
+	});
+
+	// You can also manually force this event to fire.
+	$(window).orientationchange();
+//        $(window).bind('resize', onWindowResize);
+	$.mobile.fixedToolbars.setTouchToggleEnabled(false);
+	$.mobile.ajaxEnabled = false;
+
+});
+
+$(document).load(function () {
+	if (startorientation == 'portrait') {
+		$("#myimagemenu").html(port_table);
+		$('.startmenup').rwdImageMaps();
+	}
+	else {
+		$("#myimagemenu").html(land_table);
+		$('.startmenul').rwdImageMaps();
+	}
+
+});
+$(document).bind('pageinit', function () {
+	var urlHash = window.location.href.split("#")[1];
+	if (urlHash) {
+		setTimeout(function ()
+		{
+			window.location.assign('#' + urlHash);
+		}, 2000);
+	}
+}
+);
+
+</script>
+
+    <style>
+      body {
+        background-color: white !important;
+      }
+      .ui-content {
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+        background:white;
+        font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
+      }      
+      .ui-bar-a {
+        background:#517130;
+        color : #ffffff;
+      }
+      .braincontent {
+        padding-right: 20px;
+        padding-left: 20px;
+      }
+      p {
+        margin-top:0px;
+        margin-bottom:10px;
+      }
+      h2 {
+        color:black;
+        padding-top:5px;
+        margin-bottom:6px;
+      }
+      .kapbilder {
+        width: 65% !important;
+        max-width: 100%;
+        margin: 0 auto !important;
+        position: relative !important;
+      }
+			.enkatbilder {
+				border: 1px solid #ddd;
+			}
+    </style>
+  </head>
+  <body>
+    <div data-role="page" class="ui-responsive-panel" id="panel-fixed-page1">
+      <!-- header -->
+      <div data-role="header" data-theme="a" data-position="fixed" data-disable-page-zoom="false" data-tap-toggle="false">
+        <div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+          <a href="#nav-panel" class="custom-button" data-role="button" data-icon="bars">Meny</a>
+          <a href="index.html" class="custom-button" data-ajax="false" data-role="button" data-icon="home">Start</a>
+          <a href="#panel-fixed-page1" class="custom-button" data-ajax="false" data-role="button" data-icon="arrow-u">Topp</a>
+        </div>
+        <h1 class="ui-title" data-tap-toggle="false" role="heading">Kvalitetsregistret för otoskleroskirurgi</h1>
+        <div class="ui-btn-right" data-role="controlgroup" data-type="horizontal">
+<!--          <a href="#panel-fixed-page1" class="custom-button" data-ajax="false" data-role="button" data-icon="arrow-u">Topp</a> -->
+          <a href="search.html" class="custom-button" data-role="button" data-icon="search">Sök</a>
+<!--          <a href="#add-form" data-role="button" data-icon="star">Favoriter</a> -->
+        </div>
+      </div>      <!-- /header -->
+      
+          <div data-role="content">
+          <div id="myimagemenu"></div>
+          <div data-demo-html="#panel-fixed-page1"></div>
+          <div class="braincontent">
+          <a id="kap3_1" name="kap3_1" style="visibility:hidden;">&nbsp;</a> <h2>Inledning</h2> <p>Kvalitetsregistret för otoskleroskirurgi har varit i bruk i tio år. Syftet med registret är att identifiera hörselresultaten, komplikationer samt patientens upplevelse av hörsel och komplikationer ett år efter operation. Klinikerna kan jämföra sina resultat med andra enheter och identifiera förbättringsåtgärder.</p>
+
+<p>Överflyttning av otosklerosregistret till Registercentrum Västra Götaland utfördes den 8/10 2013. I skrivande stund föreligger totalt 504 insamlade registreringar efter att 184 registreringar har överförts från det gamla registret. Sedan oktober 2013 har hittills 18 av 24 kliniker påbörjat registreringar. Resultat kommer att publiceras när hörselresultat samt svar från patientenkäterna föreligger, ett år efter kirurgi.</p>
+<a id="kap3_2" name="kap3_2" style="visibility:hidden;">&nbsp;</a> <h2>Hur kan registret bidra till bättre vård</h2> <p>Utifrån resultaten kan nationella indikationer för otoskleroskirurgi skapas. Uppföljning av nya kirurgiska metoder t.ex. olika lasertekniker och proteser kan utvärderas och jämföras mellan klinikerna. När ytterligare data samlats in kan hörapparatanvändning och tinnitusfrekvensen före och efter kirurgi jämföras. Långtidsuppföljningar (&gt; 10 år) av hörselresultaten kan analyseras och bidra till en förbättrad patientinformation. Det är av stor vikt att följa resultaten över tid med anledning av kommande generationsskifte bland operatörer.</p>
+
+<p>Tack vare möjlighet till cochleaimplantation opereras idag även otosklerospatienter med mycket grav hörselnedsättning med stapedotomi, vilka därmed framgångsrikt kan hörselrehabiliteras med konventionell hörapparat.</p>
+<a id="kap3_2_graf1" name="kap3_2_graf1" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/otoskleroskirurgi/onh_2013_otoskleroskirurgi_2048px_fig1.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap3_2_graf2" name="kap3_2_graf2" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/otoskleroskirurgi/onh_2013_otoskleroskirurgi_2048px_fig2.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap3_3" name="kap3_3" style="visibility:hidden;">&nbsp;</a> <h2>Genomförda förbättringsåtgärder</h2> <p>Under det gångna året har en nationell patientinformation tagits fram utifrån resultaten från registret. Denna finns tillgänglig för allmänheten samt professionen. I samband med överföringen av registret till Stratum har vissa frågor förtydligats. Frågor om tinnitus och hörapparat har specificerats med sidolokalisation. Spärrar för orimliga värden har lagts in registreringsformulären för hörselprov. En fråga i patientenkäten avseende förmågan att genomföra dagliga aktiviteter (t.ex. arbete, studier, fritidsaktiviteter) är tillagd. Mailfunktion för patientenkäten startar under hösten vilket kommer att leda till mindre pappersarbete.</p>
+<a id="kap3_4" name="kap3_4" style="visibility:hidden;">&nbsp;</a> <h2>Projekt</h2> <p>Två ST-projekt har initierats under vintern 2014 med fokus på analys av komplikationer uppgivna i patientenkäterna relaterat till hörselresultaten.</p>
+
+<p>Revisionsoperationerna (reoperation) från insamlade data 2004&ndash;2012 (ca 180 st) bearbetas av referensgruppen samt av en nybliven ÖNH-specialist. Ny etikansökan är under arbete för att ge möjlighet att hämta hem journaldata från andra kliniker i syfte att identifiera tidigare operationsteknik. Detta kan i förlängningen bidra till ändrade urvalskriterier för operationsindikationer för revisionskirurgi.</p>
+<a id="kap3_5" name="kap3_5" style="visibility:hidden;">&nbsp;</a> <h2>Publikationer</h2> <h4>I manuskript</h4>
+
+<p>Swedish otosclerosis surgery register. Journal of Laryngology and Otology, 2014.</p>
+
+<h4>Presentationer</h4>
+
+<p>Swedish otosclerosis surgery register. 2nd meeting of European Academy of ORL and Head&amp;Neck Surgery, Nice, 2013.</p>
+
+<p>Swedish otosclerosis surgery register. Congress of the Nordic association of otolaryngology. Copenhagen 2014.</p>
+
+<p>British-Scandinavian Otology Meeting, Windsor, England 2014.</p>
+
+<p><img alt="" src="http://www.appgenerator.se/classic/onh2014/app/images/oronben.jpg" style="height:389px; width:284px" /></p>
+<a id="kap3_6" name="kap3_6" style="visibility:hidden;">&nbsp;</a> <h2>Referensgruppen</h2> <p><strong>Karin Strömbäck</strong>, ordförande, överläkare, med. dr., ÖNH Kliniken Akademiska sjukhuset, Uppsala.</p>
+
+<p><strong>Ylva Dahlin-Redfors</strong>, överläkare, med. dr., Audiolog Kliniken, Sahlgrenska sjukhuset, Göteborg.</p>
+
+<p><strong>Anna Stjernquist-Desatnik</strong>, överläkare, docent, ÖNH Kliniken, Lund sjukhus.</p>
+
+<p><strong>Lars Lundman</strong>, överläkare, med. dr., ÖNH Kliniken, Karlstad sjukhus.</p>
+
+<p><strong>Joakim Grendin</strong>, överläkare, ÖNH Kliniken Örnsköldsvik sjukhus</p>
+
+           </div><!-- /braincontent -->
+           </div><!-- /content -->
+           
+      <div data-role="panel" data-position-fixed="true"  data-display="overlay" data-theme="b" id="nav-panel">
+      <ul data-role="listview" data-theme="a" class="nav-search">
+            <li data-icon="delete"><a href="#" data-rel="close">Stäng meny</a></li>
+        <li style="background: #ececec; color:red;"><a style="color:#333333;" data-ajax="false" href="index.html">Start</a></li>
+<li style="background: #babbbd; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap1.html">Förord</a></li>
+<li style="background: #ea9230; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap2.html">Septumplastikregistret</a></li>
+<li style="background: #517130; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap3.html">Otoskleroskirurgi</a></li>
+<li style="background: #9d2845; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap4.html">Hörselbarnsregistret</a></li>
+<li style="background: #716789; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap5.html">Grav hörselnedsättning vuxna</a></li>
+<li style="background: #c5d068; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap6.html">Rör i Trumhinnan</a></li>
+<li style="background: #78c6d2; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap7.html">Fonokirurg</a></li>
+<li style="background: #0074a3; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap8.html">Hörselrehabilitering</a></li>
+<li style="background: #f3d01e; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap9.html">Myringo- och ossikuloplastik</a></li>
+<li style="background: #014073; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap10.html">Tonsilloperation</a></li>
+<li style="background: #666666; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_enkater.html">Enkäter</a></li>
+</ul>
+      </div><!-- /panel -->
+    </div><!-- /page -->
+    <div data-role="page" id="panel-fixed-page2">
+      <div data-role="header" data-theme="f">
+        <h1>Landing page</h1>
+      </div><!-- /header -->
+      <div data-role="content">
+        <p>This is just a landing page.</p>
+        <a href="#panel-fixed-page1" data-role="button" data-inline="true" data-mini="true" data-icon="back" data-iconpos="left">Back</a>
+      </div><!-- /content -->
+    </div><!-- /page -->
+    <script>
+              if ($(window).width() < 550) {
+          $('.custom-button').attr('data-iconpos', 'notext');
+        }
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=2.5, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />   
+    <title>Kvalitetsregistret för tonsilloperation</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="themes/faktavgr.min.css" />
+    <link rel="stylesheet" href="js/jquery.mobile.structure-1.3.2.min.css" /> 
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script> 
+    <script type="text/javascript" src="js/brainworks.js"></script> 
+    <script type="text/javascript" src="js/jquery.mobile-1.3.2.min.js"></script> 
+    <script type="text/javascript" src="js/imagemap/imagemap.js"></script>
+    <script>
+var port_table = '<img class="startmenup" src="http://www.appgenerator.se/classic/onh2014/app/images/menu/portrait10.jpg" usemap="#startmenup" style="max-width:100%;width:100%;" />' +
+	'<map name="startmenup">' +
+	'<area areaname="area_1" full="area_1" shape="rect" coords="47,106,158,126" href="#kap10_1"/>' +
+'<area areaname="area_2" full="area_2" shape="rect" coords="47,131,240,151" href="#kap10_2"/>' +
+'<area areaname="area_3" full="area_3" shape="rect" coords="47,157,306,196" href="#kap10_3"/>' +
+'<area areaname="area_4" full="area_4" shape="rect" coords="47,201,261,221" href="#kap10_4"/>' +
+'<area areaname="area_5" full="area_5" shape="rect" coords="47,228,170,248" href="#kap10_5"/>' +
+'<area areaname="area_6" full="area_6" shape="rect" coords="47,254,213,274" href="#kap10_6"/>' +
+'<area areaname="area_7" full="area_7" shape="rect" coords="47,280,154,300" href="#kap10_9"/>' +
+'<area areaname="area_8" full="area_8" shape="rect" coords="47,305,221,325" href="#kap10_10"/>' +
+'<area areaname="area_9" full="area_9" shape="rect" coords="357,106,541,126" href="#kap10_11"/>' +
+'<area areaname="area_10" full="area_10" shape="rect" coords="357,131,565,151" href="#kap10_12"/>' +
+'<area areaname="area_11" full="area_11" shape="rect" coords="357,157,548,177" href="#kap10_13"/>' +
+'<area areaname="area_12" full="area_12" shape="rect" coords="357,183,542,222" href="#kap10_14"/>' +
+'<area areaname="area_13" full="area_13" shape="rect" coords="357,228,550,248" href="#kap10_15"/>' +
+'<area areaname="area_14" full="area_14" shape="rect" coords="357,254,461,274" href="#kap10_16"/>' +
+'<area areaname="area_15" full="area_15" shape="rect" coords="357,280,632,300" href="#kap10_17"/>' +
+'<area areaname="area_16" full="area_16" shape="rect" coords="357,306,473,326" href="#kap10_18"/>' +
+'<area areaname="area_17" full="area_17" shape="rect" coords="357,332,472,352" href="#kap10_19"/>' +
+
+'</map>';
+
+var land_table = '<img class="startmenul" src="http://www.appgenerator.se/classic/onh2014/app/images/menu/landscape10.jpg" usemap="#startmenul" style="max-width:100%;width:100%;" />' +
+	'<map name="startmenul">' +
+	'<area areaname="area_1" full="area_1" shape="rect" coords="42,140,164,160" href="#kap10_1"/>' +
+'<area areaname="area_2" full="area_2" shape="rect" coords="42,166,260,186" href="#kap10_2"/>' +
+'<area areaname="area_3" full="area_3" shape="rect" coords="42,190,330,229" href="#kap10_3"/>' +
+'<area areaname="area_4" full="area_4" shape="rect" coords="42,235,283,255" href="#kap10_4"/>' +
+'<area areaname="area_5" full="area_5" shape="rect" coords="42,260,178,280" href="#kap10_5"/>' +
+'<area areaname="area_6" full="area_6" shape="rect" coords="42,285,227,305" href="#kap10_6"/>' +
+'<area areaname="area_7" full="area_7" shape="rect" coords="42,309,160,329" href="#kap10_9"/>' +
+'<area areaname="area_8" full="area_8" shape="rect" coords="42,335,237,355" href="#kap10_10"/>' +
+'<area areaname="area_9" full="area_9" shape="rect" coords="42,360,247,380" href="#kap10_11"/>' +
+'<area areaname="area_10" full="area_10" shape="rect" coords="42,385,274,405" href="#kap10_12"/>' +
+'<area areaname="area_11" full="area_11" shape="rect" coords="42,410,257,430" href="#kap10_13"/>' +
+'<area areaname="area_12" full="area_12" shape="rect" coords="42,435,251,474" href="#kap10_14"/>' +
+'<area areaname="area_13" full="area_13" shape="rect" coords="42,479,257,499" href="#kap10_15"/>' +
+'<area areaname="area_14" full="area_14" shape="rect" coords="42,503,155,523" href="#kap10_16"/>' +
+'<area areaname="area_15" full="area_15" shape="rect" coords="42,528,351,548" href="#kap10_17"/>' +
+'<area areaname="area_16" full="area_16" shape="rect" coords="42,553,168,573" href="#kap10_18"/>' +
+'<area areaname="area_17" full="area_17" shape="rect" coords="42,578,168,598" href="#kap10_19"/>' +
+
+'</map>';
+var startorientation;
+
+if (window.matchMedia("(orientation: portrait)").matches) {
+	startorientation = 'portrait';
+}
+else {
+	startorientation = 'landscape';
+}
+
+$(document).ready(function () {
+	$(window).on("orientationchange", function (event) {
+		//alert('orientationchange');
+		if (event.orientation == 'landscape') {
+			$("#myimagemenu").html(land_table);
+			$('.startmenul').rwdImageMaps();
+		}
+		else {
+			$("#myimagemenu").html(port_table);
+			$('.startmenup').rwdImageMaps();
+		}
+	});
+
+	// You can also manually force this event to fire.
+	$(window).orientationchange();
+//        $(window).bind('resize', onWindowResize);
+	$.mobile.fixedToolbars.setTouchToggleEnabled(false);
+	$.mobile.ajaxEnabled = false;
+
+});
+
+$(document).load(function () {
+	if (startorientation == 'portrait') {
+		$("#myimagemenu").html(port_table);
+		$('.startmenup').rwdImageMaps();
+	}
+	else {
+		$("#myimagemenu").html(land_table);
+		$('.startmenul').rwdImageMaps();
+	}
+
+});
+$(document).bind('pageinit', function () {
+	var urlHash = window.location.href.split("#")[1];
+	if (urlHash) {
+		setTimeout(function ()
+		{
+			window.location.assign('#' + urlHash);
+		}, 2000);
+	}
+}
+);
+
+</script>
+
+    <style>
+      body {
+        background-color: white !important;
+      }
+      .ui-content {
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+        background:white;
+        font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
+      }      
+      .ui-bar-a {
+        background:#014073;
+        color : #ffffff;
+      }
+      .braincontent {
+        padding-right: 20px;
+        padding-left: 20px;
+      }
+      p {
+        margin-top:0px;
+        margin-bottom:10px;
+      }
+      h2 {
+        color:black;
+        padding-top:5px;
+        margin-bottom:6px;
+      }
+      .kapbilder {
+        width: 65% !important;
+        max-width: 100%;
+        margin: 0 auto !important;
+        position: relative !important;
+      }
+			.enkatbilder {
+				border: 1px solid #ddd;
+			}
+    </style>
+  </head>
+  <body>
+    <div data-role="page" class="ui-responsive-panel" id="panel-fixed-page1">
+      <!-- header -->
+      <div data-role="header" data-theme="a" data-position="fixed" data-disable-page-zoom="false" data-tap-toggle="false">
+        <div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+          <a href="#nav-panel" class="custom-button" data-role="button" data-icon="bars">Meny</a>
+          <a href="index.html" class="custom-button" data-ajax="false" data-role="button" data-icon="home">Start</a>
+          <a href="#panel-fixed-page1" class="custom-button" data-ajax="false" data-role="button" data-icon="arrow-u">Topp</a>
+        </div>
+        <h1 class="ui-title" data-tap-toggle="false" role="heading">Kvalitetsregistret för tonsilloperation</h1>
+        <div class="ui-btn-right" data-role="controlgroup" data-type="horizontal">
+<!--          <a href="#panel-fixed-page1" class="custom-button" data-ajax="false" data-role="button" data-icon="arrow-u">Topp</a> -->
+          <a href="search.html" class="custom-button" data-role="button" data-icon="search">Sök</a>
+<!--          <a href="#add-form" data-role="button" data-icon="star">Favoriter</a> -->
+        </div>
+      </div>      <!-- /header -->
+      
+          <div data-role="content">
+          <div id="myimagemenu"></div>
+          <div data-demo-html="#panel-fixed-page1"></div>
+          <div class="braincontent">
+          <a id="kap10_1" name="kap10_1" style="visibility:hidden;">&nbsp;</a> <h2>Introduktion</h2> <p>2013 har varit ett genombrottsår för tonsillregistret i flera avseenden. Under det gångna året registrerades ca 82% av de tonsilloperationer som utfördes i Sverige. Detta innebär att registret kan användas både för verksamhetsbeskrivning och lokala förbättringsprojekt. Registret kan användas som ett verktyg att mäta förändringar i kvalitet över tid och vid jämförelser med andra kliniker. Vi vill stimulera till aktivt användande av registerdata, vilket är skälet till att vi för andra året i rad har inbjudit kliniker att delta i projektet &rdquo;Vill ni ha färre tonsillblödningar&rdquo;, läs mer om detta på sid 36.</p>
+
+<p>Sverige är unikt såtillvida att tonsillotomi i stor utsträckning ersatt tonsillektomi vid operation av obstruktiva barn. I Sverige opererades 2013 77% av de obstruktiva barnen 1&ndash;12 år med tonsillotomi med eller utan abrasio. Detta har haft en positiv effekt på patientsäkerheten. En uppskattning av data från tonsilloperationsregistret och Socialstyrelsens patientregister visar att ca 40 barn sluppit bli inlagda för postoperativ blödning under 2013 eftersom barnen tonsillotomerats istället för tonsillektomerats.</p>
+
+<p>Postoperativ smärtbehandling är ett område där många enheter kan behöva se över sin verksamhet. Registerdata för 2013 visar att 17% av patienterna kontaktade sjukvården för råd om smärtlindring medan 10% erhöll antibiotikabehandling under läkningsförloppet. Vi tror att antibiotikaförskrivning kan vara associerat till otillräcklig smärtbehandling. För att förbättra den postoperativa smärtbehandlingen utvecklades nationella riktlinjer för smärtbehandling vilka presenterades i årsrapporten för 2012. Nytt för i år är att ett doseringsverktyg för postoperativ smärtbehandling av barn och ungdomar gjorts tillgängligt på www.tonsilloperation.se. Verktyget kan användas av både vårdgivare och patienter och skapar en doseringstabell för analgetika under den första tiden efter operation. Kika gärna på denna!</p>
+
+<p>Denna årsrapport fokuserar på blödning efter tonsillektomi. I genomsnitt återinläggs 10% av de som tonsillektomerats p.g.a. postoperativ blödning. Detta är en hög siffra och det föreligger en relativt stor spridning i blödningsfrekvens mellan olika enheter (0,5%&ndash;13,8%). Här finns en klar förbättringspotential för många enheter. I denna årsrapport redovisas data separat för tonsillektomi och tonsillotomi för att åskådliggöra resultaten tydligare. Varje enhet som har ett resultat som avviker negativt från rikets medelvärde bör gå igenom hur operationen genomförs, hur utbildningen är organiserad och hur samarbetet med anestesi, vårdavdelning och mottagning fungerar. En studie på registerdata visar tydligt att värme tillfört i tonsillogen, oavsett om det för att ta ut tonsillen eller för att stilla en blödning, markant ökar risken för postoperativ blödning. Dessa resultat kan vara intressanta för enheter med hög blödningsfrekvens, läs mer om detta på sid 37.</p>
+
+<p>Under vintern 2014 kommer du kunna ladda hem denna årsrapport som en app till smartphone eller läsplatta. Läs in QR-koden här bredvid för att ladda hem appen, alternativt gå in på www.appgenerator.se/qrkod/onh2013.</p>
+
+<p>OBS! Lanseras ungefär mitten av november, så håll tillgodo.</p>
+
+<p>All redovisning av data avser tonsilloperationer som utförts 2013.</p>
+
+<p>Vi vill tacka alla som bidragit till att registret har så många registreringar av god kvalitet. Tillsammans skapar vi ett funktionellt register som hjälper oss utveckla vården.</p>
+<a id="kap10_2" name="kap10_2" style="visibility:hidden;">&nbsp;</a> <h2>Att använda registerdata</h2> <p>Den långsiktiga målsättningen med kvalitetsregister är att förbättra sjukvårdens kvalitet. En grundläggande förutsättning för verksamhetsutveckling baserad på registerdata är god lokal kunskap om klinikens data och att dessa används.</p>
+
+<p>För att skapa förutsättningar för detta har kvalitetsregistret för tonsilloperation valt att presentera data på flera olika sätt. Ett av dessa är denna årsrapport. När en kliniks data skall analyseras rekommenderar vi en första blick på värdekompassen. Denna presenterar grafiskt flera indikatorer som beskriver en verksamhet i relation till ett riksgenomsnitt. I kompletterande tabeller finns möjlighet att fördjupa sig i data och jämföra sin kliniks resultat med andra kliniker. Här finns också underlag för att bedöma hur stort underlaget är för de olika parametrarna i värdekompassen.</p>
+
+<p>Behovet av verksamhetsförbättring gäller framförallt postoperativ morbiditet, huvudsakligen blödning och smärta. För att underlätta och följa upp en verksamhetsutveckling inom dessa områden finns andra möjligheter än den långsamt reagerande årsrapporten som presenterar ett års data först följande höst. Varje klinik har möjlighet att på olika sätt få fram mer aktuella data på hemsidan www.entqualitysweden.se. Efter inloggning med SITHS-kort finns möjlighet att ta del av klinikens resultat i realtid och även ladda ner en Excel-fil med klinikens data.</p>
+
+<p>Under fliken &rdquo;registrera&rdquo; kan klinikens Excel-fil hittas. Filen är omfattande och kan vara svår att överblicka, men viss information är enkel att få fram. Exempelvis kan man i kolumnerna BA (Bleed hospital) och BB (Bleed op again) identifiera de patienter som behövt läggas in respektive reopereras p.g.a. blödning. Då databasen innehåller personnummer är det möjligt att specifikt analysera just dessa patienters sjukdomsförlopp.</p>
+
+<p>Ett komplement utgör de stapeldiagram som finns under fliken &rdquo;statistik i realtid&rdquo;. Där kan andelen patienter som sökt sjukvårdskontakt eller blivit inlagda p.g.a. blödning under det senaste året och jämföras med riksgenomsnittet för såväl tonsillektomi som tonsillotomi.</p>
+
+<p>Tillgängligheten till egna klinikdata kommer förbättras ytterligare. En app för smartphone och läsplatta har utvecklats som kommer ge möjlighet till interaktiva analyser på den egna klinikens data. Den kommer att lanseras under vintern 2014.</p>
+
+<p>Genom kvalitetsregistren levereras data till klinikerna för att möjliggöra verksamhetsutveckling. För att verklig förbättring ska uppnås rekommenderas att klinikens resultat diskuteras i detalj på klinikmöten med alla inblandade. På nästa sida i denna årsrapport rapporteras ett exempel på hur detta kan genomföras.</p>
+<a id="kap10_3" name="kap10_3" style="visibility:hidden;">&nbsp;</a> <h2>Förbättringsprojektet ”Vill ni ha färre tonsillblödningar?”</h2> <p>Tack vare återrapportering av data från kvalitetsregister börjar många kliniker bli medvetna om sina resultat och gör jämförelser med andra kliniker. Det kan ibland vara svårt att veta i vilken ände man skall börja för att få lägre blödningsfrekvens. För att stödja kliniker som ville minska blödningsfrekvensen startades via referensgruppen för tonsillkirurgi projektet &rdquo;Vill ni ha färre tonsillblödningar?&rdquo; hösten 2013. Sex kliniker deltog, och projektet inleddes med ett seminarium med föreläsningar i förbättrings- och tonsillkunskap. Varje deltagare analyserade sin kliniks data under handledning och skapade sedan en handlingsplan. Efter att handlingsplanen förankrats hos respektive verksamhetschef genomfördes förändringarna. Typiska moment som var gemensamma för flera kliniker var återkoppling av resultat och diskussion i läkargruppen. Konkreta förbättringar kunde vara revision av teknik för operation respektive hemostas efter tonsillektomi, utbildningen av yngre läkare och information och smärtstillning till patienter. Projektet avslutades våren 2014, men effekter av projekten följs upp kontinuerligt via kvalitetsregistret. Ett nytt projekt med liknande upplägg kommer att starta under hösten 2014.</p>
+
+<p><strong>Kliniker och läkare som deltog i projektet var: </strong></p>
+
+<ul>
+	<li>Södra Älvsborgs Sjukhus, <strong>Hugo Davidsson</strong></li>
+	<li>Centralsjukhuset i Karlstad, <strong>Anna Sjögren</strong></li>
+	<li>Norrbottens läns landsting, <strong>Torbjörn Larsson</strong></li>
+	<li>Skaraborgs sjukhus, <strong>Dan Öberg</strong></li>
+	<li>Falu lasarett, <strong>Marek Prucha</strong></li>
+	<li>Västmanlands sjukhus, <strong>Karolina Elinder</strong></li>
+</ul>
+<a id="kap10_3_1" name="kap10_3_1" style="visibility:hidden;">&nbsp;</a> <h2></h2> <h4>Exempel från Västmanlands sjukhus</h4>
+
+<p>Från Västmanlands sjukhus i Västerås deltog Karolina Elinder i förbättringsprojektet. Av de patienter som genomgick tonsillektomi åren 2009&ndash;2012 återinlades i genomsnitt 15% på grund av blödning. Genomgång av registerdata visade att tonsillektomi i stor utsträckning utfördes med ultrascision eller diatermisax, tekniker som i flera studier och även i en genomgång av tonsillregistret visat ge högre risk för blödning (se nästa sida). Tillsammans med Johan Knutsson och verksamhetschef Mats Rosén fastställdes en handlingsplan med ett specifikt startdatum. Från första april 2014 skulle kliniken inte längre använda varma operationstekniker utan gå över till helt kall teknik. Detta innebär att endast instrument av kallt stål används för dissektion. Eventuell blödning stillas med kompression i tre minuter, som kan behöva upprepas. Kärl som blöder kan ligeras och endast i undantag används diatermi, och då med låg effekt. En viktig del av förändringsarbetet var utbildning av personal från flera yrkeskategorier och skedde i samverkan med anestesikliniken.</p>
+
+<p>Sedan första april och fram till mitten av augusti har 38 tonsillektomier utförts och tre av dessa har blivit återinlagda för blödning. Det ger en blödningsfrekvens på 7,8%, dvs en halvering jämfört med tidigare. Det är alldeles för kort tid som passerat för att kunna dra några säkra slutsatser, men hittills verkar det lovande och vi kommer följa resultaten från Västerås med intresse!</p>
+<a id="kap10_4" name="kap10_4" style="visibility:hidden;">&nbsp;</a> <h2>Blödning efter tonsillektomi</h2> <p>Vid införande av en ny teknik bör den nya tekniken jämföras med den tidigare använda rutintekniken. När det gäller tonsillektomi är kall teknik den &rdquo;gold standard&rdquo; som alla nya tekniker bör jämföras mot (1). Motivet för det är att den kalla tekniken visats vara associerad med lägst frekvens sena efterblödningar.</p>
+
+<p>Det senaste decenniet har det publicerats flera multicenterstudier rörande sambandet mellan teknik för tonsillektomi och efterblödningar, som t.ex. den stora brittiska studien från 2004 (2) och en österrikisk studie som kom 2011 (3). Båda dessa studier visar entydigt att varma tekniker medför större risk för sena efterblödningar än kall teknik. Baserat på resultaten i den brittiska studien rekommenderar författarna att &rdquo;tekniker som diatermi och coblation... bör därför användas med försiktighet och endast efter lämplig utbildning&rdquo; (2). Detta har även föreslagits av andra författare. I en review av publikationer om kirurgiska tekniker som används för tonsillektomi (4), drar författarna slutsatsen att &rdquo;kirurgiska tekniker för tonsillektomi som förmodligen borde upphöra innefattar monopolär diatermi, coblation, laser, och harmonisk skalpell&rdquo;.</p>
+
+<p>Är detta relevant för svenska förhållanden? De engelska och österrikiska resultaten bekräftas av analyser av kvalitetsregistret. Jämfört med helt kall teknik (ingen värme eller elektricitet vid vare sig dissektion eller hemostas) är risken för återinläggning på grund av blödning 2,8 gånger större vid användande av kall dissektion med diatermi för hemostas, 3,2 gånger större vid coblationteknik, 4,3 gånger större med diatermisax och 5,6 gånger större vid användande av ultrascision.</p>
+
+<p>Som framgår av denna årsrapport används ett flertal olika tekniker både för dissektion och hemostas vid tonsillektomi i Sverige. Frekvensen återinläggning på grund av efterblödning varierar mellan 0% och över 14%. Ett av syftena med årsrapporten är att presentera varje kliniks resultat och ge möjlighet att jämföra de egna resultaten med andra för att vid behov stimulera till förbättringsarbete. Som exempel kan hänvisas till Västerås förbättringsprojekt som presenteras på föregående sida.</p>
+
+<p>Baserat på det nuvarande kunskapsläget anser vi det rimligt att rekommendera alla ÖNH-läkare under utbildningen får lära sig utföra tonsillektomi med en rent kall teknik, utan att använda någon form av värme, inklusive diatermi. Först när kall teknik behärskas kan varma instrument användas. Varm teknik kan ha fördelar som mindre peroperativ blödning och kortare operationstid.</p>
+
+<p>Oavsett vilken teknik som väljs, måste varje klink fortlöpande följa sina resultat och vid behov förändra teknik.</p>
+
+<ol>
+	<li>Blanchford H, Lowe D. Cold versus hot tonsillectomy: state of the art and recommendations. ORL J Otorhinolaryngol Relat Spec. 2013;75(3):136-41. PubMed PMID: 23978797. Epub 2013/08/28. eng.</li>
+	<li>Lowe D, van der Meulen J. Tonsillectomy technique as a risk factor for postoperative haemorrhage. Lancet. 2004 Aug 21-27;364(9435):697-702. PubMed PMID: 15325834. Epub 2004/08/25. Eng.</li>
+	<li>Sarny S, Ossimitz G, Habermann W, Stammberger H. Hemorrhage following tonsil surgery: a multicenter prospective study. Laryngoscope. 2011 Dec;121(12): 2553-60. PubMed PMID: 22109752.</li>
+	<li>Gysin C, Dulguerov P. Hemorrhage after tonsillectomy: does the surgical technique really matter? ORL J Otorhinolaryngol Relat Spec. 2013;75(3):123-32. PubMed PMID: 23978795.</li>
+</ol>
+<a id="kap10_5" name="kap10_5" style="visibility:hidden;">&nbsp;</a> <h2>Täckningsgrad</h2> <p>Nu har tonsillregistret nått en viktig brytpunkt. För år 2013 var täckningsgraden 81,4%, vilket innebär att av 13 811 kända tonsilloperationer var 11 238 registrerade i kvalitetsregistret. Dessutom finns glädjande nog 17 kliniker som registrerar mer än 90% av sina tonsilloperationer i registret.</p>
+
+<h4>Hur täckningsgrad beräknas</h4>
+
+<p>Beräkningarna har utförts i samarbete med Registerservice på Socialstyrelsen. Patienter opererade och registrerade med operationsnummer EMB10, EMB15, EMB20 eller EMB99 kombinerat med icke-malign diagnos har identifierats i Socialstyrelsens register och matchats, via personnummer, mot kvalitetsregistret.</p>
+
+<p><strong>Följande utfall av matchningen redovisas:</strong></p>
+
+<ul>
+	<li>Totalt antal opererade i Sverige. Denna kolumn är en syntes av individuppgifter från både kvalitetsregistret och Patientregistret</li>
+	<li>Täckningsgrad, dvs andelen patienter som förekommer i kvalitetsregistret av samtliga tonsillopererade i Sverige</li>
+	<li>Antal patienter i kvalitetsregistret</li>
+	<li>Antal patienter i Patientregistret</li>
+	<li>Antal patienter som endast förekommer i kvalitetsregistret.</li>
+	<li>Antal patienter som endast förekommer i Patientregistret.</li>
+</ul>
+
+<p>Matchningen utfördes 23/9 2014 på uppgifter om operationer från 2013. I redovisningen finns alla enheter som rapporterat till Socialstyrelsen eller tonsillregistret.</p>
+
+<p><strong>Resultat</strong></p>
+
+<p>Totalt är 13 811 tonsilloperationer registrerade i Patientregistret eller kvalitetsregistret. Det finns 13 263 patienter registrerade i Patientregistret medan det i kvalitetsregistret finns 11 238 giltiga patienter. Det är 1 022 fler registreringar i kvalitetsregistret jämfört med 2012. Det förekommer att patienter är registrerade i kvalitetsregistret men inte i Patientregistret (n=548), och även motsatsen (n=2 573). Matchning av de två registren ger vid handen att det totalt utfördes (kända) 13 811 tonsilloperationer år 2013. Täckningsgrad blir då 81,4%. Totalt finns 64 opererande enheter i Sverige och av dessa deltog 53 i registret år 2013, vilket ger en deltagarandel på 83%.</p>
+<a id="kap10_5_tabell1a" name="kap10_5_tabell1a" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/tabeller/onh_2013_tonsill_tabell_1a.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_5_tabell1b" name="kap10_5_tabell1b" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/tabeller/onh_2013_tonsill_tabell_1b.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6" name="kap10_6" style="visibility:hidden;">&nbsp;</a> <h2>Nya värdekompasser</h2> <p>Det är nu tredje året som vi använder värdekompassen för att presentera samlade data på kliniknivå. Värdekompasserna innehåller 10 variabler och är framtagna för att ge en snabb och pedagogisk överblick. Nytt för i år är att resultat för tonsillektomi respektive tonsillotomi redovisas separat i värdekompasserna. All data som presenteras i värdekompasserna kommer från kvalitetsregistret.</p>
+
+<p>Värdekompassen bör användas som kvalitativ indikator för verksamheten. Kompassens förenklade signalsystem kan påvisa områden där man behöver göra djupare analyser av data som finns på andra ställen i rapporten för att sedan påbörja ett förändringsarbete.</p>
+
+<p>Klinikens värden visas i grönt medan rött representerar riksgenomsnittet. Gränsvärdena på respektive axel representerar variabelns största respektive minsta värde. Observera att skalorna på respektive axel därför skiljer sig åt beroende på variabelns max- och min-värde. Det sämsta värdet för variablerna finns i origo och det bästa i periferin. Kliniker där röda fält syns har ett sämre värde än riksgenomsnittet för den aktuella variabeln. De värden som ligger till grund för respektive axel på värdekompassen redovisas i anslutning till axeln.</p>
+
+<p>I anslutning till värdekompasserna finns en tabell över täckningsgrad, svarsfrekvenser för enkäterna samt andel registrerade e-postadresser. För dessa variabler används ett annat signalsystem för att beskriva kvaliteten i respektive kliniks registerarbete:</p>
+<a id="kap10_6_figur1" name="kap10_6_figur1" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/gladaosura_sid41.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_1" name="kap10_6_1" style="visibility:hidden;">&nbsp;</a> <h2></h2> <p>Enheter med färre än 30 registrerade operationer är exkluderade från redovisningen.</p>
+
+<p>&nbsp;</p>
+
+<p><strong>Variabler som presenteras för tonsillektomi respektive tonsillotomi:</strong></p>
+
+<ul>
+	<li>Återinlagd för blödning &ndash; Andel patienter som rapporterat att de blivit återinlagda på sjukhus för postoperativ blödning.</li>
+	<li>Reoperation p.g.a. blödning &ndash; Andel patienter som rapporterat att de blivit reopererade p.g.a. postoperativ blödning.</li>
+	<li>Kontakt p.g.a. smärta &ndash; Andel patienter som rapporterat att de oplanerat behövt kontakta sjukvården p.g.a. postoperativ smärta.</li>
+	<li>Symtomfrihet &ndash; Andel patienter som rapporterat &rdquo;Besvären är borta&rdquo; eller &rdquo;Jag har blivit ganska bra från mina besvär&rdquo;.</li>
+</ul>
+
+<p><strong>Variabler som presenteras för alla tonsilloperationer:</strong></p>
+
+<ul>
+	<li>Upplevd patientinformation &ndash; Andel patienter som rapporterat att den information de erhållit innan operation stämt med hur de upplevt operationen och tiden efter.</li>
+	<li>Andel TT obstruktion 0&ndash;12 år &ndash; Andel patienter opererade med tonsillotomi (TT) av de som opereras på indikation obstruktion och är 0&ndash;12 år.</li>
+</ul>
+<a id="kap10_6_graf1" name="kap10_6_graf1" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/ONH_2013_tonsill_Halmstad.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf2" name="kap10_6_graf2" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_ostersund.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf3" name="kap10_6_graf3" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_blekinge.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf4" name="kap10_6_graf4" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_falulasarett.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf5" name="kap10_6_graf5" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_gavle.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf6" name="kap10_6_graf6" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_hudiksvall.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf7" name="kap10_6_graf7" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_ljungby.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf8" name="kap10_6_graf8" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_sundsvall.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf9" name="kap10_6_graf9" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_solleftea.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf10" name="kap10_6_graf10" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_ornskoldsvik.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf11" name="kap10_6_graf11" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_vasters.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf12" name="kap10_6_graf12" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/ONH_2013_tonsill_Eksjo.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf13" name="kap10_6_graf13" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_jonkoping.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf14" name="kap10_6_graf14" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_varnamo.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf15" name="kap10_6_graf15" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_kalmar.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf16" name="kap10_6_graf16" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_vastervik.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf17" name="kap10_6_graf17" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_onh_sormland.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf18" name="kap10_6_graf18" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_karlstad.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf19" name="kap10_6_graf19" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_norrkoping.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf20" name="kap10_6_graf20" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_sunderby_gallivare_pitea.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf21" name="kap10_6_graf21" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_visby.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf22" name="kap10_6_graf22" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_kristianstad.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf23" name="kap10_6_graf23" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_helsingborg.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf24" name="kap10_6_graf24" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_trelleborg.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf25" name="kap10_6_graf25" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_landskrona.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf26" name="kap10_6_graf26" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_ystad.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf27" name="kap10_6_graf27" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_angelholm.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf28" name="kap10_6_graf28" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_nacka.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf29" name="kap10_6_graf29" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_sabbatsberg.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf30" name="kap10_6_graf30" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_capio_globen.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf31" name="kap10_6_graf31" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_karolinska.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf32" name="kap10_6_graf32" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_serafimerlasarettet_sthlm.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf33" name="kap10_6_graf33" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_skarholmen.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf34" name="kap10_6_graf34" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_sophiahemmet.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf35" name="kap10_6_graf35" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_sodertalje.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf36" name="kap10_6_graf36" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_strandkliniken.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf37" name="kap10_6_graf37" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_onh_sodermalm.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf38" name="kap10_6_graf38" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_onh_jakobsberg.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf39" name="kap10_6_graf39" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_akademiskasjukhuset.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf40" name="kap10_6_graf40" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_capio_orebro.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf41" name="kap10_6_graf41" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_alerisspecelisabethsjukh.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf42" name="kap10_6_graf42" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_karlskoga.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf43" name="kap10_6_graf43" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_lindesberg.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf44" name="kap10_6_graf44" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_orebro.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf45" name="kap10_6_graf45" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_norrlandsuniveritetssjh.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf46" name="kap10_6_graf46" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_capio_lundby.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf47" name="kap10_6_graf47" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_frlunda.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf48" name="kap10_6_graf48" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_trollhattan.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf49" name="kap10_6_graf49" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_sahlgrenska.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf50" name="kap10_6_graf50" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_skaraborgssjukhus.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_6_graf51" name="kap10_6_graf51" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/spindel/onh_2013_tonsill_sodraalvsborgssjukh.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_7" name="kap10_7" style="visibility:hidden;">&nbsp;</a> <a id="kap10_7_tabell2" name="kap10_7_tabell2" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/tabeller/onh_2013_tonsill_tabell_2.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_8" name="kap10_8" style="visibility:hidden;">&nbsp;</a> <a id="kap10_8_tabell3" name="kap10_8_tabell3" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/tabeller/onh_2013_tonsill_tabell_3.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_9" name="kap10_9" style="visibility:hidden;">&nbsp;</a> <h2>Indikationer</h2> <p>Det förekommer två huvudsakliga indikationsgrupper för tonsilloperation, infektion/inflammation respektive obstruktion/snarkning/hypertrofa tonsiller.</p>
+
+<p>I Tabell 4 (se nästa sida) presenteras indikationsstatistik från kvalitetsregistret för respektive klinik. Variationen mellan klinikerna är betydande, såväl avseende andelen obstruktionsindikation som inom indikationsgruppen infektion/inflammation.</p>
+
+<p>Kunskap om den egna klinikens indikationsfördelning är av betydelse i analysen av komplikations- och resultatdata. Exempelvis är en hög andel infektionsindikationer sannolikt förenad med en hög andel tonsillektomier i vuxen population med en förväntad högre komplikationsfrekvens.</p>
+
+<p>Spridningen i indikationer kan vara en sann beskrivning av verkligheten orsakad exempelvis av demografiska skillnader eller lokala traditioner. Detta är sannolikt fallet då det gäller variationen i andelen obstruktion.</p>
+
+<p>En annan förklaring är brister i ICD-10 systemet. Kronisk tonsillit kodas J350. Denna kod används även för recidiverande tonsilliter eftersom ingen egen kod finns för denna diagnos.</p>
+
+<p>En registrering i kvalitetsregistret baserad på enbart diagnoskod leder därför till en för hög frekvens av diagnosen kronisk tonsillit. Vi rekommenderar därför att läkaren som beslutar om tonsilloperation också dokumenterar indikationen, då indikationerna kronisk tonsillit och recidiverande tonsilliter är skilda i kvalitetsregistreringen.</p>
+
+<p>Vi rekommenderar alla kliniker att se över sina rutiner för hur operationsindikation registreras i tonsillregistret. Följande definitioner bör användas:</p>
+
+<p><strong>Luftvägsobstruktion/snarkning/hypertrofa tonsiller:</strong> Tonsillorsakad andningsstörning under sömn.</p>
+
+<p><strong>Upprepade tonsilliter:</strong> Minst tre episoder av akut tonsillit de senaste 12 månaderna</p>
+
+<p><strong>Peritonsillit:</strong> Incipient halsböld eller halsböld med pus som opereras akut alternativt om indikationen är tidigare genomgångna peritonsilliter.</p>
+
+<p><strong>Kronisk tonsillit:</strong> Långvarig inflammation i tonsillerna (minst tre månader) av den grad att dagliga aktiviteter påverkas.</p>
+
+<p><strong>Systemkomplikation till tonsillit:</strong> Systemisk sjukdom som förvärras av utbrott av tonsillit, ex. psoriasis.</p>
+<a id="kap10_9_tabell4" name="kap10_9_tabell4" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/tabeller/onh_2013_tonsill_tabell_4.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap_10_9_figur1" name="kap_10_9_figur1" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/nojd_lakare.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_9_figur2" name="kap10_9_figur2" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/red_tonsill_sid73.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_10" name="kap10_10" style="visibility:hidden;">&nbsp;</a> <h2>Postoperativ blödning</h2> <p>Postoperativ blödning är den allvarligaste komplikationen efter tonsilloperation eftersom den oftast leder till återinläggning, ibland till reoperation och i sällsynta fall kan bidra till död.</p><p>
+I detta kapitel redovisas uppgifter om tidig blödning, d.v.s. blödning under vårdtiden som föranleder aktiv åtgärd från läkare, och sen blödning, d.v.s. blödning efter utskrivning som orsakat återinläggning på sjukhus.</p><p>
+Uppgifter om tidig blödning kommer från den andra enkäten i registret och rapporteras av sjukhuset.</p><p>
+Uppgiften om återinläggning för blödning kommer från patienten. På kliniker med lågt antal operationer, eller låg svarsfrekvens kan därför dessa resultat vara osäkra. Därför måste uppgifter om frekvens sena blödningar alltid tolkas med samtidig analys av operationsvolym och svarsfrekvens, dessa redovisas i värdekompasserna.</p><p>
+För att få mer tillförlitlig information om återinläggning p.g.a. blödning efter tonsilloperation har data i kvalitetsregistret matchats, på individnivå, mot Patientregistret (PAR), Socialstyrelsen. Vid denna matchning används från PAR samtliga vårdtillfällen inom 30 dagar efter tonsilloperation med diagnosnummer som överensstämmer med tonsillefterblödning.</p><p>
+Analysen har genomförts av Socialstyrelsens registerservice och sammanställningen i tabellen visar antal och andel av patienter som blivit återinlagda enligt kvalitetsregistret eller PAR och hur väl uppgifterna matchar med varandra i respektive register.</p>
+
+<ul>
+	<li>Antal återinlagda för blödning registrerade i kvalitetsregistret.</li>
+	<li>Antal återinlagda för blödning registrerade i PAR.</li>
+	<li>Antal patienter som endast förekommer i kvalitetsregistret.</li>
+	<li>Antal patienter som endast förekommer i PAR.</li>
+	<li>Antal och andel patienter som förekommer antingen i PAR eller kvalitetsregistret.</li>
+</ul>
+
+<p>Matchningen utfördes med PAR3 (24/9 2014) med data från kvalitetsregistret från 18/8 2014 på uppgifter från 2013. I sammanställningen redovisas samtliga enheter som rapporterat till PAR eller kvalitetsregistret.</p><p>
+Faktorer som påverkar säkerheten i de matchade uppgifterna om återinläggning p.g.a. blödning är: rapporteringsgraden till PAR, korrekt diagnossättning i epikris samt korrekt rapportering av patienten/närstående i den första patientenkäten Med denna redovisning av uppgifter om återinläggning är det vår förhoppning att redovisning av indikatorn &rdquo;återinlagd för postoperativ blödning&rdquo; blir mer komplett.</p><p>
+Eftersom alla postoperativa blödningar bör orsaksutredas kan samtidigt uppgifterna i sammanställningen valideras mot journaluppgifter. I en sådan validering är det av viktigt att notera i kvalitetsregistreringen om patienten angett återinläggning på annat sjukhus för.</p><p>
+Eftersom denna kalkyl och presentation är helt ny är vi tacksamma för kommentarer om ni på klinikerna upptäcker att presenterade data inte stämmer.</p>
+<a id="kap10_10_graf1" name="kap10_10_graf1" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/figurer/onh_2013_tonsill_fig1.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_10_1" name="kap10_10_1" style="visibility:hidden;">&nbsp;</a> <h2></h2> <p>Diagrammet visar longitudinell blödningsfrekvens för respektive operationsmetod. Uppgifterna kommer från kvalitetsregistret för tonsilloperation.</p>
+<a id="kap10_10_tabell5" name="kap10_10_tabell5" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/tabeller/onh_2013_tonsill_tabell_5.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_10_tabell6a" name="kap10_10_tabell6a" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/tabeller/onh_2013_tonsill_tabell_6a.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_10_tabell6b" name="kap10_10_tabell6b" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/tabeller/onh_2013_tonsill_tabell_6b.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_10_graf2" name="kap10_10_graf2" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/figurer/onh_2013_tonsill_fig2.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_11" name="kap10_11" style="visibility:hidden;">&nbsp;</a> <h2>Olika tonsilloperationer</h2> <p>Vid tonsilloperation kan två principiellt olika operationer utföras, tonsillektomi eller tonsillotomi. Tonsillektomi innebär totalt borttagande av halsmandlarna. Tonsillotomi innebär partiellt borttagande av tonsillerna där en bädd av tonsillvävnad lämnas kvar.</p>
+
+<p><strong>Operationskoder:</strong></p>
+
+<ul>
+	<li><strong>EMB10</strong> vid enbart tonsillektomi</li>
+	<li><strong>EMB20</strong> vid tonsillektomi med samtidig adenoidektomi/abrasio</li>
+	<li><strong>EMB15</strong> vid enbart tonsillotomi</li>
+	<li><strong>EMB15+EMB30</strong> vid tonsillotomi med samtidig adenoidektomi/abrasio</li>
+</ul>
+
+<p><strong>Operationstekniker</strong></p>
+
+<p>Ett flertal olika operationstekniker används i Sverige vid tonsilloperation. Följande operationstekniker kan registreras i kvalitetsregistret:</p>
+
+<p><strong>Kallt stål</strong> &ndash; Dissektionen utförs med &rdquo;kalla&rdquo; instrument ex. kniv, sax eller elevatorium.</p>
+
+<p><strong>Radiofrekvens</strong> &ndash; Gemensamt för alla radiofrekvenstekniker är att radiofrekvensenergi används för att uppnå en skärande, dissekerande, volymsreducerande eller koagulerande effekt.</p>
+
+<p>En genomgång av registerdata visar att fyra olika radiofrekvensinstrument används:</p>
+
+<ul>
+	<li>Arthrocare- Coblation&reg; &bull; Ellman-Surgitron&reg;</li>
+	<li>Sutter-Curis&reg;</li>
+	<li>Olympus- Celon</li>
+</ul>
+
+<p><strong>Diatermisax</strong> &ndash; Operationen utförs med sax som samtidigt kan leverera bipolär diatermi över saxens skänklar. Instrumentet kan därigenom dela och koagulera vävnad simultant.</p>
+
+<p><strong>Ultracision</strong> &ndash; Harmonic Scalpel&reg;. Operationen utförs med ett instrument som simultant delar och koagulerar vävnad. Tekniken baseras på ultraljudsvibrationer.</p>
+
+<p><strong>Laser</strong> &ndash; Operationen utförs med en laserstråle som delar och koagulerar vävnad simultant, oftast koldioxidlaser.</p>
+
+<p><strong>Övrigt</strong> &ndash; För att få kännedom om vilka ytterligare tekniker som används finns ett Övrigt-fält. Informationen i detta fält kommer ligga till grund för framtida revisioner av detta kvalitetsregister. Det har t.ex. framkommit att på några kliniker dissekeras tonsillerna bort med bipolär diatermi, och detta bör alltså registreras här.</p>
+
+<p><strong>Hemostastekniker</strong></p>
+
+<p>Ett flertal olika tekniker för att uppnå hemostas används i Sverige vid tonsilloperation. Följande hemostastekniker kan registreras i kvalitetsregistret:</p>
+
+<p><strong>Infiltrationsanestesi med adrenalin</strong> &ndash; Hemostaseffekten uppnås genom adrenalinets kärlkonstringerande effekt.</p>
+
+<p><strong>Unipolär (monopolär) diatermi</strong> &ndash; Hemostaseffekten uppnås genom värmekoagulation av kärl. Ström leds genom patientens vävnader till en neutralplatta.</p>
+
+<p><strong>Bipolär diatermi</strong> &ndash; Hemostaseffekten uppnås genom värmekoagulation av kärl. Bipolära instrument (sax, pincett etc.) har två poler där strömmen leds från den ena till den andra polen. Ström passerar inte genom patientens övriga vävnader.</p>
+
+<p><strong>Laser</strong> &ndash; Hemostaseffekten uppnås genom applicering av hög och lokal värme.</p>
+
+<p><strong>Ligatur</strong> &ndash; Med detta avses en knytligatur av &rdquo;tonsillstjälk&rdquo; som typiskt kan uppstå i tonsillens nedre pol. Tanken är att en bunt med kärl stängs genom ligaturen. Kan också innebära knut kring blödande kärl.</p>
+
+<p><strong>Suturligatur</strong> &ndash; Med detta av ses en omstickning, d.v.s. en djup sutur med nål i mjukvävnaden.</p>
+
+<p>Därutöver finns alternativen &rdquo;ingen&rdquo; och &rdquo;annan&rdquo;.</p>
+<a id="kap10_11_tabell7" name="kap10_11_tabell7" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/tabeller/onh_2013_tonsill_tabell_7.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_11_tabell8a" name="kap10_11_tabell8a" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/tabeller/onh_2013_tonsill_tabell_8a.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_11_tabell8b" name="kap10_11_tabell8b" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/tabeller/onh_2013_tonsill_tabell_8b.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_11_tabell9a" name="kap10_11_tabell9a" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/tabeller/onh_2013_tonsill_tabell_9a.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_11_tabell9b" name="kap10_11_tabell9b" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/tabeller/onh_2013_tonsill_tabell_9b.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_12" name="kap10_12" style="visibility:hidden;">&nbsp;</a> <h2>Nytta med tonsilloperation</h2> <p>I kvalitetsregistret redovisas patientens bedömning av nyttan med operationen. Detta sker genom att patienten ombeds besvara en enkät sex månader efter operationen där graden av symtombefrielse bedöms. Se enkäter på sid 88.</p>
+
+<p>Patientens upplevelse av symtomfrihet kan bero på rad faktorer utöver själva operationen vilka inte mäts i kvalitetsregistret. Rimligtvis finns ett samband mellan grad av symtomfrihet och de besvär patienten hade före operationen, men resultaten kan även påverkas av tillämpningen av indikationer för tonsilloperation, eventuella komplikationer efter operation och den information som patienten erhållit före och efter operationen.</p>
+
+<p>Nyttan av tonsilloperation har redovisats årligen i såväl ÖNH-kvalitetsregistrens årsrapporter som i Öppna jämförelser. Andelen patienter som svarar &rdquo;Besvären är borta&rdquo; eller &rdquo;Jag har blivit ganska bra från mina besvär&rdquo; har de sista åren legat stabilt runt 96%. Skillnaderna mellan kliniker har varit liten (91&ndash;100%) utan statistiskt signifikanta skillnader.</p>
+
+<p>I år väljer vi att presentera &rdquo;Nyttan av tonsilloperation&rdquo; uppdelat på indikation på nationell nivå. Indikationerna recidiverande tonsillit och kronisk tonsillit har lagts ihop. För luftvägsobstruktion/ snarkning/ tonsillhypertrofi redovisas tonsillotomi och tonsillektomi separat. Inte oväntat anger de som opererats för peritonsillit mycket stor symtombefrielse. Även för övriga infektionsrelaterade indikationer är symtombefrielsen stor. Lägst andel symtombefriade finns i gruppen som opererats för &rdquo;annat&rdquo;. Smärre skillnader i symtombefrielse kan noteras i obstruktionsgruppen beroende på om tonsillektomi eller tonsillotomi utförts.</p>
+
+<p>På kliniknivå redovisas data samlat för hela tonsilloperationsgruppen eftersom låg svarsfrekvens inte tillåter presentation av subgrupper. Vi rekommenderar samtliga klinikeratt jämföra sina siffror med riksgenomsnittet. En lägre andel nöjda patienter än snittet bör föranleda en fördjupad lokal analys.</p>
+<a id="kap10_12_graf3" name="kap10_12_graf3" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/figurer/onh_2013_tonsill_fig3.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_12_graf4" name="kap10_12_graf4" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/figurer/onh_2013_tonsill_fig4.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_13" name="kap10_13" style="visibility:hidden;">&nbsp;</a> <h2>Kontakt med sjukvården</h2> <p>I enkäten som skickas till patienterna/närstående 30-dagar efter operationen efterfrågas om de behövt kontakta sjukvården efter ingreppet. I denna tabell redovisas antal patienter som besvarat enkäten. Tabellen visar antal och andel patienter som behövt kontakta sjukvården för blödning, smärta, infektion och även i vilken utsträckning patienterna fått utskrivet antibiotika.</p>
+<a id="kap10_13_tabell10a" name="kap10_13_tabell10a" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/ONH_2013_tonsill_tabell_10a.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_13_tabell10b" name="kap10_13_tabell10b" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/ONH_2013_tonsill_tabell_10b.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_14" name="kap10_14" style="visibility:hidden;">&nbsp;</a> <h2>Enkäter i kvalitetsregistret för tonsilloperation</h2> <p>Uppgifter till kvalitetsregistret insamlas med fyra enkäter. De två första enkäterna fylls i av professionen. På dessa insamlas uppgifter om indikation, vårdform, operationsmetod (ex tonsillektomi) och operationsteknik (ex kallt stål).</p><p>
+Patienterna ombeds besvara två enkäter. Den första skickas 30 dagar postoperativt och kartlägger eventuell blödning, smärta och infektion. I enkäten ställs också frågan om given patientinformation stämt med det patienten upplevt. Den andra skickas sex månader efter operation och kartlägger graden av symtombefrielse. Patientenkäterna bör skickas ut som webblänk via e-post för att minska administrationen. Det är därför viktigt att be patienten fylla i sin e-post adress på den första enkäten.</p>
+<a id="kap10_14_figur1" name="kap10_14_figur1" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/blanketter_sid88.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_14_figur2" name="kap10_14_figur2" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/snurra_sid90.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_15" name="kap10_15" style="visibility:hidden;">&nbsp;</a> <h2>www.tonsilloperation.se</h2> <p>www.tonsilloperation lanserades i maj 2012 med information till patienter som tonsillopereras. Uppgifter på hemsidan har sammanställts efter en systematisk genomgång av informationsmaterial från samtliga ÖNH-kliniker, litteraturstudier och intervjuer med barn som tonsillopererats (och deras föräldrar). På hemsidan finns information riktad till barn med bl.a. en saga med berättarröst och illustrationer, information till närstående och vuxna patienter. Texterna på hemsidan översattes i början av 2014 till engelska, spanska och arabiska. Sagorna har även översatts till engelska.</p>
+
+<p>I början av 2014 utvecklades hemsidan med information till patienterna avseende postoperativ smärtbehandling. Detta är ett unikt verktyg eftersom det på hemsidan finns möjlighet att få individualiserade doseringstabeller (se exemplet på sid 92.</p>
+
+<p>Användandet av hemsidan www.tonsilloperation.se har fortsatt att öka, från ca 500 besökare/månad hösten år 2012 till 8 000 besökare/månad i augusti 2014 (Figur 5). I genomsnitt har hemsidan besökts 300 gånger/dag under 2014. Framtill augusti 2014 har sidan besökts 50 000 gånger varav 41 000 var &rdquo;nya besök&rdquo; (Figur 6). Cirka hälften av besökarna finns utanför Sverige. Hemsidan översattes till flera språk för att öka tillgängligheten för patienter som inte behärskar svenska. En följd av detta är att hemsidan nu används i hela världen där Saudiarabien är det land med flest användare.</p>
+<a id="kap10_15_graf5" name="kap10_15_graf5" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/figurer/onh_2013_tonsill_fig5.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_15_graf6" name="kap10_15_graf6" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/figurer/onh_2013_tonsill_fig6.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_15_1" name="kap10_15_1" style="visibility:hidden;">&nbsp;</a> <h2></h2> <p>81% hittade sidan via Google, 16% går direkt till hemsidan och ca 2% länkas via 1177. Till största delen (90%) används informationen till barn och närstående, resterande besökare använder informationen riktad till vuxna.</p>
+
+<p>Vi ser att en stor andel av de patienter som tonsillopereras använder hemsidan. I 30 dagars enkäten svarar 35% år 2013 att de &rdquo;tagit del av www.tonsilloperation.se&rdquo;. För perioden januari&ndash;augusti 2014 anger 44% att de tagit del av hemsidan.</p>
+
+<p>Webbsidan har anpassats för att kunna användas på smartphones och läsplattor. Vid en analys av vilken typ av enhet som använts för användande av hemsidan visar det sig att 57% har använt smartphones, 33% dator och 9% läsplatta (2014). Det finns också möjlighet att tipsa andra om hemsidan direkt via e-mail, Twitter eller Facebook.</p>
+
+<p>Hemsidan ger även råd om farmakologisk smärtbehandling till barn. Här kan närstående läsa om smärtbehandling, smärtbedömning och smärtskattningsskalor som kan användas i hemmet. Den rekommenderade behandlingen med de receptfria läkemedlen (cox-hämmare och paracetamol) beskrivs med eventuella restriktioner och biverkningar. Närstående kan på hemsidan räkna ut dosering efter barnets vikt. Rekommenderad behandlingstid och nedtrappning av läkemedel åskådliggörs. På hemsidan informeras också om att kontakta sjukvården vid stora svårigheter att inta vätska. All information och doseringsschema går att ladda ner som pdf-fil för utskrift. Pdf-filen är utformad så att närstående kan se doseringstabell (Figur 7) utifrån de val de gjort.</p>
+
+<p>Referensgruppen rekommenderar att en länk till www.tonsilloperation.se finns på ÖNH-klinikernas informationsblad. Önskas visitkort med hänvisning till www.tonsilloperation.se går det bra att ta kontakt med Elisabeth Ericsson (elisabeth.ericsson@oru.se).</p>
+<a id="kap10_15_graf7" name="kap10_15_graf7" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/figurer/onh_2013_tonsill_fig7.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_16" name="kap10_16" style="visibility:hidden;">&nbsp;</a> <h2>Klinikbesök</h2> <p>Efter våra goda erfarenheter från 2012 har referensgruppen för tonsillkirurgi, företrädd av Joacim Stalfors och Lotta Hessén Söderman, under 2013 och våren 2014 genomfört ett flertal klinikbesök.</p>
+
+<p>Syftet med besöken har varit att få personlig kontakt med verksamhetschefer, registeransvariga läkare och sekreterare, besvara frågor, validera data genom att göra stickprov på registreringar och jämföra med journaldata. I samband med besöken har vi också erbjudit föreläsningar, som vi ibland hållit för läkargruppen och ibland för hela personalen. I Jönköping och Halmstad var vi del i en hel kvalitetsdag. Vi har också haft möjlighet att vara med under operationer och se hur man använder sin teknik. Inför varje klinikbesök har vi hjälpt till med att ta fram den aktuella klinikens data, och på flera ställen har mycket positiva resultat av förbättringsarbete påvisats.</p>
+
+<p><strong>De kliniker vi besökt under 2013 och våren 2014 är:</strong></p>
+
+<p>Falun</p>
+
+<p>Karlskrona</p>
+
+<p>Västerås</p>
+
+<p>Kalmar</p>
+
+<p>Sahlgrenska</p>
+
+<p>Örebro</p>
+
+<p>Karlstad</p>
+
+<p>Jönköping</p>
+
+<p>Sophiahemmet</p>
+
+<p>Skärholmen</p>
+
+<p>Ängelholm</p>
+
+<p>Trelleborg</p>
+
+<p>Kristianstad + Ystad (via länk) Helsingborg</p>
+
+<p>Överallt har vi blivit mycket väl mottagna och omhändertagna, och vår förhoppning är att vi ska kunna fortsätta besöken. Snart har vi besökt alla högvolymskliniker, och så småningom planerar vi erbjuda återbesök om man t.ex. genomfört ett förbättringsprojekt och vill ha hjälp med återkoppling. Vi passar härmed på tillfället att erbjuda er att kontakta referensgruppen genom joacim@stalfors.se om ni är intresserade av ett besök!</p>
+<a id="kap10_16_figur1" name="kap10_16_figur1" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/klinikbesok.jpg" style="max-width:100%;width:100%;"><br />Dr Anna-Lena Roos utför tonsillotomi på Sahlgrenska Universitetssjukhuset.</p>
+<a id="kap10_17" name="kap10_17" style="visibility:hidden;">&nbsp;</a> <h2>Referensgruppen för tonsilloperation</h2> <p>Referensgruppen för tonsilloperation har av svensk förening för otorhinolaryngologi, huvud- och halskirurgi fått i uppdrag att förvalta, utveckla och återkoppla ÖNH-kvalitetsregister, tonsilloperation. Registret finansieras av Sveriges Kommuner och Landsting (SKL).</p>
+
+<p><strong>I referensgruppen ingår:</strong><br />
+<strong>Joacim Stalfors</strong>, Överläkare, Docent, ÖNH-kliniken, Sahlgrenska Universitetssjukhuset, Göteborg (joacim.stalfors@vgregion.se)<br />
+<strong>Elisabeth Ericsson</strong>, Leg. ssk., Universitetslektor, Docent, Institutionen för hälsovetenskap och medicin,<br />
+Örebro universitet<br />
+<strong>Claes Hemlin</strong>, Överläkare, Med. dr., Sollentuna specialistklinik, Sollentuna sjukhus, Sollentuna<br />
+<strong>Anne-Charlotte Hessén Söderman</strong>, Överläkare, Med. dr., Aleris specialistvård, Sabbatsbergs sjukhus, Stockholm<br />
+<strong>Erik Odhagen</strong>, Specialistläkare, doktorand, ÖNH-kliniken, Sahlgrenska Universitetssjukhuset, Göteborg<br />
+<strong>Ola Sunnergren</strong>, Överläkare, Med. dr., Öron-, Näs- och Halskliniken, Länssjukhuset Ryhov, Jönköping</p>
+<a id="kap10_17_figur1" name="kap10_17_figur1" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/referensgruppen_sid94.jpg" style="max-width:100%;width:100%;"><br />
+Från vänster: Lotta Hessén Söderman, Ola Sunnergren, Joacim Stalfors, Elisabeth Ericsson, Claes Hemlin och Erik Odhagen.</p>
+<a id="kap10_18" name="kap10_18" style="visibility:hidden;">&nbsp;</a> <h2>Publikationer</h2> <h4>Artiklar i vetenskapliga tidsskrifter</h4>
+
+<ol>
+	<li>Mortality after tonsil surgery, a population study, covering 8 years and 82 527 operations in Sweden. Östvoll E, Hemlin C, Ericsson E, Hultcrantz E, Odhagen E, Sunnergren O, Stalfors J. Accepted for publication in European Archives of Oto-Rhino-Laryngology and Head &amp; Neck 23 Sept 2014.</li>
+	<li>Radiofrequency tonsillotomy in Sweden 2009&ndash;2012. Sunnergren O, Hemlin C, Ericsson E, Hessén Söderman AC, Hultcrantz E, Odhagen E, Stalfors J. Eur Arch Otorhinolaryngol. 2014;271:1823-1827.</li>
+	<li>Paradigm shift in Sweden from tonsillectomy to tonsillotomy for children with upper airway obstructive symptoms due to tonsillar hypertrophy. Hultcrantz E, Ericsson E, Hemlin C, Hessén Söderman AC, Roos K, Sunnergren O, Stalfors J. Eur Arch Otorhinolaryngol. 2013;270:2531-2536.</li>
+	<li>Factors influencing the indication for tonsillectomy: a historical overview and current concepts. Hultcrantz E, Ericsson E. ORL J Otorhinolaryngol Relat Spec. 2013;75:3:184-191.</li>
+	<li>Tonsil surgery efficiently relieves symptoms: analysis of 54 696 patients in the National Tonsil Surgery Register in Sweden. Stalfors J, Ericsson E, Hemlin C, Hultcrantz E, Månsson I, Roos K, Hessén Söderman AC. Acta Oto-Laryngologica 2012;132:533-539.</li>
+	<li>Reduced risk of primary postoperative hemorrhage after tonsil surgery in Sweden: results from the National Tonsil Surgery Register in Sweden covering more than 10 years and 54,696 operations Hessén Söderman AC, Ericsson E, Hemlin C, Hultcrantz E, Månsson I, Roos K, Stalfors J. The Laryngoscope 2011;121:2322-2326.</li>
+</ol>
+
+<h4>Artiklar i svensk och internationell fackpress</h4>
+
+<ol>
+	<li>Nationella riktlinjer för farmakologisk behandling av smärta och illamående I samband med tonsillotomi och tonsillektomi på barn och ungdomar (&lt;18år). Ericsson E, Lundeberg S, Brattwall M, Stalfors J, Hemlin C, Hessén Söderman AC, Sunnergren O, Hultcrantz E, Odhagen E. Smärta 2014;1:20-21.</li>
+	<li>Nationell kartläggning av farmakologiska rutiner och information i samband med tonsilloperation. Andersson E, Kroon A, Ericsson E. Smärta 2014;1:18-19.</li>
+	<li>Processen med utformning av nationella farmakologiska riktlinjer i samband med tonsilloperation. Ericsson E. Smärta 2014;1: 19.</li>
+	<li>Farmakologisk behandling av smärta och illamående i samband med tonsilloperation på barn och ungdomar (&lt; 18 år). Brattwall M, Lundeborg S, Ericsson E. (Läkartidningen accepterad, planerad publicering höst 2014).</li>
+	<li>Farmakologisk behandling av smärta och illamående I samband med tonsillotomi och tonsillektomi på barn och ungdomar (&lt;18år). Ericsson E, Brattwall M, Lundeberg S. Svensk ÖNH-Tidskrift 2013;3:18-23.</li>
+	<li>Nationella riktlinjer för farmakologisk behandling av smärta och illamående I samband med tonsillotomi och tonsillektomi på barn och ungdomar (&lt; 18 år). Ericsson E, Lundeberg S, Brattwall M, Stalfors J, Hemlin C, Hessén Söderman AC, Sunnergren O, Hultcrantz E, Odhagen E. Ventilen 2013;4:18-19.</li>
+	<li>Processen med utformning av nationella farmakologiska riktlinjer i samband med tonsilloperation. Ericsson E. Ventilen 2013;4:17.</li>
+	<li>Nationell kartläggning av farmakologiska rutiner och information i samband med tonsilloperation. Andersson E, Kroon A, Ericsson E. Ventilen 2013;4:16-17.</li>
+	<li>Processen med utformning av nationella farmakologiska riktlinjer i samband med tonsilloperation. Ericsson E. SFAI-tidningen 2013;19:252-253.</li>
+	<li>Farmakologisk behandling av smärta och illamående I samband med tonsillotomi och tonsillektomi på barn och ungdomar (&lt; 18 år). Ericsson E, Brattwall M, Lundeberg S. SFAI-tidningen 2013;19:248-251.</li>
+	<li>Patientsäkerhetsarbete med data från Nationell kvalitetsregister för tonsilloperation. Stalfors J, Ericsson E, Hemlin C, Hessén Söderman AC, Hultcrantz E, Odhagen E, Roos K, Sunnergren O. Svensk ÖNH-tidskrift 2012;19:16-17.</li>
+	<li>Varför registrera i nationellt kvalitetsregister för tonsilloperation? Stalfors J, Roos K, Hemlin C, Ericsson E, Hultcrantz E, Hessén Söderman AC. Svensk ÖNH-tidskrift 2011;18:26-27.</li>
+	<li>Svenskt tonsilloperationsregister. &ndash; Vad kan 11 års registrering lära oss om OSAS hos barn? Stalfors J. Svensk ÖNH-tidskrift 2009;16:26-27.</li>
+	<li>Teknik vid tonsillkirurgi hos barn med SAS. Hessén Söderman AC. Svensk ÖNH-tidskrift 2009;16:24-25.</li>
+	<li>Nationella Medicinska Indikationer för tonsilloperation. Hemlin C. Svensk ÖNH-tidskrift 2009;16:22-23.</li>
+	<li>Tonsillektomi med coblation kan vara förenat med ökad frekvens postoperativ blödning. Stalfors J. Svensk ÖNH-tidskrift 2008;15:23.</li>
+	<li>&ldquo;From TE to TO: The Scandinavian Experience&rdquo;. Hultcrantz E, Stalfors J. WMW-Skriptum 2008;10:18-20.</li>
+	<li>Patienters erfarenheter av komplikationer och oplanerat återbesök efter tonsillektomi. En studie med kvalitativ ansats för att belysa frågor väckta i det nationella kvalitetsregistret. Månsson I, Segesten K, Wassberg E-M. Svensk ÖNH-tidskrift 2006;13;22-23</li>
+</ol>
+
+<h4>Rapporter</h4>
+
+<ol>
+	<li>Nationellt kvalitetsregister Öron-, Näs- och Halssjukvård, Årsrapport 2012. Hemlin C m.fl. ISSN 2001-6883.</li>
+	<li>Nationellt kvalitetsregister för tonsilloperation, Årsrapport 2011. Stalfors J, Ericsson E, C. Hemlin, Hessén Söderman AC, Hultcrantz E, Odhagen E, Padoan S, Sunnergren O. ISSN 2001-4457.</li>
+	<li>Tonsillotomi på barn och ungdomar. Nationella Medicinska Indikationer, 2011. Ericsson E, Hultcrantz E, Hemlin C, Eggertsen R, Lundeborg Hammarström I, Marcusson A, Proczkowska-Björklund M, Stjernquist-Desatnik A, Zettergren-Wijk L, Moa G, Törnqvist H. Rapport Sveriges Kommuner och Landsting. Finns som nedladdningsbart dokument på: www.entqualitysweden.se (publikation tonsilloperation).</li>
+	<li>Nationella Medicinska Indikationer, Tonsilloperation, Rapport från expertgruppen för tonsilloperation inom Svensk förening för Otorhinolaryngologi, Huvud- och Halskirurgi. Månsson I m.fl. 2009 (tillgänglig på www.tonsilloperation.se).</li>
+</ol>
+<a id="kap10_18_figur1" name="kap10_18_figur1" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kissing%20tonsils.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap10_19" name="kap10_19" style="visibility:hidden;">&nbsp;</a> <h2>Medarbetare</h2> <p>På varje klinik bör det finnas en ansvarig sekreterare och läkare. Dessa personer fungerar som kontaktpersoner för kvalitetsregistret och får nyheter via mail. Dessa personer har också möjlighet att ta hem klinikens egna data. Kontakta onh@registercentrum.se om listan behöver uppdateras.</p>
+<a id="kap10_19_tabell" name="kap10_19_tabell" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/tonsill/tabeller/onh_2013_tonsill_tabell_medarbetare.jpg" style="max-width:100%;width:100%;"></p>
+
+           </div><!-- /braincontent -->
+           </div><!-- /content -->
+           
+      <div data-role="panel" data-position-fixed="true"  data-display="overlay" data-theme="b" id="nav-panel">
+      <ul data-role="listview" data-theme="a" class="nav-search">
+            <li data-icon="delete"><a href="#" data-rel="close">Stäng meny</a></li>
+        <li style="background: #ececec; color:red;"><a style="color:#333333;" data-ajax="false" href="index.html">Start</a></li>
+<li style="background: #babbbd; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap1.html">Förord</a></li>
+<li style="background: #ea9230; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap2.html">Septumplastikregistret</a></li>
+<li style="background: #517130; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap3.html">Otoskleroskirurgi</a></li>
+<li style="background: #9d2845; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap4.html">Hörselbarnsregistret</a></li>
+<li style="background: #716789; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap5.html">Grav hörselnedsättning vuxna</a></li>
+<li style="background: #c5d068; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap6.html">Rör i Trumhinnan</a></li>
+<li style="background: #78c6d2; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap7.html">Fonokirurg</a></li>
+<li style="background: #0074a3; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap8.html">Hörselrehabilitering</a></li>
+<li style="background: #f3d01e; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap9.html">Myringo- och ossikuloplastik</a></li>
+<li style="background: #014073; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap10.html">Tonsilloperation</a></li>
+<li style="background: #666666; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_enkater.html">Enkäter</a></li>
+</ul>
+      </div><!-- /panel -->
+    </div><!-- /page -->
+    <div data-role="page" id="panel-fixed-page2">
+      <div data-role="header" data-theme="f">
+        <h1>Landing page</h1>
+      </div><!-- /header -->
+      <div data-role="content">
+        <p>This is just a landing page.</p>
+        <a href="#panel-fixed-page1" data-role="button" data-inline="true" data-mini="true" data-icon="back" data-iconpos="left">Back</a>
+      </div><!-- /content -->
+    </div><!-- /page -->
+    <script>
+              if ($(window).width() < 550) {
+          $('.custom-button').attr('data-iconpos', 'notext');
+        }
+
+
+    </script>
+  </body>
+</html>

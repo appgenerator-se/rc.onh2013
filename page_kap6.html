@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=2.5, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />   
+    <title>Kvalitetsregistret för Rör i Trumhinnan</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="themes/faktavgr.min.css" />
+    <link rel="stylesheet" href="js/jquery.mobile.structure-1.3.2.min.css" /> 
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script> 
+    <script type="text/javascript" src="js/brainworks.js"></script> 
+    <script type="text/javascript" src="js/jquery.mobile-1.3.2.min.js"></script> 
+    <script type="text/javascript" src="js/imagemap/imagemap.js"></script>
+    <script>
+var port_table = '<img class="startmenup" src="http://www.appgenerator.se/classic/onh2014/app/images/menu/portrait6.jpg" usemap="#startmenup" style="max-width:100%;width:100%;" />' +
+	'<map name="startmenup">' +
+	'<area areaname="area_1" full="area_1" shape="rect" coords="47,105,171,125" href="#kap6_1"/>' +
+'<area areaname="area_2" full="area_2" shape="rect" coords="47,134,309,172" href="#kap6_2"/>' +
+'<area areaname="area_3" full="area_3" shape="rect" coords="47,182,225,220" href="#kap6_3"/>' +
+'<area areaname="area_4" full="area_4" shape="rect" coords="47,229,287,285" href="#kap6_4"/>' +
+'<area areaname="area_5" full="area_5" shape="rect" coords="357,105,654,143" href="#kap6_5"/>' +
+'<area areaname="area_6" full="area_6" shape="rect" coords="357,152,605,190" href="#kap6_6"/>' +
+
+'</map>';
+
+var land_table = '<img class="startmenul" src="http://www.appgenerator.se/classic/onh2014/app/images/menu/landscape6.jpg" usemap="#startmenul" style="max-width:100%;width:100%;" />' +
+	'<map name="startmenul">' +
+	'<area areaname="area_1" full="area_1" shape="rect" coords="43,171,181,191" href="#kap6_1"/>' +
+'<area areaname="area_2" full="area_2" shape="rect" coords="43,201,336,240" href="#kap6_2"/>' +
+'<area areaname="area_3" full="area_3" shape="rect" coords="43,249,242,288" href="#kap6_3"/>' +
+'<area areaname="area_4" full="area_4" shape="rect" coords="43,297,411,336" href="#kap6_4"/>' +
+'<area areaname="area_5" full="area_5" shape="rect" coords="43,344,366,383" href="#kap6_5"/>' +
+'<area areaname="area_6" full="area_6" shape="rect" coords="43,392,321,431" href="#kap6_6"/>' +
+
+'</map>';
+var startorientation;
+
+if (window.matchMedia("(orientation: portrait)").matches) {
+	startorientation = 'portrait';
+}
+else {
+	startorientation = 'landscape';
+}
+
+$(document).ready(function () {
+	$(window).on("orientationchange", function (event) {
+		//alert('orientationchange');
+		if (event.orientation == 'landscape') {
+			$("#myimagemenu").html(land_table);
+			$('.startmenul').rwdImageMaps();
+		}
+		else {
+			$("#myimagemenu").html(port_table);
+			$('.startmenup').rwdImageMaps();
+		}
+	});
+
+	// You can also manually force this event to fire.
+	$(window).orientationchange();
+//        $(window).bind('resize', onWindowResize);
+	$.mobile.fixedToolbars.setTouchToggleEnabled(false);
+	$.mobile.ajaxEnabled = false;
+
+});
+
+$(document).load(function () {
+	if (startorientation == 'portrait') {
+		$("#myimagemenu").html(port_table);
+		$('.startmenup').rwdImageMaps();
+	}
+	else {
+		$("#myimagemenu").html(land_table);
+		$('.startmenul').rwdImageMaps();
+	}
+
+});
+$(document).bind('pageinit', function () {
+	var urlHash = window.location.href.split("#")[1];
+	if (urlHash) {
+		setTimeout(function ()
+		{
+			window.location.assign('#' + urlHash);
+		}, 2000);
+	}
+}
+);
+
+</script>
+
+    <style>
+      body {
+        background-color: white !important;
+      }
+      .ui-content {
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+        background:white;
+        font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
+      }      
+      .ui-bar-a {
+        background:#c5d068;
+        color : #ffffff;
+      }
+      .braincontent {
+        padding-right: 20px;
+        padding-left: 20px;
+      }
+      p {
+        margin-top:0px;
+        margin-bottom:10px;
+      }
+      h2 {
+        color:black;
+        padding-top:5px;
+        margin-bottom:6px;
+      }
+      .kapbilder {
+        width: 65% !important;
+        max-width: 100%;
+        margin: 0 auto !important;
+        position: relative !important;
+      }
+			.enkatbilder {
+				border: 1px solid #ddd;
+			}
+    </style>
+  </head>
+  <body>
+    <div data-role="page" class="ui-responsive-panel" id="panel-fixed-page1">
+      <!-- header -->
+      <div data-role="header" data-theme="a" data-position="fixed" data-disable-page-zoom="false" data-tap-toggle="false">
+        <div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+          <a href="#nav-panel" class="custom-button" data-role="button" data-icon="bars">Meny</a>
+          <a href="index.html" class="custom-button" data-ajax="false" data-role="button" data-icon="home">Start</a>
+          <a href="#panel-fixed-page1" class="custom-button" data-ajax="false" data-role="button" data-icon="arrow-u">Topp</a>
+        </div>
+        <h1 class="ui-title" data-tap-toggle="false" role="heading">Kvalitetsregistret för Rör i Trumhinnan</h1>
+        <div class="ui-btn-right" data-role="controlgroup" data-type="horizontal">
+<!--          <a href="#panel-fixed-page1" class="custom-button" data-ajax="false" data-role="button" data-icon="arrow-u">Topp</a> -->
+          <a href="search.html" class="custom-button" data-role="button" data-icon="search">Sök</a>
+<!--          <a href="#add-form" data-role="button" data-icon="star">Favoriter</a> -->
+        </div>
+      </div>      <!-- /header -->
+      
+          <div data-role="content">
+          <div id="myimagemenu"></div>
+          <div data-demo-html="#panel-fixed-page1"></div>
+          <div class="braincontent">
+          <a id="kap6_1" name="kap6_1" style="visibility:hidden;">&nbsp;</a> <h2>Fokusområden</h2> <p>Det gångna året har haft fokus på 1) att slutföra uppdateringen av det ursprungliga <em>Rörbehandlingsregistret</em>, 2) att överföra den nya evidensbaserade versionen till den nya plattformen, Registercentrum Västra Götaland och 3) att inleda ett intensivt marknadsföringsarbete av det uppdaterade Rör i Trumhinnan-registret för att öka deltagande och täckningsgrad.</p>
+<a id="kap6_2" name="kap6_2" style="visibility:hidden;">&nbsp;</a> <h2>Uppdatering av det ursprungliga Rörbehandlingsregistret i flera steg</h2> <p><em>Rörbehandlingsregistret</em> var ett av fem ursprungliga delregister, när det nationella kvalitetsregistret för ÖNH-sjukvård sjösattes 1998. Drygt 40 000 registreringar samlades in fram till 2008 och det framkom bl.a. att rör i trumhinnan är vanligare hos pojkar än hos flickor, 52% respektive 42%. Vidare konstaterades att 3/4 av alla rör sattes på indikationen vätska i mellanörat (SOM) och 1/4 sattes på upprepade öroninflammationer (rAOM).</p>
+
+<p>Efter tio år med <em>Rörbehandlingsregistret</em> började man emellertid inom specialitetsföreningen Svensk Förening för Otorhinolaryngologi, Huvud och Halskirurgi ifrågasätta rörbehandlingen ur flera aspekter; rörbehandlades för många barn och var alltid indikationerna de rätta? Parallellt med dessa tankegångar gjordes jämförelser på internationell nivå. Anmärkningsvärt i dessa jämförelser var t.ex. att i Danmark rörbehandlades 3&ndash;4 gånger så många barn som i Sverige och i vissa delar av England endast hälften så många som i Sverige. Frågor som ställdes var: Vilket var det vetenskapliga underlaget för rörbehandling av barn med öroninflammation och borde inte kvalitetsindikatorerna för rörbehandling anpassas till detta?</p>
+
+<p>Den svenska ÖNH-föreningen tog kontakt med SBU och fick gehör för att det skulle göras en systematisk litteraturöversikt över rörbehandling av barn med öroninflammation. Detta var första steget i en process som ytterst syftade till ett evidensbaserat förhållningssätt gällande rörbehandling hos barn. Granskningen av det vetenskapliga underlaget för rörbehandling mynnade ut i en SBU-rapport 2008.</p>
+
+<p>Mot bakgrund av SBU-rapporten arbetades &rdquo;Nationella rekommendationer för rörbehandling av barn med öroninflammation&rdquo; fram. Fokus kom att ligga på; diagnostik, när ska barn remitteras till ÖNH-specialist, vilka barn ska erbjudas rörbehandling och rutiner för kontroller/ uppföljning.</p>
+
+<p>Nu inleddes ett revisionsarbete att anpassa kvalitetsindikatorer i <em>Rörbehandlingsregistret</em> till de nya nationella rekommendationerna dvs att utveckla <em>Rörbehandlings&shy;registret</em> till en evidensbaserad version. Under 2013 slutfördes detta arbete.</p>
+<a id="kap6_3" name="kap6_3" style="visibility:hidden;">&nbsp;</a> <h2>Det nya kvalitetsregistret för Rör i Trumhinnan</h2> <p>Det nya kvalitetsregistret för Rör i Trumhinnan består av <strong>fyra enkäter</strong> som innehåller förändringar, förenklingar och förbättringar.</p>
+
+<p>Den <strong>preoperativa enkäten</strong> beskriver operationsindikation, hörselstatus och antal genomlidna öroninflammationsepisoder samt hur vårdnadshavaren upplever hur barnet hör och mår.</p>
+
+<p><strong>Operationsenkäten</strong> beskriver typ av rör som sätts.</p>
+
+<p><strong>Återbesöksenkäten</strong> som fylls i tre månader efter rörsättning beskriver om rören sitter kvar och hörselstatus.</p>
+
+<p>Sex månader efter rörsättningen sänds en patientenkät hem till vårdnadshavaren där man på nytt beskriver hur barnet mår och hörselsituation upplevs.</p>
+<a id="kap6_4" name="kap6_4" style="visibility:hidden;">&nbsp;</a> <h2>Det nya Rör i Trumhinnan-registret överörs till Registercentrum Västra Götaland</h2> <p>Under h&ouml;sten 2013 inleddes &ouml;verf&ouml;ringen av <em>R&ouml;r i Trum&shy;hinnan</em>-registret till Registercentrum, V&auml;stra G&ouml;taland. Processen slutf&ouml;rdes strax efter &aring;rsskiftet och inneb&auml;r att R&ouml;r i Trumhinnan-registret nu f&aring;r tillg&aring;ng till Registercentrums kunniga och kompetenta resurspersoner. F&ouml;r n&auml;rvarande p&aring;g&aring;r arbetet med att designa goda presentationer av intressanta utdata, som kommer att finnas tillg&auml;ngliga online.</p>
+<a id="kap6_5" name="kap6_5" style="visibility:hidden;">&nbsp;</a> <h2>Intensiv marknadsföring för att öka antalet deltagande kliniker och täckningsgrad</h2> <p>Under de år som <em>Rör i Trumhinnan</em>-registrets uppgradering tagit har ett antal kliniker valt att hoppa av det ursprungliga registret i avvaktan på det nya. 27 vårdenheter rapporterar in, vilket utgör cirka 2/3 av det antal kliniker som rörbehandlar barn med öroninflammation. Av dessa 27 enheter förefaller hälften ha en i det närmaste 100%-ig täckningsgrad. Positivt är också att samtliga rörbehandlande privata vårdenheter i Stockholmsregionen har börjat registrera i Rör i Trumhinnan-registret under 2013.</p>
+
+<p>Det finns i nuläget 3 847 registrerade barn som fått rör i trumhinnan och besvarat den preoperativa enkäten. Vi är fortfarande i uppstartfas och resultatredovisning och analys av data återkommer vi till detta vid nästa årsrapport.</p>
+
+<p>Det bör emellertid nämnas att vid vissa kliniker finns en negativ attityd till att delta och då vanligen med motiveringen att &rdquo;vi vet att vi arbetar på rätt sätt&rdquo; och att därmed registrerandet blir en onödig tidskrävande arbetsinsats.</p>
+
+<p>Referensgruppen som är lyhörd och lyssnar till denna kritik har således en intensiv marknadsföring med ett omfattande pedagogiskt arbete framför sig som bl.a. kommer att ta sig i uttryck av klinikbesök och stödjande analyser av registrerade klinikdata</p>
+<a id="kap6_6" name="kap6_6" style="visibility:hidden;">&nbsp;</a> <h2>Referensgrupp för Kvalitetsregistret för rör i trumhinnan</h2> <p><strong>Sten Hellström</strong>, Ordförande. Hörsel- och balanskliniken, Karolinska Universitetssjukhuset, Stockholm, sten.hellstrom@karolinska.se</p>
+
+<p><strong>Anna Granath</strong>, ÖNH-kliniken,</p>
+
+<p>Karolinska Universitetssjukhuset, Stockholm, anna.granath@karolinska.se</p>
+
+<p><strong>Claes Hemlin</strong>, Sollentuna specialistklinik, Sollentuna sjukhus, Sollentuna, claes.hemlin@tele2.se</p>
+
+<p><strong>Finn Jörgensen</strong>, ÖNH-kliniken, Hallands sjukhus Halmstad, finn.jorgensen@regionhalland.se</p>
+
+<p><strong>Ingrid Augustsson</strong>, ÖNH-kliniken, Universitetssjukhuset Örebro, ingrid.augustsson@orebroll.se</p>
+
+<p><strong>Karin Stenfeldt</strong>, ÖNH-kliniken, Skånes Universitetssjukhus Lund, karin.stenfeldt@telia.com</p>
+<a id="kap6_6_fig1" name="kap6_6_fig1" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/refrorbehandling.jpg" style="max-width:100%;width:100%;"><br />
+<strong>Referensgruppen (fr vänster):</strong> Claes Hemlin, Karin Stenfeldt, Ingrid Augustsson, Anna Granath, Sten Hellström, Finn Jörgensen.</p>
+
+           </div><!-- /braincontent -->
+           </div><!-- /content -->
+           
+      <div data-role="panel" data-position-fixed="true"  data-display="overlay" data-theme="b" id="nav-panel">
+      <ul data-role="listview" data-theme="a" class="nav-search">
+            <li data-icon="delete"><a href="#" data-rel="close">Stäng meny</a></li>
+        <li style="background: #ececec; color:red;"><a style="color:#333333;" data-ajax="false" href="index.html">Start</a></li>
+<li style="background: #babbbd; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap1.html">Förord</a></li>
+<li style="background: #ea9230; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap2.html">Septumplastikregistret</a></li>
+<li style="background: #517130; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap3.html">Otoskleroskirurgi</a></li>
+<li style="background: #9d2845; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap4.html">Hörselbarnsregistret</a></li>
+<li style="background: #716789; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap5.html">Grav hörselnedsättning vuxna</a></li>
+<li style="background: #c5d068; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap6.html">Rör i Trumhinnan</a></li>
+<li style="background: #78c6d2; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap7.html">Fonokirurg</a></li>
+<li style="background: #0074a3; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap8.html">Hörselrehabilitering</a></li>
+<li style="background: #f3d01e; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap9.html">Myringo- och ossikuloplastik</a></li>
+<li style="background: #014073; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap10.html">Tonsilloperation</a></li>
+<li style="background: #666666; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_enkater.html">Enkäter</a></li>
+</ul>
+      </div><!-- /panel -->
+    </div><!-- /page -->
+    <div data-role="page" id="panel-fixed-page2">
+      <div data-role="header" data-theme="f">
+        <h1>Landing page</h1>
+      </div><!-- /header -->
+      <div data-role="content">
+        <p>This is just a landing page.</p>
+        <a href="#panel-fixed-page1" data-role="button" data-inline="true" data-mini="true" data-icon="back" data-iconpos="left">Back</a>
+      </div><!-- /content -->
+    </div><!-- /page -->
+    <script>
+              if ($(window).width() < 550) {
+          $('.custom-button').attr('data-iconpos', 'notext');
+        }
+
+
+    </script>
+  </body>
+</html>

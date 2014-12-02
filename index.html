@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=2.5, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />   
+    <title>Startsida</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="themes/faktavgr.min.css" />
+    <link rel="stylesheet" href="js/jquery.mobile.structure-1.3.2.min.css" /> 
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script> 
+    <script type="text/javascript" src="js/brainworks.js"></script> 
+    <script type="text/javascript" src="js/jquery.mobile-1.3.2.min.js"></script> 
+    <script type="text/javascript" src="js/imagemap/imagemap.js"></script>
+    <script>
+var port_table = '<img class="startmenup" src="http://www.appgenerator.se/classic/onh2014/app/images/menu/portrait_ny.jpg" usemap="#startmenup" style="max-width:100%;width:100%;" />' +
+	'<map name="startmenup">' +
+	'<area areaname="area_1" full="area_1" shape="rect" coords="0,423,172,579" href="page_kap1.html"/>' +
+'<area areaname="area_2" full="area_2" shape="rect" coords="177,423,350,579" href="page_kap2.html"/>' +
+'<area areaname="area_3" full="area_3" shape="rect" coords="354,423,527,579" href="page_kap3.html"/>' +
+'<area areaname="area_4" full="area_4" shape="rect" coords="532,423,703,579" href="page_kap4.html"/>' +
+'<area areaname="area_5" full="area_5" shape="rect" coords="0,584,172,740" href="page_enkater.html"/>' +
+'<area areaname="area_6" full="area_6" shape="rect" coords="177,584,350,740" href="page_kap5.html"/>' +
+'<area areaname="area_7" full="area_7" shape="rect" coords="354,584,527,740" href="page_kap6.html"/>' +
+'<area areaname="area_8" full="area_8" shape="rect" coords="532,584,703,740" href="page_kap7.html"/>' +
+'<area areaname="area_9" full="area_9" shape="rect" coords="0,745,172,899" href="index.html#om_appen"/>' +
+'<area areaname="area_10" full="area_10" shape="rect" coords="177,745,350,899" href="page_kap8.html"/>' +
+'<area areaname="area_11" full="area_11" shape="rect" coords="354,745,527,899" href="page_kap9.html"/>' +
+'<area areaname="area_12" full="area_12" shape="rect" coords="532,745,703,899" href="page_kap10.html"/>' +
+
+'</map>';
+
+var land_table = '<img class="startmenul" src="http://www.appgenerator.se/classic/onh2014/app/images/menu/landscape_ny.jpg" usemap="#startmenul" style="max-width:100%;width:100%;" />' +
+	'<map name="startmenul">' +
+	'<area areaname="area_1" full="area_1" shape="rect" coords="375,0,547,155" href="page_kap1.html"/>' +
+'<area areaname="area_2" full="area_2" shape="rect" coords="552,0,724,155" href="page_enkater.html"/>' +
+'<area areaname="area_3" full="area_3" shape="rect" coords="729,0,899,155" href="index.html#om_appen"/>' +
+'<area areaname="area_4" full="area_4" shape="rect" coords="375,160,547,315" href="page_kap2.html"/>' +
+'<area areaname="area_5" full="area_5" shape="rect" coords="552,160,724,315" href="page_kap3.html"/>' +
+'<area areaname="area_6" full="area_6" shape="rect" coords="729,160,899,315" href="page_kap4.html"/>' +
+'<area areaname="area_7" full="area_7" shape="rect" coords="375,320,547,475" href="page_kap5.html"/>' +
+'<area areaname="area_8" full="area_8" shape="rect" coords="552,320,724,475" href="page_kap6.html"/>' +
+'<area areaname="area_9" full="area_9" shape="rect" coords="729,320,899,475" href="page_kap7.html"/>' +
+'<area areaname="area_10" full="area_10" shape="rect" coords="375,480,547,634" href="page_kap8.html"/>' +
+'<area areaname="area_11" full="area_11" shape="rect" coords="552,480,724,634" href="page_kap9.html"/>' +
+'<area areaname="area_12" full="area_12" shape="rect" coords="729,480,899,634" href="page_kap10.html"/>' +
+
+'</map>';
+var startorientation;
+
+if (window.matchMedia("(orientation: portrait)").matches) {
+	startorientation = 'portrait';
+}
+else {
+	startorientation = 'landscape';
+}
+
+$(document).ready(function () {
+	$(window).on("orientationchange", function (event) {
+		//alert('orientationchange');
+		if (event.orientation == 'landscape') {
+			$("#myimagemenu").html(land_table);
+			$('.startmenul').rwdImageMaps();
+		}
+		else {
+			$("#myimagemenu").html(port_table);
+			$('.startmenup').rwdImageMaps();
+		}
+	});
+
+	// You can also manually force this event to fire.
+	$(window).orientationchange();
+//        $(window).bind('resize', onWindowResize);
+	$.mobile.fixedToolbars.setTouchToggleEnabled(false);
+	$.mobile.ajaxEnabled = false;
+
+});
+
+$(document).load(function () {
+	if (startorientation == 'portrait') {
+		$("#myimagemenu").html(port_table);
+		$('.startmenup').rwdImageMaps();
+	}
+	else {
+		$("#myimagemenu").html(land_table);
+		$('.startmenul').rwdImageMaps();
+	}
+
+});
+$(document).bind('pageinit', function () {
+	var urlHash = window.location.href.split("#")[1];
+	if (urlHash) {
+		setTimeout(function ()
+		{
+			window.location.assign('#' + urlHash);
+		}, 2000);
+	}
+}
+);
+
+</script>
+
+    <style>
+      body {
+        background-color: white !important;
+      }
+      .ui-content {
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+        background:white;
+        font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
+      }      
+      .ui-bar-a {
+        background:#ececec;
+        color : #333333;
+      }
+      .braincontent {
+        padding-right: 20px;
+        padding-left: 20px;
+      }
+      p {
+        margin-top:0px;
+        margin-bottom:10px;
+      }
+      h2 {
+        color:black;
+        padding-top:5px;
+        margin-bottom:6px;
+      }
+      .kapbilder {
+        width: 65% !important;
+        max-width: 100%;
+        margin: 0 auto !important;
+        position: relative !important;
+      }
+			.enkatbilder {
+				border: 1px solid #ddd;
+			}
+    </style>
+  </head>
+  <body>
+    <div data-role="page" class="ui-responsive-panel" id="panel-fixed-page1">
+      <!-- header -->
+      <div data-role="header" data-theme="a" data-position="fixed" data-disable-page-zoom="false" data-tap-toggle="false">
+        <div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+          <a href="#nav-panel" class="custom-button" data-role="button" data-icon="bars">Meny</a>
+          <a href="index.html" class="custom-button" data-ajax="false" data-role="button" data-icon="home">Start</a>
+          <a href="#panel-fixed-page1" class="custom-button" data-ajax="false" data-role="button" data-icon="arrow-u">Topp</a>
+        </div>
+        <h1 class="ui-title" data-tap-toggle="false" role="heading">Startsida</h1>
+        <div class="ui-btn-right" data-role="controlgroup" data-type="horizontal">
+<!--          <a href="#panel-fixed-page1" class="custom-button" data-ajax="false" data-role="button" data-icon="arrow-u">Topp</a> -->
+          <a href="search.html" class="custom-button" data-role="button" data-icon="search">Sök</a>
+<!--          <a href="#add-form" data-role="button" data-icon="star">Favoriter</a> -->
+        </div>
+      </div>      <!-- /header -->
+      
+          <div data-role="content">
+          <div id="myimagemenu"></div>
+          <div data-demo-html="#panel-fixed-page1"></div>
+          <div class="braincontent">
+          <a id="om_appen" name="om_appen" style="visibility:hidden;">&nbsp;</a> <h2>Om appen</h2> <h3>Denna app &auml;r framtagen f&ouml;r att &ouml;ka tillg&auml;ngligheten av Kvalitetsregister &Ouml;NH.</h3>
+
+<h4>Registercentrum V&auml;stra G&ouml;taland Registercentrum f&ouml;r Nationella kvalitetsregister</h4>
+
+<p>Registercentrum V&auml;stra G&ouml;taland &auml;r ett kunskapscentrum f&ouml;r kvalitetsregister inom h&auml;lso- och sjukv&aring;rden. Registercentrum har uppdrag fr&aring;n SKL att ge Nationella kvalitetsregister st&ouml;d med utveckling, drift och anv&auml;ndning av<br />
+kvalitetsregister. H&auml;r ing&aring;r &auml;ven att fr&auml;mja kvalitetsutveckling och forskning med hj&auml;lp av register.<br />
+<strong>www.registercentrum.se</strong></p>
+<a id="index_1" name="index_1" style="visibility:hidden;">&nbsp;</a> <h2>Nationellt kvalitetsregister för Öron- Näs- och Halssjukvård</h2> <h4>Redaktör</h4>
+
+<p><strong>Joacim Stalfors</strong>, Överläkare, Docent, ÖNH-kliniken, Sahlgrenska Universitetssjukhuset, Göteborg joacim.stalfors@vgregion.se</p>
+
+<h4>Författare</h4>
+
+<p>Basal Hörselrehabilitering, <strong>Peter Nordqvist</strong>, Verksamhetschef, PhD, Forskningsinstitutet Hörselbron, Stockholm</p>
+
+<p>Hörselbarnsregistret, <strong>Magnus Järvholm</strong>, Överläkare, Verksamhetschef, ÖNH och Hudkliniken Kronoberg, Växjö</p>
+
+<p>Röstförbättrande stämbandskirurgi &ndash; Fonokirurgi, <strong>Gunnar Björck,</strong> Överläkare, Foniatriska avd/ÖNH-kliniken, Karolinska universitetssjukhuset/Solna</p>
+
+<p>Grav hörselnedsättning vuxna, <strong>Per-Inge Carlsson,</strong> Överläkare, Med dr, ÖNH-kliniken, Centralsjukhuset, Karlstad</p>
+
+<p>Öronkirurgi: Myringo &ndash; och Ossiuloplastik, <strong>P.O. Eriksson</strong>, Överläkare, Med Dr, ÖNH&ndash;kliniken, Akademiska sjukhuset, Uppsala</p>
+
+<p>Otoskleros, <strong>Karin Strömbäck</strong>, Överläkare, Otokirurgsektionsansvarig, ÖNH Kliniken, Akademiska Sjukhuset, Uppsala</p>
+
+<p>Kvalitetsregistret för rör i trumhinnan, <strong>Sten Hellström</strong>, Professor, Stockholm</p>
+
+<p>Septumplastikregistret, <strong>Cecilia Ahlström Emanuelsson</strong>, PhD, Överläkare, ÖNH-kliniken, Skånes Universitetssjukhus</p>
+
+<p>Tonsilloperation, <strong>Joacim Stalfors</strong>, Överläkare, Docent, ÖNH-kliniken, Sahlgrenska Universitetssjukhuset, Göteborg, <strong>Elisabeth Ericsson</strong>, Leg. ssk., Docent, Institutionen för hälsovetenskap och medicin, Örebro, <strong>Claes Hemlin</strong>, Överläkare, Med. dr., Aleris specialistvård, Sollentuna sjukhus, Stockholm, <strong>Anne-Charlotte Hessén Söderman</strong>, Överläkare, Med. dr., Aleris specialistvård, Sabbatsbergs sjukhus, Stockholm, <strong>Erik Odhagen</strong>, Specialistläkare, doktorand, Sahlgrenska Universitetssjukhuset, Göteborg, <strong>Ola Sunnergren</strong>, Överläkare, Med. dr., Öron-, Näs- och Halskliniken, Länssjukhuset Ryhov, Jönköping</p>
+
+<h4>Registerhållare och utgivare</h4>
+
+<p><strong>Claes Hemlin</strong>, Sollentuna specialistklinik, Sollentuna sjukhus, Sollentuna claes.hemlin@tele2.se</p>
+
+<h4>Statistiker Registercentrum</h4>
+
+<p><strong>Anna-Carin Bring</strong>, Registercentrum Västra Götaland 413 45 Göteborg anna-carin.bring@registercentrum.se</p>
+
+<h4>Statistiker tonsilloperation</h4>
+
+<p><strong>Bengt Bengtsson</strong>, Statistician/SAS programmer, M. Sc. Statistiska Konsultgruppen Stigbergsliden 5, 414 63 Göteborg</p>
+
+<h4>Sektionschef statistik</h4>
+
+<p><strong>Peter Gidlund</strong>, Registercentrum Västra Götaland 413 45 Göteborg peter.gidlund@registercentrum.se</p>
+
+<h4>Projektledare</h4>
+
+<p><strong>Camilla Palmqvist</strong>, Registercentrum Västra Götaland</p>
+
+<p>413 45 Göteborg camilla.palmqvist@registercentrum.se</p>
+
+<h4>Huvudman</h4>
+
+<p>Karolinska Universitetssjukhuset</p>
+
+<p>&nbsp;</p>
+<a id="index_2" name="index_2" style="visibility:hidden;">&nbsp;</a> <h2>Registercentrum Västra Götaland</h2> <p>Registercentrum Västra Götaland erbjuder tjänster för att driva och utveckla nationella kvalitetsregister och ger stöd till registerforskare. Det är ett av flera registercentra i Sverige. Genom centret får nyare register tillgång till äldre registers samlade erfarenheter. Registercentrum Västra Götaland har kompetens framför allt inom statistik och IT för kvalitetsregister. Centrets utvecklingsledare samordnar insatserna för olika register och projektleder produktionen av deras årsrapporter.</p>
+
+<p>www.registercentrum.se</p>
+<a id="" name="" style="visibility:hidden;">&nbsp;</a> <h2>Apputvecklare</h2> <p>Appen &auml;r producerad av Ibiz Reklambyr&aring; med verktyget Appgenerator.se
+
+           </div><!-- /braincontent -->
+           </div><!-- /content -->
+           
+      <div data-role="panel" data-position-fixed="true"  data-display="overlay" data-theme="b" id="nav-panel">
+      <ul data-role="listview" data-theme="a" class="nav-search">
+            <li data-icon="delete"><a href="#" data-rel="close">Stäng meny</a></li>
+        <li style="background: #ececec; color:red;"><a style="color:#333333;" data-ajax="false" href="index.html">Start</a></li>
+<li style="background: #babbbd; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap1.html">Förord</a></li>
+<li style="background: #ea9230; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap2.html">Septumplastikregistret</a></li>
+<li style="background: #517130; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap3.html">Otoskleroskirurgi</a></li>
+<li style="background: #9d2845; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap4.html">Hörselbarnsregistret</a></li>
+<li style="background: #716789; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap5.html">Grav hörselnedsättning vuxna</a></li>
+<li style="background: #c5d068; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap6.html">Rör i Trumhinnan</a></li>
+<li style="background: #78c6d2; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap7.html">Fonokirurg</a></li>
+<li style="background: #0074a3; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap8.html">Hörselrehabilitering</a></li>
+<li style="background: #f3d01e; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap9.html">Myringo- och ossikuloplastik</a></li>
+<li style="background: #014073; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap10.html">Tonsilloperation</a></li>
+<li style="background: #666666; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_enkater.html">Enkäter</a></li>
+</ul>
+      </div><!-- /panel -->
+    </div><!-- /page -->
+    <div data-role="page" id="panel-fixed-page2">
+      <div data-role="header" data-theme="f">
+        <h1>Landing page</h1>
+      </div><!-- /header -->
+      <div data-role="content">
+        <p>This is just a landing page.</p>
+        <a href="#panel-fixed-page1" data-role="button" data-inline="true" data-mini="true" data-icon="back" data-iconpos="left">Back</a>
+      </div><!-- /content -->
+    </div><!-- /page -->
+    <script>
+              if ($(window).width() < 550) {
+          $('.custom-button').attr('data-iconpos', 'notext');
+        }
+
+
+    </script>
+  </body>
+</html>

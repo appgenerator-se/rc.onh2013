@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=2.5, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />   
+    <title>Septumplastikregistret</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="themes/faktavgr.min.css" />
+    <link rel="stylesheet" href="js/jquery.mobile.structure-1.3.2.min.css" /> 
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script> 
+    <script type="text/javascript" src="js/brainworks.js"></script> 
+    <script type="text/javascript" src="js/jquery.mobile-1.3.2.min.js"></script> 
+    <script type="text/javascript" src="js/imagemap/imagemap.js"></script>
+    <script>
+var port_table = '<img class="startmenup" src="http://www.appgenerator.se/classic/onh2014/app/images/menu/portrait2.jpg" usemap="#startmenup" style="max-width:100%;width:100%;" />' +
+	'<map name="startmenup">' +
+	'<area areaname="area_1" full="area_1" shape="rect" coords="46,109,185,124" href="#kap2_1"/>' +
+
+'</map>';
+
+var land_table = '<img class="startmenul" src="http://www.appgenerator.se/classic/onh2014/app/images/menu/landscape2.jpg" usemap="#startmenul" style="max-width:100%;width:100%;" />' +
+	'<map name="startmenul">' +
+	'<area areaname="area_1" full="area_1" shape="rect" coords="43,171,196,191" href="#kap2_1"/>' +
+
+'</map>';
+var startorientation;
+
+if (window.matchMedia("(orientation: portrait)").matches) {
+	startorientation = 'portrait';
+}
+else {
+	startorientation = 'landscape';
+}
+
+$(document).ready(function () {
+	$(window).on("orientationchange", function (event) {
+		//alert('orientationchange');
+		if (event.orientation == 'landscape') {
+			$("#myimagemenu").html(land_table);
+			$('.startmenul').rwdImageMaps();
+		}
+		else {
+			$("#myimagemenu").html(port_table);
+			$('.startmenup').rwdImageMaps();
+		}
+	});
+
+	// You can also manually force this event to fire.
+	$(window).orientationchange();
+//        $(window).bind('resize', onWindowResize);
+	$.mobile.fixedToolbars.setTouchToggleEnabled(false);
+	$.mobile.ajaxEnabled = false;
+
+});
+
+$(document).load(function () {
+	if (startorientation == 'portrait') {
+		$("#myimagemenu").html(port_table);
+		$('.startmenup').rwdImageMaps();
+	}
+	else {
+		$("#myimagemenu").html(land_table);
+		$('.startmenul').rwdImageMaps();
+	}
+
+});
+$(document).bind('pageinit', function () {
+	var urlHash = window.location.href.split("#")[1];
+	if (urlHash) {
+		setTimeout(function ()
+		{
+			window.location.assign('#' + urlHash);
+		}, 2000);
+	}
+}
+);
+
+</script>
+
+    <style>
+      body {
+        background-color: white !important;
+      }
+      .ui-content {
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+        background:white;
+        font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
+      }      
+      .ui-bar-a {
+        background:#ea9230;
+        color : #ffffff;
+      }
+      .braincontent {
+        padding-right: 20px;
+        padding-left: 20px;
+      }
+      p {
+        margin-top:0px;
+        margin-bottom:10px;
+      }
+      h2 {
+        color:black;
+        padding-top:5px;
+        margin-bottom:6px;
+      }
+      .kapbilder {
+        width: 65% !important;
+        max-width: 100%;
+        margin: 0 auto !important;
+        position: relative !important;
+      }
+			.enkatbilder {
+				border: 1px solid #ddd;
+			}
+    </style>
+  </head>
+  <body>
+    <div data-role="page" class="ui-responsive-panel" id="panel-fixed-page1">
+      <!-- header -->
+      <div data-role="header" data-theme="a" data-position="fixed" data-disable-page-zoom="false" data-tap-toggle="false">
+        <div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+          <a href="#nav-panel" class="custom-button" data-role="button" data-icon="bars">Meny</a>
+          <a href="index.html" class="custom-button" data-ajax="false" data-role="button" data-icon="home">Start</a>
+          <a href="#panel-fixed-page1" class="custom-button" data-ajax="false" data-role="button" data-icon="arrow-u">Topp</a>
+        </div>
+        <h1 class="ui-title" data-tap-toggle="false" role="heading">Septumplastikregistret</h1>
+        <div class="ui-btn-right" data-role="controlgroup" data-type="horizontal">
+<!--          <a href="#panel-fixed-page1" class="custom-button" data-ajax="false" data-role="button" data-icon="arrow-u">Topp</a> -->
+          <a href="search.html" class="custom-button" data-role="button" data-icon="search">Sök</a>
+<!--          <a href="#add-form" data-role="button" data-icon="star">Favoriter</a> -->
+        </div>
+      </div>      <!-- /header -->
+      
+          <div data-role="content">
+          <div id="myimagemenu"></div>
+          <div data-demo-html="#panel-fixed-page1"></div>
+          <div class="braincontent">
+          <a id="kap2_1" name="kap2_1" style="visibility:hidden;">&nbsp;</a> <h2>Sammanfattning</h2> <p>Septumplastikregistret har under 2012&ndash;2013 genomgått en total genomgång. Inklusionskriterier, operationstekniker, komplikationer, patientinformation och patientrelaterade frågor har analyserats och diskuterats inom referensgruppen, men även inom svenskt rhinologiskt sällskap. Utifrån detta har därefter ett delvis nytt register utarbetats. Den 4:e november 2013 startade det nya septumregistret. Bara nya patienter registreras i detta register. De patienter som påbörjade registrering i det gamla registret har tyvärr inte att kunnat fullföljas. Det gamla registret stängdes den 3:e november. I samband med detta bytte även kvalitetsregistret databas, liksom övriga ÖNH-register gjorde ungefär samtidigt. All gammal data har överförts och sparats på Registercentrum Västra Götaland och kommer att kunna användas för analys och forskning.</p>
+
+<p>I det nya registret kommer man, förutom att kunna mäta hur nästäppan förändras efter septumoperationen, även att kunna registrera olika operationstekniker, eventuella postoperativa infektioner, bestående komplikationer och antibiotikabehandling. Detta kan i förlängningen bidra till urvalskriterier som skärper operationsindikationen, förbättrar operationstekniken, ger färre komplikationer och förbättrar patientsäkerheten.</p>
+
+<p>Totalt finns fyra blanketter att fylla i vid septumkirurgi (pre-operativ, per-operativ, 1 och 12-månad post-operativt). Den första blanketten A fylls ena delen i av läkaren och andra delen av patienten i samband med att patienten sätts upp för operation. Här frågas om symtom, utredningar och diagnoser. Den andra blanketten B fylls i peroperativt av läkare och här fångas operationsteknik, tamponadmatriel och eventuell antibiotikabehandling upp. De två sista blanketterna ska bara fyllas i av patienten och kommer att fyllas i direkt via nätet alternativt via utskickade pappersformulär. I blankett C, som ska fyllas i en månad postoperativt, frågas om komplikationer postoperativt. Ett år efter operation ska patienten fylla i blankett D, där resultatet av operationen och eventuella bestående komplikationer efterfrågas.</p>
+
+<p>Viktigt att notera är att detta register gäller endast andningsförbättrande septumkirurgi, med eller utan konkakirurgi, men ej i kombination med annan näs/bihålekirurgi eller rhinoplastik.</p>
+
+<p>För att det ska gå att få ut rättvisande statistik och fakta är det viktigt att täckningsgraden blir så hög som möjligt i registret. D.v.s. så många som möjligt av alla septumplastiker som görs i Sverige ska registreras i registret. Blankett A och B måste fyllas i och registreras för att blankett C och D ska kunna registreras. Orsaken till det är att den primära frågeställningen i registret är &rdquo;förbättring av näsandningen&rdquo; och utgångsvärdet för det fångas i blankett A. Planen är att under 2014 informera direkt till klinikerna, dels via klinikcheferna dels via klinikbesök. På så sätt ska förhoppningsvis täckningsgraden öka jämfört med tidigare.</p>
+
+<p>Någon statistik på registrerad data finns i dagsläget inte tillgängligt. Först under slutet av 2014 kommer statistik kunna tas ut ur registret och den kommer då att finnas tillgänglig via hemsidan. Registreringarna startade lite trevande under slutat av 2013, men har under första halvan av 2014 satt fart till över 750 registreringar.</p>
+
+<p>På hemsidan finns även en del för patienter, med patientinformation, och en del som mer vänder sig till professionen, med handläggningsplan. Dessa dokument är en del av vad ska leda till bättre handläggning av och information till patienten.</p>
+
+<p>Vi i referensgruppen för Kvalitetsregistret för andningsförbättrande Septumplastikkirurgi tror att alla ska finna det nya registret är en bra utveckling av det tidigare registret och hoppas att vi ska få fram skärpta operationsindikationer, förbättrade operationstekniker, färre komplikationer och nöjdare patienter.</p>
+<a id="kap2_1_figur2" name="kap2_1_figur2" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/blanketter.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap2_1_figur3" name="kap2_1_figur3" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/referensgrupp.jpg" style="max-width:100%;width:100%;"><br />
+<strong>Referensgruppen</strong> (fr vänster): Kjell Ydreborg, Tomas Norlander, Simon Blank, Cecilia Ahlström Emanuelsson, Helle Thulesius och Cecilia Alexandersson. På bilden saknas: Annika Stenberg-Elmqvist, ÖNH Sophiahemmet, Stockholm.</p>
+
+           </div><!-- /braincontent -->
+           </div><!-- /content -->
+           
+      <div data-role="panel" data-position-fixed="true"  data-display="overlay" data-theme="b" id="nav-panel">
+      <ul data-role="listview" data-theme="a" class="nav-search">
+            <li data-icon="delete"><a href="#" data-rel="close">Stäng meny</a></li>
+        <li style="background: #ececec; color:red;"><a style="color:#333333;" data-ajax="false" href="index.html">Start</a></li>
+<li style="background: #babbbd; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap1.html">Förord</a></li>
+<li style="background: #ea9230; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap2.html">Septumplastikregistret</a></li>
+<li style="background: #517130; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap3.html">Otoskleroskirurgi</a></li>
+<li style="background: #9d2845; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap4.html">Hörselbarnsregistret</a></li>
+<li style="background: #716789; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap5.html">Grav hörselnedsättning vuxna</a></li>
+<li style="background: #c5d068; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap6.html">Rör i Trumhinnan</a></li>
+<li style="background: #78c6d2; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap7.html">Fonokirurg</a></li>
+<li style="background: #0074a3; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap8.html">Hörselrehabilitering</a></li>
+<li style="background: #f3d01e; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap9.html">Myringo- och ossikuloplastik</a></li>
+<li style="background: #014073; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap10.html">Tonsilloperation</a></li>
+<li style="background: #666666; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_enkater.html">Enkäter</a></li>
+</ul>
+      </div><!-- /panel -->
+    </div><!-- /page -->
+    <div data-role="page" id="panel-fixed-page2">
+      <div data-role="header" data-theme="f">
+        <h1>Landing page</h1>
+      </div><!-- /header -->
+      <div data-role="content">
+        <p>This is just a landing page.</p>
+        <a href="#panel-fixed-page1" data-role="button" data-inline="true" data-mini="true" data-icon="back" data-iconpos="left">Back</a>
+      </div><!-- /content -->
+    </div><!-- /page -->
+    <script>
+              if ($(window).width() < 550) {
+          $('.custom-button').attr('data-iconpos', 'notext');
+        }
+
+
+    </script>
+  </body>
+</html>

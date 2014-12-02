@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=2.5, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />   
+    <title>Grav hörselnedsättning hos vuxna</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="themes/faktavgr.min.css" />
+    <link rel="stylesheet" href="js/jquery.mobile.structure-1.3.2.min.css" /> 
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script> 
+    <script type="text/javascript" src="js/brainworks.js"></script> 
+    <script type="text/javascript" src="js/jquery.mobile-1.3.2.min.js"></script> 
+    <script type="text/javascript" src="js/imagemap/imagemap.js"></script>
+    <script>
+var port_table = '<img class="startmenup" src="http://www.appgenerator.se/classic/onh2014/app/images/menu/portrait5.jpg" usemap="#startmenup" style="max-width:100%;width:100%;" />' +
+	'<map name="startmenup">' +
+	'<area areaname="area_1" full="area_1" shape="rect" coords="47,105,138,125" href="#kap5_1"/>' +
+'<area areaname="area_2" full="area_2" shape="rect" coords="47,134,264,154" href="#kap5_2"/>' +
+'<area areaname="area_3" full="area_3" shape="rect" coords="47,163,286,183" href="#kap5_3"/>' +
+'<area areaname="area_4" full="area_4" shape="rect" coords="47,192,267,231" href="#kap5_4"/>' +
+'<area areaname="area_5" full="area_5" shape="rect" coords="47,240,228,277" href="#kap5_5"/>' +
+'<area areaname="area_6" full="area_6" shape="rect" coords="357,105,477,125" href="#kap5_6"/>' +
+'<area areaname="area_7" full="area_7" shape="rect" coords="357,134,501,154" href="#kap5_7"/>' +
+'<area areaname="area_8" full="area_8" shape="rect" coords="357,163,657,183" href="#kap5_8"/>' +
+'<area areaname="area_9" full="area_9" shape="rect" coords="357,192,598,249" href="#kap5_9"/>' +
+'<area areaname="area_10" full="area_10" shape="rect" coords="357,258,483,278" href="#kap5_10"/>' +
+
+'</map>';
+
+var land_table = '<img class="startmenul" src="http://www.appgenerator.se/classic/onh2014/app/images/menu/landscape5.jpg" usemap="#startmenul" style="max-width:100%;width:100%;" />' +
+	'<map name="startmenul">' +
+	'<area areaname="area_1" full="area_1" shape="rect" coords="42,218,143,238" href="#kap5_1"/>' +
+'<area areaname="area_2" full="area_2" shape="rect" coords="42,247,286,267" href="#kap5_2"/>' +
+'<area areaname="area_3" full="area_3" shape="rect" coords="42,276,310,296" href="#kap5_3"/>' +
+'<area areaname="area_4" full="area_4" shape="rect" coords="42,305,381,325" href="#kap5_4"/>' +
+'<area areaname="area_5" full="area_5" shape="rect" coords="42,334,244,373" href="#kap5_5"/>' +
+'<area areaname="area_6" full="area_6" shape="rect" coords="42,382,175,402" href="#kap5_6"/>' +
+'<area areaname="area_7" full="area_7" shape="rect" coords="42,410,202,430" href="#kap5_7"/>' +
+'<area areaname="area_8" full="area_8" shape="rect" coords="42,440,379,460" href="#kap5_8"/>' +
+'<area areaname="area_9" full="area_9" shape="rect" coords="42,469,314,527" href="#kap5_9"/>' +
+'<area areaname="area_10" full="area_10" shape="rect" coords="42,536,181,556" href="#kap5_10"/>' +
+
+'</map>';
+var startorientation;
+
+if (window.matchMedia("(orientation: portrait)").matches) {
+	startorientation = 'portrait';
+}
+else {
+	startorientation = 'landscape';
+}
+
+$(document).ready(function () {
+	$(window).on("orientationchange", function (event) {
+		//alert('orientationchange');
+		if (event.orientation == 'landscape') {
+			$("#myimagemenu").html(land_table);
+			$('.startmenul').rwdImageMaps();
+		}
+		else {
+			$("#myimagemenu").html(port_table);
+			$('.startmenup').rwdImageMaps();
+		}
+	});
+
+	// You can also manually force this event to fire.
+	$(window).orientationchange();
+//        $(window).bind('resize', onWindowResize);
+	$.mobile.fixedToolbars.setTouchToggleEnabled(false);
+	$.mobile.ajaxEnabled = false;
+
+});
+
+$(document).load(function () {
+	if (startorientation == 'portrait') {
+		$("#myimagemenu").html(port_table);
+		$('.startmenup').rwdImageMaps();
+	}
+	else {
+		$("#myimagemenu").html(land_table);
+		$('.startmenul').rwdImageMaps();
+	}
+
+});
+$(document).bind('pageinit', function () {
+	var urlHash = window.location.href.split("#")[1];
+	if (urlHash) {
+		setTimeout(function ()
+		{
+			window.location.assign('#' + urlHash);
+		}, 2000);
+	}
+}
+);
+
+</script>
+
+    <style>
+      body {
+        background-color: white !important;
+      }
+      .ui-content {
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+        background:white;
+        font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
+      }      
+      .ui-bar-a {
+        background:#716789;
+        color : #ffffff;
+      }
+      .braincontent {
+        padding-right: 20px;
+        padding-left: 20px;
+      }
+      p {
+        margin-top:0px;
+        margin-bottom:10px;
+      }
+      h2 {
+        color:black;
+        padding-top:5px;
+        margin-bottom:6px;
+      }
+      .kapbilder {
+        width: 65% !important;
+        max-width: 100%;
+        margin: 0 auto !important;
+        position: relative !important;
+      }
+			.enkatbilder {
+				border: 1px solid #ddd;
+			}
+    </style>
+  </head>
+  <body>
+    <div data-role="page" class="ui-responsive-panel" id="panel-fixed-page1">
+      <!-- header -->
+      <div data-role="header" data-theme="a" data-position="fixed" data-disable-page-zoom="false" data-tap-toggle="false">
+        <div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+          <a href="#nav-panel" class="custom-button" data-role="button" data-icon="bars">Meny</a>
+          <a href="index.html" class="custom-button" data-ajax="false" data-role="button" data-icon="home">Start</a>
+          <a href="#panel-fixed-page1" class="custom-button" data-ajax="false" data-role="button" data-icon="arrow-u">Topp</a>
+        </div>
+        <h1 class="ui-title" data-tap-toggle="false" role="heading">Grav hörselnedsättning hos vuxna</h1>
+        <div class="ui-btn-right" data-role="controlgroup" data-type="horizontal">
+<!--          <a href="#panel-fixed-page1" class="custom-button" data-ajax="false" data-role="button" data-icon="arrow-u">Topp</a> -->
+          <a href="search.html" class="custom-button" data-role="button" data-icon="search">Sök</a>
+<!--          <a href="#add-form" data-role="button" data-icon="star">Favoriter</a> -->
+        </div>
+      </div>      <!-- /header -->
+      
+          <div data-role="content">
+          <div id="myimagemenu"></div>
+          <div data-demo-html="#panel-fixed-page1"></div>
+          <div class="braincontent">
+          <a id="kap5_1" name="kap5_1" style="visibility:hidden;">&nbsp;</a> <h2>Bakgrund</h2> <p>Kvalitetsregistret &ndash; Grav hörselnedsättning vuxna &ndash; är ett av de nationella kvalitetsregistren som finns inom Öron-, Näs- och Halssjukvård i Sverige. Grav hörselnedsättning (HNS) hos vuxna kan definieras utifrån ett hörseltestet, där tonmedelvärdet är 70 dB eller sämre på bästa örat eller taluppfattningen är sämre än 30% på bästa örat. Funktionellt sett innebär en grav HNS att en person med hörapparater, utan läppavläsningsstöd inte uppfattar ord och meningar på en meters avstånd i vardagsmiljö. Patienter med grav HNS rehabiliteras i de flesta fall tekniskt med hörapparater och/eller cochleaimplantat samt i varierande omfattning med medicinska, pedagogiska och psykossociala insatser. I Sverige beräknas det finnas mellan 10&ndash;12 000 personer som har en grav HNS men förekomsten är osäker i Sverige och även i den internationella litteraturen.</p>
+<a id="kap5_2" name="kap5_2" style="visibility:hidden;">&nbsp;</a> <h2>Syftet med kvalitetsregistret</h2> <p>Syftet med registret är att göra en kartläggning och uppföljning av patientgruppen i landet avseende demografiska data, rehabilitering och livskvalitet. Genom öppna nationella jämförelser syftar registret till att säkra tillgången till jämlik vård och rehabilitering i landet. Registret utgör också en bas för ett fortlöpande förbättringsarbete inom hörselrehabilitering.</p>
+<a id="kap5_3" name="kap5_3" style="visibility:hidden;">&nbsp;</a> <h2>Viktiga variabler och målvärden</h2> <p>Kvalitetsregistret ger möjlighet till att studera ett stort antal variabler, där tre av de viktigaste är:</p>
+
+<ol>
+	<li>Nytta av hörselvårdens insatser.</li>
+	<li>Andel som deltagit i utvidgad rehabilitering.</li>
+	<li>PIRS en skattningsskala som anger hur mycket hörselnedsättningen påverkar det dagliga livet.</li>
+</ol>
+<a id="kap5_4" name="kap5_4" style="visibility:hidden;">&nbsp;</a> <h2>Nytta av hörselvårdens insatser (nuläget)</h2> <p>I bilden nedan indikerar de mörk- och ljusgröna fälten att patienterna haft mycket god eller god nytta av hörselvårdens insatser. Majoriteten av patienterna anser att man har haft mycket god eller god nytta av hörselvårdens insatser och målvärdet, som referensgruppen satt till att &gt; 80% av patienterna haft mycket god eller god nytta, uppfylls i de flesta verksamheter.</p>
+<a id="kap5_4_graf1" name="kap5_4_graf1" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/horselnedsattning/onh_2013_horselnedsattning_dump_nytta_2048px.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap5_5" name="kap5_5" style="visibility:hidden;">&nbsp;</a> <h2>Utvidgad/fördjupad rehabilitering (nuläget)</h2> <p>Utvidgad eller fördjupad rehabilitering definieras i registret som att patienten utöver hörapparatanpassning erhållit ytterligare tre rehabiliteringsinsatser, t.ex. läkar-, pedagog- och kuratorskontakt alternativt deltagit i grupprehabilitering. Idag har endast 37% av patienterna med en grav HNS har deltagit i utvidgad rehabilitering, vilket är långt under målvärdet som är satt till att &gt; 80% av patientgruppen ska erhålla utvidgad rehabilitering. De gröna fälten i figuren indikerar andelen patienter som deltagit i utvidgad/fördjupad rehabilitering.</p>
+<a id="kap5_5_graf1" name="kap5_5_graf1" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/horselnedsattning/onh_2013_horselnedsattning_dump_fordjupad_2048px.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap5_6" name="kap5_6" style="visibility:hidden;">&nbsp;</a> <h2>PIRS (nuläget)</h2> <p>PIRS är en skattningsskala som presenteras som en termometer med en skala från 0&ndash;100. Värdet 0 indikerar att HNS överhuvudtaget inte inverkar på patientens livskvaliteten medan 100 står för det värsta tänkbara tillstånd, orsakat av HNS. Medelvärdet bland patienter med en grav HNS ligger för närvarande på 57 i landet. Här är målvärdet satt till att &gt; 80% av patienterna har värdet &lt; 70 på skalan och det är av största vikt att vårdgivaren identifierar de patienter som ligger över målvärdet, värderar orsakerna till detta, och erbjuder ytterligare rehabiliteringsinsatser.</p>
+<a id="kap_5_6_graf1" name="kap_5_6_graf1" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/horselnedsattning/onh_2013_horselnedsattning_dump_paverkan_2048px.jpg" style="max-width:100%;width:100%;"><br />
+P&aring;verkan dagligt liv</p>
+<a id="kap5_7" name="kap5_7" style="visibility:hidden;">&nbsp;</a> <h2>Cochleaimplantat</h2> <p>Andelen patienter som rehabiliterats med cochleaimplantat finns registrerade i registret. Vi har i subgruppsanalyser funnit att patienter med cochleaimplantat är mindre påverkade av sin hörselnedsättning jämfört med de patienter som inte har rehabiliterats med cochleaimplantat.</p><a id="kap5_8" name="kap5_8" style="visibility:hidden;">&nbsp;</a> <h2>Aktiviteter i referensgruppen under 2013</h2> <h4>Överföring av data till Registercentrum Västra Götaland</h4>
+
+<p>Under 2013 har data för registret Grav hörselnedsättning hos vuxna överförts till Registercentrum Västra Götaland. Detta har inneburit en rad möten både på plats och per telefon vilket tagit mycket tid för referensgruppen men har också var mycket lärorikt för det fortsatta registerarbetet.</p>
+
+<h4>Klinikbesök</h4>
+
+<p>Sammanlagt har ett tiotal klinikbesök genomförts. Besöken syftar till att öka medvetandet om registret och därmed öka täckningsgraden. Varje registrerande klinik har en kontaktperson och det är viktigt att etablera en kontakt mellan referensgruppen och kontaktpersonerna. Dessutom har man givit en föreläsning till övrig personal vid besöken.</p>
+
+<h4>Vetenskaplig produktion</h4>
+
+<ul>
+	<li>Magisteruppsats Örebro Universitet, avancerad nivå 15 p. &rdquo;Rehabilitering av personer med grav hörselnedsättning &ndash; en registerstudie&rdquo;. Jennie Hjaldahl.</li>
+	<li>Doktorandtjänst Örebro Universitet, Institutionen för Handikappvetenskap. Första delarbetet klart och inskickat till tidsskriften Disability and rehabilitation, review pågår. Jennie Hjaldahl.</li>
+</ul>
+
+<h4>Projekt</h4>
+
+<p>Uppföljning av vuxna patienter med grav hörselnedsättning via ett kvalitetsregister. Margareta Edén. Projektet syftade till att utvärdera vissa variabler i registret och testa uppföljningsenkäten. Denna enkät har utifrån projektet sedan utvecklats ytterligare.</p>
+
+<h4>Externa medel</h4>
+
+<ul>
+	<li>200 000 kr från Regional forskningsrådet Uppsala- Örebro för fortsatta studier på registerdata, inriktning kombinationshandikapp, främst syn &ndash; hörsel.</li>
+	<li>150 000 kr från Hörselforskningsfonden för fortsatta studier på registerdata, inriktning på analyser av de 20% av patienterna som upplevt liten eller ingen nytta av hörselvårdens insatser.</li>
+</ul>
+
+<h4>Validering av data</h4>
+
+<p>Frågan avseende utvidgad/fördjupad rehabilitering validerades i samband med överflyttningen till den nya plattformen. Man fann att andelen som erhållit den aktuella rehabiliteringen sjönk vid överföringen till den nya plattformen men efter journalgenomgångar visade det sig att den tidigare angivna andelen stämde och vissa korrigeringar gällande utformningen av frågan och svarsalternativen gjordes för att undvika framtida feltolkningar.</p>
+
+<h4>Antal registreringar och täckningsgrad</h4>
+
+<p>Vi utgår från att det finnas mellan 10&ndash;12 000 personer som har en grav HNS i Sverige men är väl medvetna om att förekomsten är osäker både i Sverige men även i den internationella litteraturen. Genom klinikbesök och aktiva sökningar har registreringarna stadigt ökat de senaste åren och är uppe i drygt 3 200 (nuläget).</p>
+
+<p>Täckningsgraden kan definieras på olika sätt. I registret är den definierad till patienter som uppfyller hörselkriterierna i Audit-Base där hörseldata finns lagrade. System är det absolut dominerande inom hörselvården i Sverige och täcker in över 90% av de aktuella klinikerna. Flera kliniker har aktivt sökt fram sina patienter i Audit-Base och skickat ut enkäter varför täckningsgraden på dessa kliniker ligger på 70&ndash;80%. De kliniker som ännu inte gjort denna sökning har en lägre täckningsgrad eftersom de registrerar patienterna då de kommer på ett ordinarie besök, vilket kan ske med långa tidsintervall. Ett samarbete har inletts med Audit-Data, som tillhandahåller Audit-Base, där målsättningen är att vi ska kunna identifiera samtliga patienter som uppfyller hörselkriterierna för en grav hörselnedsättning i Sverige. På så vis får vi fram en säker prevalens för den aktuella gruppen i Sverige vilket vore unikt internationellt.</p>
+<a id="kap5_8_graf1" name="kap5_8_graf1" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/horselnedsattning/onh_2013_horselnedsattning_fig1_2048px.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap5_9" name="kap5_9" style="visibility:hidden;">&nbsp;</a> <h2>Hur har kvalitetsregistret påverkat rehabiliteringen av vuxna med grav hörselnedsättning</h2> <p>Hos personer med en grav hörselnedsättning finns ofta, som vid många funktionshinder, en bristande medvetenhet om hur hörselnedsättningen påverkar det dagliga livet. Det här illustreras av bilden med ekan, fiskaren och hajen. Ekan är patientens förmåga att se och ta sig an konsekvenserna av funktionsnedsättningen. Fiskaren är patienten själv som tror han får upp en liten fisk som representerar de problem som hörselnedsättningen ger. Storleken av funktionsnedsättningens konsekvenser är egentligen av en hajs format. Som vårdgivare kan man inte lägga hela hajen i patientens båt på en gång. Den skulle då snabbt sjunka. Man måste gå fram varligt. Detta ställer stora krav på de vårdgivare som ska rehabilitera en person med grav hörselnedsättning.</p>
+
+<p>En målsättning med registerarbetet har varit att uppmärksamma alla vårdgivare inom hörselvården på den här utsatta patientgruppen med mycket stora behov avseende rehabilitering, där det idag finns brister i rehabiliteringen i hela landet. Kvalitetsregistret kan ses som ett diagnosregister (kartläggningsenkäten) som fungerar som en checklista på vad som bör kartläggas inför en rehabiliteringsinsats. I förlängningen kommer registret att vara ett interventionsregister (uppföljningsenkäten) där effekten av en rehabilitering värderas. Genom registret kan man strukturera och likrikta rehabiliteringen i hela landet. Ett första steg, förutom redovisning av registerdata är &ndash; Utformning av ett vårdprogram &ndash; rekommendationer.</p>
+
+<p>Ett förslag på vårdprogram eller som det i nuläget kallas &ndash; rekommendation &ndash; för rehabilitering av vuxna med grav hörselnedsättning har utformats utifrån registerdata. Dokumentet har presenterats för kontaktpersonerna och ligger ute för synpunkter på hemsidan.</p>
+<a id="kap5_figur2" name="kap5_figur2" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/gubbe_i_bat.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap5_10" name="kap5_10" style="visibility:hidden;">&nbsp;</a> <h2>Referensgrupp</h2> <p><strong>Per-Inge Carlsson</strong>, ordförande, överläkare och medicine doktor, per-inge.carlsson@liv.se</p><p>
+<strong>Elisabeth Ternevall</strong>, överläkare, elisabeth.ternevall@karolinska.se</p><p>
+<strong>Margareta Edén</strong>, audionom, margareta.eden@vgregion.se</p><p>
+<strong>Åsa Skagerstrand</strong>, audionom, asa.skagerstrand@orebroll.se</p><p>
+<strong>Radi Jönsson</strong>, överläkare och medicine doktor, radoslava.jonsson@vgregion.se</p><p>
+<strong>Jennie Hjaldahl</strong>, forskningsaudionom, jennie.hjaldahl@orebroll.se</p><p>
+<strong>Adjungerade:</strong> Hörselskadades Riksförbund (HRF)</p>
+<a id="kap5_10_figur1" name="kap5_10_figur1" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/refgravhorsel.jpg" style="max-width:100%;width:100%;"><br />
+<strong>Referensgruppen (fr v&auml;nster):</strong> &Aring;sa Skagerstrand, Elisabeth Ternevall, Jennie Hjaldahl, Margareta Ed&eacute;n, Per-Inge Carlsson. Radi J&ouml;nsson saknas p&aring; bilden.</p>
+
+           </div><!-- /braincontent -->
+           </div><!-- /content -->
+           
+      <div data-role="panel" data-position-fixed="true"  data-display="overlay" data-theme="b" id="nav-panel">
+      <ul data-role="listview" data-theme="a" class="nav-search">
+            <li data-icon="delete"><a href="#" data-rel="close">Stäng meny</a></li>
+        <li style="background: #ececec; color:red;"><a style="color:#333333;" data-ajax="false" href="index.html">Start</a></li>
+<li style="background: #babbbd; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap1.html">Förord</a></li>
+<li style="background: #ea9230; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap2.html">Septumplastikregistret</a></li>
+<li style="background: #517130; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap3.html">Otoskleroskirurgi</a></li>
+<li style="background: #9d2845; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap4.html">Hörselbarnsregistret</a></li>
+<li style="background: #716789; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap5.html">Grav hörselnedsättning vuxna</a></li>
+<li style="background: #c5d068; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap6.html">Rör i Trumhinnan</a></li>
+<li style="background: #78c6d2; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap7.html">Fonokirurg</a></li>
+<li style="background: #0074a3; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap8.html">Hörselrehabilitering</a></li>
+<li style="background: #f3d01e; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap9.html">Myringo- och ossikuloplastik</a></li>
+<li style="background: #014073; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap10.html">Tonsilloperation</a></li>
+<li style="background: #666666; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_enkater.html">Enkäter</a></li>
+</ul>
+      </div><!-- /panel -->
+    </div><!-- /page -->
+    <div data-role="page" id="panel-fixed-page2">
+      <div data-role="header" data-theme="f">
+        <h1>Landing page</h1>
+      </div><!-- /header -->
+      <div data-role="content">
+        <p>This is just a landing page.</p>
+        <a href="#panel-fixed-page1" data-role="button" data-inline="true" data-mini="true" data-icon="back" data-iconpos="left">Back</a>
+      </div><!-- /content -->
+    </div><!-- /page -->
+    <script>
+              if ($(window).width() < 550) {
+          $('.custom-button').attr('data-iconpos', 'notext');
+        }
+
+
+    </script>
+  </body>
+</html>

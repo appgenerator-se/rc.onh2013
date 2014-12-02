@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=2.5, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />   
+    <title>Röstförbättrande stämbandskirurgi – fonokirurgi</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="themes/faktavgr.min.css" />
+    <link rel="stylesheet" href="js/jquery.mobile.structure-1.3.2.min.css" /> 
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script> 
+    <script type="text/javascript" src="js/brainworks.js"></script> 
+    <script type="text/javascript" src="js/jquery.mobile-1.3.2.min.js"></script> 
+    <script type="text/javascript" src="js/imagemap/imagemap.js"></script>
+    <script>
+var port_table = '<img class="startmenup" src="http://www.appgenerator.se/classic/onh2014/app/images/menu/portrait7.jpg" usemap="#startmenup" style="max-width:100%;width:100%;" />' +
+	'<map name="startmenup">' +
+	'<area areaname="area_1" full="area_1" shape="rect" coords="47,142,158,162" href="#kap7_1"/>' +
+'<area areaname="area_2" full="area_2" shape="rect" coords="47,171,212,191" href="#kap7_2"/>' +
+'<area areaname="area_3" full="area_3" shape="rect" coords="47,200,169,220" href="#kap7_3"/>' +
+'<area areaname="area_4" full="area_4" shape="rect" coords="47,229,128,249" href="#kap7_4"/>' +
+'<area areaname="area_5" full="area_5" shape="rect" coords="47,258,124,278" href="#kap7_5"/>' +
+
+'</map>';
+
+var land_table = '<img class="startmenul" src="http://www.appgenerator.se/classic/onh2014/app/images/menu/landscape7.jpg" usemap="#startmenul" style="max-width:100%;width:100%;" />' +
+	'<map name="startmenul">' +
+	'<area areaname="area_1" full="area_1" shape="rect" coords="42,218,166,238" href="#kap7_1"/>' +
+'<area areaname="area_2" full="area_2" shape="rect" coords="42,247,227,267" href="#kap7_2"/>' +
+'<area areaname="area_3" full="area_3" shape="rect" coords="42,276,179,296" href="#kap7_3"/>' +
+'<area areaname="area_4" full="area_4" shape="rect" coords="42,305,131,325" href="#kap7_4"/>' +
+'<area areaname="area_5" full="area_5" shape="rect" coords="42,334,128,354" href="#kap7_5"/>' +
+
+'</map>';
+var startorientation;
+
+if (window.matchMedia("(orientation: portrait)").matches) {
+	startorientation = 'portrait';
+}
+else {
+	startorientation = 'landscape';
+}
+
+$(document).ready(function () {
+	$(window).on("orientationchange", function (event) {
+		//alert('orientationchange');
+		if (event.orientation == 'landscape') {
+			$("#myimagemenu").html(land_table);
+			$('.startmenul').rwdImageMaps();
+		}
+		else {
+			$("#myimagemenu").html(port_table);
+			$('.startmenup').rwdImageMaps();
+		}
+	});
+
+	// You can also manually force this event to fire.
+	$(window).orientationchange();
+//        $(window).bind('resize', onWindowResize);
+	$.mobile.fixedToolbars.setTouchToggleEnabled(false);
+	$.mobile.ajaxEnabled = false;
+
+});
+
+$(document).load(function () {
+	if (startorientation == 'portrait') {
+		$("#myimagemenu").html(port_table);
+		$('.startmenup').rwdImageMaps();
+	}
+	else {
+		$("#myimagemenu").html(land_table);
+		$('.startmenul').rwdImageMaps();
+	}
+
+});
+$(document).bind('pageinit', function () {
+	var urlHash = window.location.href.split("#")[1];
+	if (urlHash) {
+		setTimeout(function ()
+		{
+			window.location.assign('#' + urlHash);
+		}, 2000);
+	}
+}
+);
+
+</script>
+
+    <style>
+      body {
+        background-color: white !important;
+      }
+      .ui-content {
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+        background:white;
+        font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
+      }      
+      .ui-bar-a {
+        background:#78c6d2;
+        color : #ffffff;
+      }
+      .braincontent {
+        padding-right: 20px;
+        padding-left: 20px;
+      }
+      p {
+        margin-top:0px;
+        margin-bottom:10px;
+      }
+      h2 {
+        color:black;
+        padding-top:5px;
+        margin-bottom:6px;
+      }
+      .kapbilder {
+        width: 65% !important;
+        max-width: 100%;
+        margin: 0 auto !important;
+        position: relative !important;
+      }
+			.enkatbilder {
+				border: 1px solid #ddd;
+			}
+    </style>
+  </head>
+  <body>
+    <div data-role="page" class="ui-responsive-panel" id="panel-fixed-page1">
+      <!-- header -->
+      <div data-role="header" data-theme="a" data-position="fixed" data-disable-page-zoom="false" data-tap-toggle="false">
+        <div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+          <a href="#nav-panel" class="custom-button" data-role="button" data-icon="bars">Meny</a>
+          <a href="index.html" class="custom-button" data-ajax="false" data-role="button" data-icon="home">Start</a>
+          <a href="#panel-fixed-page1" class="custom-button" data-ajax="false" data-role="button" data-icon="arrow-u">Topp</a>
+        </div>
+        <h1 class="ui-title" data-tap-toggle="false" role="heading">Röstförbättrande stämbandskirurgi – fonokirurgi</h1>
+        <div class="ui-btn-right" data-role="controlgroup" data-type="horizontal">
+<!--          <a href="#panel-fixed-page1" class="custom-button" data-ajax="false" data-role="button" data-icon="arrow-u">Topp</a> -->
+          <a href="search.html" class="custom-button" data-role="button" data-icon="search">Sök</a>
+<!--          <a href="#add-form" data-role="button" data-icon="star">Favoriter</a> -->
+        </div>
+      </div>      <!-- /header -->
+      
+          <div data-role="content">
+          <div id="myimagemenu"></div>
+          <div data-demo-html="#panel-fixed-page1"></div>
+          <div class="braincontent">
+          <a id="kap7_1" name="kap7_1" style="visibility:hidden;">&nbsp;</a> <h2>Introduktion</h2> <p>I oktober 2013 flyttades registret över till Registercentrum Västra Götaland. Registret och de tre enkäterna har genomgått mindre förändringar och innehåller nu sex (tidigare fem) specifika diagnoser där kirurgi utförs i röstförbättrande syfte. Förändringarna har varit små och hindrar inte att hela materialet från starten 2009 fortsättningsvis kan analyseras tillsammans med nyare data. En stor del av referensgruppens arbete gick under 2013 åt till att administrera denna överflytt.</p>
+<a id="kap7_1_figur1" name="kap7_1_figur1" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/refrostforbattrande.jpg" style="max-width:100%;width:100%;"><br />
+<strong>Referensgruppen (fr vänster):</strong> Bo Alkestrand, Stefan Skrtic, Gunnar Björck.</p>
+<a id="kap7_1_figur2" name="kap7_1_figur2" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/Voice_hand.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap7_2" name="kap7_2" style="visibility:hidden;">&nbsp;</a> <h2>Registeruppbyggnad</h2> <p>Grunden för utvärdering av röstförändring vid kirurgin är patientens egen bedömning av rösten. För detta ändamål används ett validerat rösthandikappindex (VHI10) där patienten bedömer sin röst innan operation samt fyra månader postoperativt. VHI 10 innehåller tio påståenden gällande rösten som graderas i en skala från 0 till 4 där 0 representerar inga besvär och 4 maximala besvär.</p>
+
+<p>Annan information som inhämtas är uppgifter om röstterapi hos logoped, rökning, röstvila efter operation samt vilka undersökningsmetoder som används för att ställa diagnos och vid uppföljning. I fyramånadersenkäten får patienten även bedöma upplevd röstförändring efter operationen som: Mycket bättre, Bättre, Oförändrad, Sämre eller Mycket sämre.</p>
+
+<p>Nytt fr.o.m. 2013 är möjligheten för patienten att få fylla i sin postoperativa enkät via email.</p>
+
+<p>I och med flytten till Registercentrum Västra Götaland har all information i enkäterna kodats på ett sätt som underlättar analyser. Tillgång till projektledare, statistiker och koordinatorer med erfarenhet från andra kvalitetsregister har för vårt register inneburit en stor förbättring.</p>
+<a id="kap7_3" name="kap7_3" style="visibility:hidden;">&nbsp;</a> <h2>Täckningsgrad</h2> <p>Täckningsgradsanalys har utförts årsvis 2011, 2012 och 2013 och visar på en negativ trend. 2011 beräknades täckningsgraden till 62% för hela riket och 2013 till 37%. Orsaken till detta tror vi kan bero på att de registrerande klinikerna inte direkt har kunnat se resultaten av registreringarna. Vi presenterar nu på hemsidan löpande information om registreringar och resultat. Registrerade användare kan ladda ner den egna klinikens registreringar som en Excel-fil. Vi hoppas att den negativa trenden gällande antal registreringar kan vändas när vi bättre kan tillhandahålla resultat och identifiera förbättringsmöjligheter både lokalt och nationellt. Under 2013 har 12 kliniker registrerat patienter. Enligt Socialstyrelsens patientregister (PAR) har 23 kliniker utfört kirurgi av stämbandspolyper under samma tid</p>
+<a id="kap7_3_tabell1" name="kap7_3_tabell1" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/rostforbattrande/onh_2013_rostforbattrande_2048px_tabell.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap7_4" name="kap7_4" style="visibility:hidden;">&nbsp;</a> <h2>Resultat</h2> <p>I registret finns nu ca 1 100 patienter och dessa presenteras i Figur 1 med avseende på ålder hos patienten samt diagnos.</p>
+<a id="kap7_4_graf1" name="kap7_4_graf1" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/rostforbattrande/onh_2013_rostforbattrande_2048px_fig1.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap7_4_1" name="kap7_4_1" style="visibility:hidden;">&nbsp;</a> <h2></h2> <p>Indikationen för stämbandsoperation inom detta registers ram är röstförbättring. När vi börjat hämta ut resultat har det visat sig att upp till 10% av patienterna enligt VHI10 inte upplever att röstbesvären har minskat fyra månader efter operation. Resultaten skiljer sig mellan diagnoser där stämbandspolyper och Reinkes ödem har fler nöjda patienter jämfört med de andra diagnoserna.</p>
+<a id="kap7_4_graf2" name="kap7_4_graf2" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/rostforbattrande/onh_2013_rostforbattrande_2048px_fig2.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap7_4_2" name="kap7_4_2" style="visibility:hidden;">&nbsp;</a> <h2></h2> <p>En annan grupp där resultatnöjdheten postoperativt ligger lågt är de som innan operation haft ett lågt (under 8) VHI10, d.v.s. små röstproblem innan operationen. I Figur 3 har patienter som bedömt sin röst som mycket bättre eller bättre jämförts med oförändrad, sämre eller mycket sämre.</p>
+<a id="kap7_4_graf3" name="kap7_4_graf3" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/rostforbattrande/onh_2013_rostforbattrande_2048px_fig3.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap7_4_3" name="kap7_4_3" style="visibility:hidden;">&nbsp;</a> <h2></h2> <p>F&ouml;r att n&aring; b&auml;sta m&ouml;jliga r&ouml;stresultat kan det i m&aring;nga fall vara n&ouml;dv&auml;ndigt att i samband med st&auml;mbandskirurgi &auml;ven erbjuda r&ouml;stterapi hos logoped. N&auml;r och hur s&aring;dan behandling ska erbjudas beh&ouml;ver utredas n&auml;rmare. H&auml;r presenteras resultat per diagnos hur preoperativ logopedbehandling utf&ouml;rts.</p>
+<a id="kap7_4_graf4" name="kap7_4_graf4" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/rostforbattrande/onh_2013_rostforbattrande_2048px_fig4.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap7_5" name="kap7_5" style="visibility:hidden;">&nbsp;</a> <h2>Framtid</h2> <p>Det finns nu tack vare registret en identifierade patienter som inte är nöjda med operationsresultatet. Fortsatt arbete bör läggas på att närmare analysera dessa utifrån diagnos, preoperativa besvär, ålder, logopedbehandling, röstvila mm för att över tid öka andelen nöjda patienter. Detta arbete kan utföras både på nationell och lokal nivå.</p><p>
+Täckningsgraden måste förbättras. Mer kraft kommer att läggas på detta från referensgruppens sida nu när registret är på plats inom Registercentrum Västra Götalands administration.</p>
+<a id="kap7_5_figur1" name="kap7_5_figur1" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/bild_fono_arsmote.jpg" style="max-width:100%;width:100%;"><br />
+Svenska foniaterföreningens årsmöte på Karolinska Universitetssjukhuset, januari 2014.</p>
+
+           </div><!-- /braincontent -->
+           </div><!-- /content -->
+           
+      <div data-role="panel" data-position-fixed="true"  data-display="overlay" data-theme="b" id="nav-panel">
+      <ul data-role="listview" data-theme="a" class="nav-search">
+            <li data-icon="delete"><a href="#" data-rel="close">Stäng meny</a></li>
+        <li style="background: #ececec; color:red;"><a style="color:#333333;" data-ajax="false" href="index.html">Start</a></li>
+<li style="background: #babbbd; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap1.html">Förord</a></li>
+<li style="background: #ea9230; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap2.html">Septumplastikregistret</a></li>
+<li style="background: #517130; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap3.html">Otoskleroskirurgi</a></li>
+<li style="background: #9d2845; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap4.html">Hörselbarnsregistret</a></li>
+<li style="background: #716789; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap5.html">Grav hörselnedsättning vuxna</a></li>
+<li style="background: #c5d068; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap6.html">Rör i Trumhinnan</a></li>
+<li style="background: #78c6d2; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap7.html">Fonokirurg</a></li>
+<li style="background: #0074a3; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap8.html">Hörselrehabilitering</a></li>
+<li style="background: #f3d01e; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap9.html">Myringo- och ossikuloplastik</a></li>
+<li style="background: #014073; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap10.html">Tonsilloperation</a></li>
+<li style="background: #666666; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_enkater.html">Enkäter</a></li>
+</ul>
+      </div><!-- /panel -->
+    </div><!-- /page -->
+    <div data-role="page" id="panel-fixed-page2">
+      <div data-role="header" data-theme="f">
+        <h1>Landing page</h1>
+      </div><!-- /header -->
+      <div data-role="content">
+        <p>This is just a landing page.</p>
+        <a href="#panel-fixed-page1" data-role="button" data-inline="true" data-mini="true" data-icon="back" data-iconpos="left">Back</a>
+      </div><!-- /content -->
+    </div><!-- /page -->
+    <script>
+              if ($(window).width() < 550) {
+          $('.custom-button').attr('data-iconpos', 'notext');
+        }
+
+
+    </script>
+  </body>
+</html>

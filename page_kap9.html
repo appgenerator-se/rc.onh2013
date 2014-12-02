@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=2.5, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />   
+    <title>Öronkirurgi: Myringo- och ossikuloplastik</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="themes/faktavgr.min.css" />
+    <link rel="stylesheet" href="js/jquery.mobile.structure-1.3.2.min.css" /> 
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script> 
+    <script type="text/javascript" src="js/brainworks.js"></script> 
+    <script type="text/javascript" src="js/jquery.mobile-1.3.2.min.js"></script> 
+    <script type="text/javascript" src="js/imagemap/imagemap.js"></script>
+    <script>
+var port_table = '<img class="startmenup" src="http://www.appgenerator.se/classic/onh2014/app/images/menu/portrait9.jpg" usemap="#startmenup" style="max-width:100%;width:100%;" />' +
+	'<map name="startmenup">' +
+	'<area areaname="area_1" full="area_1" shape="rect" coords="47,147,137,167" href="#kap9_1"/>' +
+'<area areaname="area_2" full="area_2" shape="rect" coords="47,174,205,194" href="#kap9_2"/>' +
+'<area areaname="area_3" full="area_3" shape="rect" coords="47,203,203,223" href="#kap9_3"/>' +
+'<area areaname="area_4" full="area_4" shape="rect" coords="47,232,257,252" href="#kap9_4"/>' +
+'<area areaname="area_5" full="area_5" shape="rect" coords="47,261,304,281" href="#kap9_5"/>' +
+
+'</map>';
+
+var land_table = '<img class="startmenul" src="http://www.appgenerator.se/classic/onh2014/app/images/menu/landscape9.jpg" usemap="#startmenul" style="max-width:100%;width:100%;" />' +
+	'<map name="startmenul">' +
+	'<area areaname="area_1" full="area_1" shape="rect" coords="42,217,141,237" href="#kap9_1"/>' +
+'<area areaname="area_2" full="area_2" shape="rect" coords="42,247,219,267" href="#kap9_2"/>' +
+'<area areaname="area_3" full="area_3" shape="rect" coords="42,276,217,296" href="#kap9_3"/>' +
+'<area areaname="area_4" full="area_4" shape="rect" coords="42,305,276,325" href="#kap9_4"/>' +
+'<area areaname="area_5" full="area_5" shape="rect" coords="42,333,331,353" href="#kap9_5"/>' +
+
+'</map>';
+var startorientation;
+
+if (window.matchMedia("(orientation: portrait)").matches) {
+	startorientation = 'portrait';
+}
+else {
+	startorientation = 'landscape';
+}
+
+$(document).ready(function () {
+	$(window).on("orientationchange", function (event) {
+		//alert('orientationchange');
+		if (event.orientation == 'landscape') {
+			$("#myimagemenu").html(land_table);
+			$('.startmenul').rwdImageMaps();
+		}
+		else {
+			$("#myimagemenu").html(port_table);
+			$('.startmenup').rwdImageMaps();
+		}
+	});
+
+	// You can also manually force this event to fire.
+	$(window).orientationchange();
+//        $(window).bind('resize', onWindowResize);
+	$.mobile.fixedToolbars.setTouchToggleEnabled(false);
+	$.mobile.ajaxEnabled = false;
+
+});
+
+$(document).load(function () {
+	if (startorientation == 'portrait') {
+		$("#myimagemenu").html(port_table);
+		$('.startmenup').rwdImageMaps();
+	}
+	else {
+		$("#myimagemenu").html(land_table);
+		$('.startmenul').rwdImageMaps();
+	}
+
+});
+$(document).bind('pageinit', function () {
+	var urlHash = window.location.href.split("#")[1];
+	if (urlHash) {
+		setTimeout(function ()
+		{
+			window.location.assign('#' + urlHash);
+		}, 2000);
+	}
+}
+);
+
+</script>
+
+    <style>
+      body {
+        background-color: white !important;
+      }
+      .ui-content {
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+        background:white;
+        font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
+      }      
+      .ui-bar-a {
+        background:#f3d01e;
+        color : #ffffff;
+      }
+      .braincontent {
+        padding-right: 20px;
+        padding-left: 20px;
+      }
+      p {
+        margin-top:0px;
+        margin-bottom:10px;
+      }
+      h2 {
+        color:black;
+        padding-top:5px;
+        margin-bottom:6px;
+      }
+      .kapbilder {
+        width: 65% !important;
+        max-width: 100%;
+        margin: 0 auto !important;
+        position: relative !important;
+      }
+			.enkatbilder {
+				border: 1px solid #ddd;
+			}
+    </style>
+  </head>
+  <body>
+    <div data-role="page" class="ui-responsive-panel" id="panel-fixed-page1">
+      <!-- header -->
+      <div data-role="header" data-theme="a" data-position="fixed" data-disable-page-zoom="false" data-tap-toggle="false">
+        <div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+          <a href="#nav-panel" class="custom-button" data-role="button" data-icon="bars">Meny</a>
+          <a href="index.html" class="custom-button" data-ajax="false" data-role="button" data-icon="home">Start</a>
+          <a href="#panel-fixed-page1" class="custom-button" data-ajax="false" data-role="button" data-icon="arrow-u">Topp</a>
+        </div>
+        <h1 class="ui-title" data-tap-toggle="false" role="heading">Öronkirurgi: Myringo- och ossikuloplastik</h1>
+        <div class="ui-btn-right" data-role="controlgroup" data-type="horizontal">
+<!--          <a href="#panel-fixed-page1" class="custom-button" data-ajax="false" data-role="button" data-icon="arrow-u">Topp</a> -->
+          <a href="search.html" class="custom-button" data-role="button" data-icon="search">Sök</a>
+<!--          <a href="#add-form" data-role="button" data-icon="star">Favoriter</a> -->
+        </div>
+      </div>      <!-- /header -->
+      
+          <div data-role="content">
+          <div id="myimagemenu"></div>
+          <div data-demo-html="#panel-fixed-page1"></div>
+          <div class="braincontent">
+          <a id="kap9_1" name="kap9_1" style="visibility:hidden;">&nbsp;</a> <h2>Inledning</h2> <p>Vid flytten av &rdquo;ÖNH-kvalitetsregister&rdquo; till Registercentrum Västra Götaland nystartade det gamla &rdquo;Myringoplastikregistret&rdquo; i en ny och bredare form benämnt Öronkirurgi: Myringo- och ossikuloplastik under slutet av oktober 2013. Förnyelsen förankrades även hos styrelsen för Svensk Öronkirurgisk Förening, intresseföreningen för öronkirurgi kopplad till Svensk förening för Otorhinolaryngologi, Huvud- och halskirurgi.</p>
+
+<p>Delregistret vill mäta resultatet av de relativt standardiserade öronkirurgiska ingreppen myringoplastik (trumhinneoperation) och/eller ossikuloplastik (hörselbensoperation).</p>
+
+<p>Vid en myringoplastik lagas en defekt trumhinna med ett graftmaterial. Operationen utförs oftast i narkos och som graftmaterial kan exempelvis muskelhinna, broskhinna, brosk eller fett användas. De vanligaste indikationerna är infektionsförebyggande och därefter hörselförbättring. Vid en ossikuloplastik finns en defekt i hörselbenskedjan som ger hörselnedsättning. Denna överbryggas med en protes som kan tillverkas av kroppseget ben eller vara av ett främmande material, exempelvis titan. Ingreppen kombineras vid behov.</p>
+
+<p><strong>Målsättning med att förnya registret är:</strong></p>
+
+<ul>
+	<li>Att nå en ökad täckningsgrad.</li>
+	<li>Att bättre kunna validera täckningsgraden.</li>
+	<li>Att skaffa ökad kunskap kring olika kirurgiska tekniker som graftmaterial och protesmaterial.</li>
+	<li>Att bättre kunna utvärdera hörselresultatet efter öronkirurgi.</li>
+	<li>Att öka kunskapen kring användandet och nyttan av antibiotika vid öronkirurgi.</li>
+	<li>Att nå en ökad kunskap kring patientupplevelsen efter öronkirurgi.</li>
+</ul>
+
+<p>Registreringen startar direkt efter att operationen utförts där de olika ingreppen registreras, vilka material som använts, hur man använder antibiotika i anslutning till operationen samt hur hörseln varit före operationen. I samband med återbesök efter ca ett år (intervall 6&ndash;18 månader) följs operationsresultatet upp med kirurgens bedömning. Ca ett år efter ingreppet skickas även en patientenkät via e-post eller med brev till patienten för att efterfråga patientupplevelsen efter ingreppet.</p>
+
+<p>&nbsp;</p>
+<a id="kap9_2" name="kap9_2" style="visibility:hidden;">&nbsp;</a> <h2>Antal registreringar</h2> <p>I denna årsrapport kan vi inte redovisa resultat från det nystartade delregistret utan konstaterar att det nya registet kommit igång! Från slutet av oktober 2013 till årskiftet 2013/2014 registrerades 218 ingrepp och från första januari 2014 fram till fjärde september har 477 ingrepp registrerats (Figur 1 och Figur 2).</p>
+
+<p>Svensk öronkirugisk förening (SÖF) rapporterar årligen sedan 1987 en väsentligen heltäckande operationsstatistik när det gäller öronkirurgi i Sverige. År 2013 rapporterades totalt 1 094 ingrepp för myringo-, ossikulo- och kombinerad myringoossikuloplastik.</p>
+
+<p>En uppskattning av täckningsgraden utifrån denna statistik kan göras men säkerhetsnivån i en sådan uppskattning blir låg då registret haft kort driftstid. Vi ser att det finns en viss eftersläpning med inmatning av data och dessutom har en sommar passerat, där man på de flesta kliniker inte utför elektiv öronkirurgi. I senare årsrapporter är målsättningen att även kunna validera täckningsgraden mot patientregistret.</p>
+<a id="kap9_2_graf1" name="kap9_2_graf1" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/myringo_och_ossikuloplastik/onh_2013_myringo_och_ossikuloplastik_2048px_fig1.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap9_2_graf2" name="kap9_2_graf2" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/myringo_och_ossikuloplastik/onh_2013_myringo_och_ossikuloplastik_2048px_fig2.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap9_3" name="kap9_3" style="visibility:hidden;">&nbsp;</a> <h2>Deltagande kliniker</h2> <p>Till SÖF:s statistik inhämtas data från i Sverige samtliga öronkirurgiskt aktiva kliniker. Under 2013 var detta 32 kliniker. Inrapporterande kliniker till kvalitetsregistret under uppstarten 2013 var 25 stycken (Figur 3). Under 2014 har ytterligare kliniker tillkommit.</p>
+<a id="kap9_3_graf3" name="kap9_3_graf3" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/myringo_och_ossikuloplastik/onh_2013_myringo_och_ossikuloplastik_2048px_fig3.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap9_4" name="kap9_4" style="visibility:hidden;">&nbsp;</a> <h2>Återkoppling till användare</h2> <p>Under 2013 har data fr&aring;n de tidigare registreringarna&nbsp;i &rdquo;Myringoplastikregistret&rdquo; (1996&ndash;2012) presenterats i artikel i Svensk &Ouml;NH-tidsskrift, f&ouml;redrag vid Svensk &Ouml;ronkirurgisk f&ouml;renings &aring;rsm&ouml;te, f&ouml;redrag vid &Ouml;NH-dagar och f&ouml;redrag vid &rdquo;Anv&auml;ndardag&rdquo;. I samband med detta har &auml;ven det nya registret presenterats. Referens<span style="line-height:1.6em">gruppens geografiska spridning &ouml;ver landet inneb&auml;r kontinuerliga direktkontakter med sekreterare, mottag</span><span style="line-height:1.6em">ningspersonal och l&auml;kare i olika regioner. Under 2013 presenterades &auml;ven fyra vetenskapliga postrar p&aring; olika konferenser (presenterat i &aring;rsrapport f&ouml;r 2012).</span></p>
+
+<p>&Ouml;ppen redovisning av resultat &auml;r &auml;nnu inte aktuell d&aring; driftstiden f&ouml;r det nya registret &auml;r kort.</p>
+
+<p>Antalet registreringar per klinik redovisas f&ouml;r inloggad anv&auml;ndare p&aring; hemsidan.</p>
+
+<p>Patientinformation finns tillg&auml;nglig p&aring; hemsidan.</p>
+<a id="kap9_5" name="kap9_5" style="visibility:hidden;">&nbsp;</a> <h2>Myringoplastikregistret 1996–2012</h2> <p>Registreringarna i myringoplastikregistret startade 1996 med tillkomst av audiogramregistrering och patientenkäter något år senare. Utvärdering av resultatet av registret har gjorts. Från 2001 till 2012 finns ca 6 400 preoperativa registreringar, inkluderande audiogramdata och patientenkät. Efter bortfall (avsaknad av operationsdatum, avsaknad av återbesök inom 6&ndash;24 månader postop, avsaknad av patientenkäter) kvarstår ungefärligen 3 150 kompletta registreringar, där utfört ingrepp är konventionell myringoplastik i ca 2 650 fall och fettpluggning ca 500 fall. Ett något förvånande resultat visade sig vid åldersfördelningen av patienter som opererats, där ca 50% var utförda på barn och tonåringar, 19 år och yngre.</p>
+
+<p>Enligt registerdata är läkningsfrekvensen efter myringoplastik med konventionell teknik ca 89% och efter &rdquo;fettpluggning&rdquo; ca 82%.</p>
+
+<p>Efter båda ingreppen är komplikationsfrekvensen låg. Postoperativa infektioner registreras hos 4,5% (fettpluggning) respektive 3,6% (konventionell myringoplastik) av de opererade. Komplikationer i form av tinnitus och smakpåverkan har efter operationen registrerats i färre än två procent av alla utförda ingrepp.</p>
+
+<p>I patientenkäten anger 80,1% att de är nöjda med ingreppet medan 12,6% av patienterna är missnöjda.</p>
+
+<p>Av dessa är största delen kopplad till att trumhinnan inspekterats läkt (55%) men missnöjet ses förstås också hos 45% som inte har en läkt trumhinna/reperforation.</p>
+
+<p>Hittills har två examensarbeten för läkarstuderande initierats (handledare Eva Westman, Institutionen för klinisk vetenskap, enheten för öron-, näs- och halssjukdomar, Umeå Universitet). I det första har hörselresultaten efter myringoplastik studerats. I det andra kommer patientens &rdquo;nöjdhet&rdquo; efter operationen analyseras.</p>
+
+<p><strong>Sammanfattande beskrivning av</strong></p>
+
+<p><em>&rdquo;Hörselförbättring efter myringoplastik. Analys av nationellt kvalitetsregister&rdquo;.</em> Läkarstuderande Johan Moberg</p>
+
+<p>I studien analyserades audiogramdata från 1 856 patienter i det Svenska Kvalitetsregistret för Myringoplastik (från 2001&ndash;2012). För att analysera hörselvinsten användes två parametrar, Tonmedelvärde 4 (TMV4), samt Air-bone gap (ABG).</p>
+
+<p>De 1 856 patienterna uppvisade en medel hörselvinst på 8,1 dB beräknat med TMV4. Hos de som opererats med konventionell myringoplastik var hörselvinsten 8,8 dB och med fettpluggning 4,7 dB. Förhållandet mellan använd operationsmetod var lika för män och kvinnor (Tabell 1).</p>
+<a id="kap9_5_tabell1" name="kap9_5_tabell1" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/myringo_och_ossikuloplastik/onh_2013_myringo_och_ossikuloplastik_2048px_tabell1.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap9_5_1" name="kap9_5_1" style="visibility:hidden;">&nbsp;</a> <h2></h2> <p>Patienterna operationsanmäldes med två olika mål angivna som operationsindikation, hörselförbättring eller infektionsprofylax. De patienter som opererats med indikationen hörselförbättring (26%) uppvisade både en större hörselvinst i dB (p=&lt; 0,001) samt att en större andel av patienterna hade en hörselförbättring jämfört med indikationen infektionsprofylax (Tabell 2).</p>
+<a id="kap9_5_figur1" name="kap9_5_figur1" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/Bild_orat1.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap9_5_tabell2" name="kap9_5_tabell2" style="visibility:hidden;">&nbsp;</a> <p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/kap/myringo_och_ossikuloplastik/onh_2013_myringo_och_ossikuloplastik_2048px_tabell2.jpg" style="max-width:100%;width:100%;"></p>
+<a id="kap9_5_2" name="kap9_5_2" style="visibility:hidden;">&nbsp;</a> <h2></h2> <p>I hela gruppen uppvisade 339 patienter postoperativt försämrade TMV4, och 83 patienter var utan förändring postoperativt, totalt 422 (23%) patienter blev alltså ej bättre i sin hörsel efter operation. De som inte blev bättre i sin hörsel var 26% av männen och 20% av kvinnorna. Hos de som opererades med indikationen hörselförbättring blev 13% ej bättre, och i gruppen med indikationen infektionsprofylax var siffran 26%. 30% av &rdquo;fettpluggarna&rdquo; blev inte bättre, och 21% av de konventionella myringoplastikerna.</p>
+
+<p>Vid jämförelse av pre- och postoperativt ABG, ABG-minskning, analyserades 1 355 patienter med kompletta audiogram. ABG-minskningen(vinsten) i den gruppen var 7,7 dB. Antalet patienter i studien med ett postoperativt ABG under 10 dB var 677 (49,8%), antalet patienter under 20 dB var 1 189 (87,6%), och under 30 dB var det 1 319 (97,2%).</p>
+<a id="kap9_5_3" name="kap9_5_3" style="visibility:hidden;">&nbsp;</a> <h4>Referensgruppen för delregistret Öronkirurgi: Myringo-ossikuloplastik</h4>
+
+<p><strong>Kontakt:</strong> per.olof.eriksson@akademiska.se</p>
+
+<p><img class="kapbilder" src="http://www.appgenerator.se/classic/onh2014/app/images/reforonkirurgi.jpg" style="max-width:100%;width:100%;"><br />
+<strong>Fr vänster:</strong> <strong>Mattias Fransson</strong>, Skånes Universitetssjukhus Malmö. <strong>Malou Hultcrantz</strong>, Karolinska Universitetssjukhuset, Stockholm. <strong>Malin Berglund</strong>, NÄL, NU-sjukvården, Trollhättan. <strong>Rut Florentzson</strong>, Sahlgrenska Universitetssjukhuset, Göteborg. <strong>P.O. Eriksson</strong> (ordf), Akademiska sjukhuset, Uppsala. <strong>Eva Westman</strong>, Sundsvalls sjukhus.</p>
+
+           </div><!-- /braincontent -->
+           </div><!-- /content -->
+           
+      <div data-role="panel" data-position-fixed="true"  data-display="overlay" data-theme="b" id="nav-panel">
+      <ul data-role="listview" data-theme="a" class="nav-search">
+            <li data-icon="delete"><a href="#" data-rel="close">Stäng meny</a></li>
+        <li style="background: #ececec; color:red;"><a style="color:#333333;" data-ajax="false" href="index.html">Start</a></li>
+<li style="background: #babbbd; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap1.html">Förord</a></li>
+<li style="background: #ea9230; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap2.html">Septumplastikregistret</a></li>
+<li style="background: #517130; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap3.html">Otoskleroskirurgi</a></li>
+<li style="background: #9d2845; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap4.html">Hörselbarnsregistret</a></li>
+<li style="background: #716789; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap5.html">Grav hörselnedsättning vuxna</a></li>
+<li style="background: #c5d068; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap6.html">Rör i Trumhinnan</a></li>
+<li style="background: #78c6d2; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap7.html">Fonokirurg</a></li>
+<li style="background: #0074a3; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap8.html">Hörselrehabilitering</a></li>
+<li style="background: #f3d01e; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap9.html">Myringo- och ossikuloplastik</a></li>
+<li style="background: #014073; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_kap10.html">Tonsilloperation</a></li>
+<li style="background: #666666; color:red;"><a style="color:#ffffff;" data-ajax="false" href="page_enkater.html">Enkäter</a></li>
+</ul>
+      </div><!-- /panel -->
+    </div><!-- /page -->
+    <div data-role="page" id="panel-fixed-page2">
+      <div data-role="header" data-theme="f">
+        <h1>Landing page</h1>
+      </div><!-- /header -->
+      <div data-role="content">
+        <p>This is just a landing page.</p>
+        <a href="#panel-fixed-page1" data-role="button" data-inline="true" data-mini="true" data-icon="back" data-iconpos="left">Back</a>
+      </div><!-- /content -->
+    </div><!-- /page -->
+    <script>
+              if ($(window).width() < 550) {
+          $('.custom-button').attr('data-iconpos', 'notext');
+        }
+
+
+    </script>
+  </body>
+</html>
